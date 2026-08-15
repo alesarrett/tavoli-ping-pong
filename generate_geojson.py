@@ -47,6 +47,17 @@ VALUE_TRANSLATIONS = {
     "concrete": "cemento",
 }
 
+# Tag OSM esposti come proprieta' GeoJSON a se stanti (non nella
+# description testuale), pensati per il filtraggio lato client nella
+# futura interfaccia custom. Nome proprieta' -> tag OSM.
+FILTER_PROPERTIES = {
+    "material": "material",
+    "net": "pitch:net",
+    "net_material": "pitch:net:material",
+    "access": "access",
+    "covered": "covered",
+}
+
 # File con le personalizzazioni manuali (nome, immagini, info extra),
 # indicizzate per ID del nodo/way OSM. Vedi overrides.json.
 OVERRIDES_PATH = "overrides.json"
@@ -81,6 +92,15 @@ def fetch_elements():
 
 def build_image_url(relative_path):
     return f"{REPO_RAW_BASE}/{relative_path}"
+
+
+def build_filter_properties(tags):
+    properties = {}
+    for prop_name, tag_key in FILTER_PROPERTIES.items():
+        value = tags.get(tag_key)
+        if value:
+            properties[prop_name] = VALUE_TRANSLATIONS.get(value, value)
+    return properties
 
 
 def build_description(tags, images, extra, maps_url):
@@ -153,16 +173,19 @@ def element_to_feature(element, overrides):
     default_name = tags.get("name", "Tavolo da ping pong")
     name = override.get("name", default_name)
 
+    properties = {
+        "name": name,
+        "description": build_description(tags, images, extra, maps_url),
+        "images": [build_image_url(path) for path in images],
+        "extra": extra,
+        "maps_url": maps_url,
+    }
+    properties.update(build_filter_properties(tags))
+
     return {
         "type": "Feature",
         "geometry": geometry,
-        "properties": {
-            "name": name,
-            "description": build_description(tags, images, extra, maps_url),
-            "images": [build_image_url(path) for path in images],
-            "extra": extra,
-            "maps_url": maps_url,
-        },
+        "properties": properties,
     }
 
 

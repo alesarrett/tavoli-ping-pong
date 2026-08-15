@@ -32,7 +32,8 @@
         "description": "[[https://www.google.com/maps/dir/?api=1&destination=45.4716384,11.8418388|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4716384,11.8418388"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4716384,11.8418388",
+        "covered": "sì"
       }
     },
     {
@@ -45,11 +46,15 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Giardini dell'Oasi",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n[[https://www.google.com/maps/dir/?api=1&destination=45.422761,11.8179578|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.422761,11.8179578"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.422761,11.8179578",
+        "material": "cemento",
+        "net": "sì",
+        "access": "sì",
+        "covered": "no"
       }
     },
     {
@@ -62,11 +67,15 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Giardini dell'Oasi",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n[[https://www.google.com/maps/dir/?api=1&destination=45.4227196,11.817945|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4227196,11.817945"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4227196,11.817945",
+        "material": "cemento",
+        "net": "sì",
+        "access": "sì",
+        "covered": "no"
       }
     },
     {
@@ -83,7 +92,9 @@
         "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4359683,11.9185049|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4359683,11.9185049"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4359683,11.9185049",
+        "material": "cemento",
+        "covered": "no"
       }
     },
     {
@@ -100,7 +111,9 @@
         "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4369698,11.8460165|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4369698,11.8460165"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4369698,11.8460165",
+        "material": "cemento",
+        "covered": "no"
       }
     },
     {
@@ -117,7 +130,9 @@
         "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4370735,11.8459331|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4370735,11.8459331"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4370735,11.8459331",
+        "material": "cemento",
+        "covered": "no"
       }
     },
     {
@@ -134,7 +149,9 @@
         "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4150629,11.9090434|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4150629,11.9090434"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4150629,11.9090434",
+        "material": "cemento",
+        "covered": "no"
       }
     },
     {
@@ -151,7 +168,9 @@
         "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.399807,11.9141628|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.399807,11.9141628"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.399807,11.9141628",
+        "material": "cemento",
+        "covered": "no"
       }
     },
     {
@@ -168,7 +187,9 @@
         "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.3896709,11.8628001|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3896709,11.8628001"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3896709,11.8628001",
+        "material": "cemento",
+        "covered": "no"
       }
     },
     {
@@ -185,7 +206,9 @@
         "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4300624,11.8414973|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4300624,11.8414973"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4300624,11.8414973",
+        "material": "cemento",
+        "covered": "no"
       }
     },
     {
@@ -202,7 +225,9 @@
         "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4257598,11.9145917|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4257598,11.9145917"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4257598,11.9145917",
+        "material": "cemento",
+        "covered": "no"
       }
     },
     {
@@ -219,7 +244,9 @@
         "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.3943693,11.8864705|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3943693,11.8864705"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3943693,11.8864705",
+        "material": "cemento",
+        "covered": "no"
       }
     },
     {
@@ -236,7 +263,11 @@
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.3767245,11.939347|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3767245,11.939347"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3767245,11.939347",
+        "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
+        "covered": "no"
       }
     },
     {
@@ -253,7 +284,9 @@
         "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.3943924,11.8864102|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3943924,11.8864102"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3943924,11.8864102",
+        "material": "cemento",
+        "covered": "no"
       }
     },
     {
@@ -270,7 +303,9 @@
         "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4089959,11.8342347|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4089959,11.8342347"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4089959,11.8342347",
+        "material": "cemento",
+        "covered": "no"
       }
     },
     {
@@ -287,7 +322,9 @@
         "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4098271,11.8576915|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4098271,11.8576915"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4098271,11.8576915",
+        "material": "cemento",
+        "covered": "no"
       }
     },
     {
@@ -304,7 +341,9 @@
         "description": "- **Materiale**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4089955,11.8341869|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4089955,11.8341869"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4089955,11.8341869",
+        "material": "metallo",
+        "covered": "no"
       }
     },
     {
@@ -321,7 +360,9 @@
         "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4097224,11.8347781|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4097224,11.8347781"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4097224,11.8347781",
+        "material": "cemento",
+        "covered": "no"
       }
     },
     {
@@ -338,7 +379,9 @@
         "description": "[[https://www.google.com/maps/dir/?api=1&destination=45.382082,11.8885817|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.382082,11.8885817"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.382082,11.8885817",
+        "access": "private",
+        "covered": "no"
       }
     },
     {
@@ -355,7 +398,9 @@
         "description": "[[https://www.google.com/maps/dir/?api=1&destination=45.3821687,11.8883161|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3821687,11.8883161"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3821687,11.8883161",
+        "access": "private",
+        "covered": "no"
       }
     },
     {
@@ -372,7 +417,9 @@
         "description": "[[https://www.google.com/maps/dir/?api=1&destination=45.3824051,11.8882021|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3824051,11.8882021"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3824051,11.8882021",
+        "access": "private",
+        "covered": "no"
       }
     },
     {
@@ -389,7 +436,9 @@
         "description": "[[https://www.google.com/maps/dir/?api=1&destination=45.3825992,11.8883269|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3825992,11.8883269"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3825992,11.8883269",
+        "access": "private",
+        "covered": "no"
       }
     },
     {
@@ -408,7 +457,12 @@
           "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Albignasego_ParcoMajorana.jpeg"
         ],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3616818,11.8429934"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3616818,11.8429934",
+        "material": "metallo",
+        "net": "sì",
+        "net_material": "metallo",
+        "access": "sì",
+        "covered": "no"
       }
     },
     {
@@ -427,7 +481,12 @@
           "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg"
         ],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4126796,11.971841"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4126796,11.971841",
+        "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
+        "access": "sì",
+        "covered": "no"
       }
     },
     {
@@ -446,7 +505,12 @@
           "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg"
         ],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.412564,11.9717916"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.412564,11.9717916",
+        "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
+        "access": "sì",
+        "covered": "no"
       }
     },
     {
@@ -463,7 +527,9 @@
         "description": "- **Rete**: no\n[[https://www.google.com/maps/dir/?api=1&destination=45.4365882,11.889517|Apri in Google Maps]]",
         "images": [],
         "extra": {},
-        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4365882,11.889517"
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4365882,11.889517",
+        "net": "no",
+        "covered": "no"
       }
     }
   ]
