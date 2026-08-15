@@ -93,14 +93,18 @@ def build_description(tags, images, extra, maps_url):
     for key, value in extra.items():
         lines.append(f"- **{key.capitalize()}**: {value}")
     for relative_path in images:
-        # [[url|{{url}}]]: uMap processa prima i link [[ ]] e poi le immagini
-        # {{ }}, quindi annidare {{url}} come testo del link produce
-        # <a href="url"><img src="url"></a> — l'immagine diventa
-        # cliccabile/tappabile e apre la foto a piena risoluzione in una
-        # nuova scheda.
+        # HTML diretto invece della sintassi [[url|{{url}}]]: il rendering
+        # di uMap passa comunque da DOMPurify (ALLOWED_TAGS include "a" e
+        # "img"), quindi l'HTML sopravvive alla sanitizzazione. Su mobile
+        # il trucco basato sulle sostituzioni testuali non produceva un
+        # <a> reale attorno all'immagine (verificato: nessuna opzione al
+        # tap lungo); l'HTML esplicito evita di dipendere da quell'ordine
+        # di sostituzione.
         image_url = build_image_url(relative_path)
-        image_tag = "{{" + image_url + "}}"
-        lines.append(f"[[{image_url}|{image_tag}]]")
+        lines.append(
+            f'<a href="{image_url}" target="_blank" rel="noopener">'
+            f'<img src="{image_url}"></a>'
+        )
     if maps_url:
         # Sintassi uMap per i link: [[url|testo]] (non Markdown [testo](url)).
         lines.append(f"[[{maps_url}|Apri in Google Maps]]")
