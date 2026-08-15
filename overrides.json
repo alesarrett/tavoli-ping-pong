@@ -1,7 +1,12 @@
 {
   "9778629863": {
     "name": "Giardini dell'Oasi",
-    "images": [],
+    "images": ["images/Noventa_ParcoICedri.jpeg"],
+    "extra": {}
+  },
+  "14094424039": {
+    "name": "Parco Majorana",
+    "images": ["images/Albignasego_ParcoMajorana.jpeg"],
     "extra": {}
   }
 }

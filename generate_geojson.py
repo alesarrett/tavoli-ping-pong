@@ -51,6 +51,11 @@ VALUE_TRANSLATIONS = {
 # indicizzate per ID del nodo/way OSM. Vedi overrides.json.
 OVERRIDES_PATH = "overrides.json"
 
+# Base per trasformare i path relativi di overrides.json (campo "images")
+# in URL pubblici raggiungibili da uMap (che non ha accesso al filesystem
+# locale).
+REPO_RAW_BASE = "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main"
+
 
 HEADERS = {
     # Overpass API rifiuta (406) le richieste con uno User-Agent generico
@@ -74,13 +79,25 @@ def fetch_elements():
     return response.json()["elements"]
 
 
-def build_description(tags):
+def build_image_url(relative_path):
+    return f"{REPO_RAW_BASE}/{relative_path}"
+
+
+def build_description(tags, images, extra, maps_url):
     lines = []
     for key, label in POPUP_TAGS:
         value = tags.get(key)
         if value:
             value = VALUE_TRANSLATIONS.get(value, value)
             lines.append(f"- **{label}**: {value}")
+    for key, value in extra.items():
+        lines.append(f"- **{key.capitalize()}**: {value}")
+    for relative_path in images:
+        # Sintassi uMap per le immagini: URL nudo su una riga (non Markdown ![]()).
+        lines.append(build_image_url(relative_path))
+    if maps_url:
+        # Sintassi uMap per i link: [[url|testo]] (non Markdown [testo](url)).
+        lines.append(f"[[{maps_url}|Apri in Google Maps]]")
     return "\n".join(lines)
 
 
@@ -119,6 +136,9 @@ def element_to_feature(element, overrides):
 
     tags = element.get("tags", {})
     override = overrides.get(str(element["id"]), {})
+    images = override.get("images", [])
+    extra = override.get("extra", {})
+    maps_url = build_maps_url(geometry)
 
     default_name = tags.get("name", "Tavolo da ping pong")
     name = override.get("name", default_name)
@@ -128,10 +148,10 @@ def element_to_feature(element, overrides):
         "geometry": geometry,
         "properties": {
             "name": name,
-            "description": build_description(tags),
-            "images": override.get("images", []),
-            "extra": override.get("extra", {}),
-            "maps_url": build_maps_url(geometry),
+            "description": build_description(tags, images, extra, maps_url),
+            "images": [build_image_url(path) for path in images],
+            "extra": extra,
+            "maps_url": maps_url,
         },
     }
 
