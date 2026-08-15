@@ -46,7 +46,7 @@
       },
       "properties": {
         "name": "Giardini dell'Oasi",
-        "description": "- **Materiale**: cemento\n- **Rete**: sì\nhttps://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg\n[[https://www.google.com/maps/dir/?api=1&destination=45.422761,11.8179578|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n{{https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg}}\n[[https://www.google.com/maps/dir/?api=1&destination=45.422761,11.8179578|Apri in Google Maps]]",
         "images": [
           "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg"
         ],
@@ -405,7 +405,7 @@
       },
       "properties": {
         "name": "Parco Majorana",
-        "description": "- **Materiale**: metallo\n- **Rete**: sì\n- **Materiale rete**: metallo\nhttps://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Albignasego_ParcoMajorana.jpeg\n[[https://www.google.com/maps/dir/?api=1&destination=45.3616818,11.8429934|Apri in Google Maps]]",
+        "description": "- **Materiale**: metallo\n- **Rete**: sì\n- **Materiale rete**: metallo\n{{https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Albignasego_ParcoMajorana.jpeg}}\n[[https://www.google.com/maps/dir/?api=1&destination=45.3616818,11.8429934|Apri in Google Maps]]",
         "images": [
           "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Albignasego_ParcoMajorana.jpeg"
         ],
