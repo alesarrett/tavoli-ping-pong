@@ -45,11 +45,9 @@
         ]
       },
       "properties": {
-        "name": "Giardini dell'Oasi",
-        "description": "- **Materiale**: cemento\n- **Rete**: sì\n{{https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg}}\n[[https://www.google.com/maps/dir/?api=1&destination=45.422761,11.8179578|Apri in Google Maps]]",
-        "images": [
-          "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg"
-        ],
+        "name": "Tavolo da ping pong",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n[[https://www.google.com/maps/dir/?api=1&destination=45.422761,11.8179578|Apri in Google Maps]]",
+        "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.422761,11.8179578"
       }
@@ -405,7 +403,7 @@
       },
       "properties": {
         "name": "Parco Majorana",
-        "description": "- **Materiale**: metallo\n- **Rete**: sì\n- **Materiale rete**: metallo\n{{https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Albignasego_ParcoMajorana.jpeg}}\n[[https://www.google.com/maps/dir/?api=1&destination=45.3616818,11.8429934|Apri in Google Maps]]",
+        "description": "- **Materiale**: metallo\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Albignasego_ParcoMajorana.jpeg|{{https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Albignasego_ParcoMajorana.jpeg}}]]\n[[https://www.google.com/maps/dir/?api=1&destination=45.3616818,11.8429934|Apri in Google Maps]]",
         "images": [
           "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Albignasego_ParcoMajorana.jpeg"
         ],
@@ -423,9 +421,11 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4126796,11.971841|Apri in Google Maps]]",
-        "images": [],
+        "name": "Giardini dell'Oasi",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg|{{https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg}}]]\n[[https://www.google.com/maps/dir/?api=1&destination=45.4126796,11.971841|Apri in Google Maps]]",
+        "images": [
+          "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg"
+        ],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4126796,11.971841"
       }
@@ -440,11 +440,30 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.412564,11.9717916|Apri in Google Maps]]",
-        "images": [],
+        "name": "Giardini dell'Oasi",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg|{{https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg}}]]\n[[https://www.google.com/maps/dir/?api=1&destination=45.412564,11.9717916|Apri in Google Maps]]",
+        "images": [
+          "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg"
+        ],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.412564,11.9717916"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.889517,
+          45.4365882
+        ]
+      },
+      "properties": {
+        "name": "Tavolo da ping pong",
+        "description": "- **Rete**: no\n[[https://www.google.com/maps/dir/?api=1&destination=45.4365882,11.889517|Apri in Google Maps]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4365882,11.889517"
       }
     }
   ]

@@ -93,8 +93,14 @@ def build_description(tags, images, extra, maps_url):
     for key, value in extra.items():
         lines.append(f"- **{key.capitalize()}**: {value}")
     for relative_path in images:
-        # Sintassi uMap per le immagini: {{url}} (non Markdown ![]() né URL nudo).
-        lines.append(f"{{{{{build_image_url(relative_path)}}}}}")
+        # [[url|{{url}}]]: uMap processa prima i link [[ ]] e poi le immagini
+        # {{ }}, quindi annidare {{url}} come testo del link produce
+        # <a href="url"><img src="url"></a> — l'immagine diventa
+        # cliccabile/tappabile e apre la foto a piena risoluzione in una
+        # nuova scheda.
+        image_url = build_image_url(relative_path)
+        image_tag = "{{" + image_url + "}}"
+        lines.append(f"[[{image_url}|{image_tag}]]")
     if maps_url:
         # Sintassi uMap per i link: [[url|testo]] (non Markdown [testo](url)).
         lines.append(f"[[{maps_url}|Apri in Google Maps]]")
