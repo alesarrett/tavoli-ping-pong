@@ -1,11 +1,11 @@
 {
   "14096244246": {
-    "name": "Giardini dell'Oasi",
+    "name": "Parco I Cedri",
     "images": ["images/Noventa_ParcoICedri.jpeg"],
     "extra": {}
   },
   "14096244247": {
-    "name": "Giardini dell'Oasi",
+    "name": "Parco I Cedri",
     "images": ["images/Noventa_ParcoICedri.jpeg"],
     "extra": {}
   },
@@ -77,6 +77,21 @@
   "9795192882": {
     "name": "Giardino dei Carpini",
     "images": ["images/Padova-Torre_GiardinoCarpini.jpeg"],
+    "extra": {}
+  },
+  "9799068269": {
+    "name": "Giardino Esperanto",
+    "images": [],
+    "extra": {}
+  },
+  "9799068271": {
+    "name": "Parco dei Frassini",
+    "images": [],
+    "extra": {}
+  },
+  "9802083025": {
+    "name": "Granze",
+    "images": [],
     "extra": {}
   },
   "9778629863": {

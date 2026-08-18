@@ -153,7 +153,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Giardino Esperanto",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4150629,11.9090434|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -174,7 +174,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Parco dei Frassini",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.399807,11.9141628|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -279,7 +279,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Granze",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.3767245,11.939347|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -502,7 +502,7 @@
         ]
       },
       "properties": {
-        "name": "Giardini dell'Oasi",
+        "name": "Parco I Cedri",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n<a href=\"https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg\" target=\"_blank\" rel=\"noopener\"><img src=\"https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg\"></a>\n[[https://www.google.com/maps/dir/?api=1&destination=45.4126796,11.971841|Apri in Google Maps]]",
         "images": [
           "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg"
@@ -526,7 +526,7 @@
         ]
       },
       "properties": {
-        "name": "Giardini dell'Oasi",
+        "name": "Parco I Cedri",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n<a href=\"https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg\" target=\"_blank\" rel=\"noopener\"><img src=\"https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg\"></a>\n[[https://www.google.com/maps/dir/?api=1&destination=45.412564,11.9717916|Apri in Google Maps]]",
         "images": [
           "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Noventa_ParcoICedri.jpeg"

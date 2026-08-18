@@ -1,0 +1,269 @@
+html,
+body,
+#map {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Marker */
+
+.tt-marker-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: #1a7f37;
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tt-marker-dot span {
+  transform: rotate(45deg);
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* Popup */
+
+.popup-content h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.popup-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  padding: 2px 0;
+}
+
+.popup-label {
+  color: #555;
+}
+
+/* Leaflet's own CSS has ".leaflet-container a { color: #0078A8; }", which
+   beats a single ".popup-maps-btn" class selector on specificity — hence
+   the extra ".popup-content" qualifier to win the cascade with white text. */
+.popup-content .popup-maps-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: #1a73e8;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.popup-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.popup-thumbs img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.leaflet-popup-content {
+  max-width: 90vw;
+}
+
+/* Filtri */
+
+.tt-filters-wrapper {
+  position: relative;
+}
+
+.tt-filters {
+  background: #fff;
+  padding: 14px 16px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(20, 30, 20, 0.18);
+  font-size: 13px;
+  min-width: 230px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.tt-filters-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.tt-filters-header h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+}
+
+.tt-badge {
+  background: #e6f4ea;
+  color: #1a7f37;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.tt-filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 0;
+}
+
+.tt-filter-row label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #444;
+  font-size: 13px;
+}
+
+.tt-filter-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.tt-filter-row select {
+  font-size: 12px;
+  padding: 5px 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+  color: #222;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.tt-filter-row select:hover,
+.tt-filter-row select:focus {
+  border-color: #1a7f37;
+  outline: none;
+}
+
+.tt-filters-toggle {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: none;
+  padding: 9px 14px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(20, 30, 20, 0.2);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .tt-filters-toggle {
+    display: flex;
+  }
+
+  .tt-filters {
+    display: none;
+    position: absolute;
+    top: 46px;
+    right: 0;
+  }
+
+  .tt-filters.open {
+    display: block;
+  }
+}
+
+/* Lightbox */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.hidden {
+  display: none;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.lightbox-image {
+  position: relative;
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  z-index: 10001;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-close {
+  top: 16px;
+  right: 16px;
+}
+
+.lightbox-prev {
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-prev.hidden-nav,
+.lightbox-next.hidden-nav {
+  display: none;
+}
