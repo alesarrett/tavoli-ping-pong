@@ -89,11 +89,13 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4359683,11.9185049|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4359683,11.9185049|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4359683,11.9185049",
         "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
         "covered": "no"
       }
     },
@@ -108,11 +110,13 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4369698,11.8460165|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4369698,11.8460165|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4369698,11.8460165",
         "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
         "covered": "no"
       }
     },
@@ -127,11 +131,13 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4370735,11.8459331|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4370735,11.8459331|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4370735,11.8459331",
         "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
         "covered": "no"
       }
     },
@@ -146,11 +152,13 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4150629,11.9090434|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4150629,11.9090434|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4150629,11.9090434",
         "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
         "covered": "no"
       }
     },
@@ -165,11 +173,13 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.399807,11.9141628|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.399807,11.9141628|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.399807,11.9141628",
         "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
         "covered": "no"
       }
     },
@@ -184,11 +194,13 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.3896709,11.8628001|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.3896709,11.8628001|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3896709,11.8628001",
         "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
         "covered": "no"
       }
     },
@@ -203,11 +215,13 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4300624,11.8414973|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4300624,11.8414973|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4300624,11.8414973",
         "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
         "covered": "no"
       }
     },
@@ -222,11 +236,13 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4257598,11.9145917|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4257598,11.9145917|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4257598,11.9145917",
         "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
         "covered": "no"
       }
     },
@@ -241,11 +257,13 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.3943693,11.8864705|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.3943693,11.8864705|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3943693,11.8864705",
         "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
         "covered": "no"
       }
     },
@@ -281,11 +299,13 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.3943924,11.8864102|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.3943924,11.8864102|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.3943924,11.8864102",
         "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
         "covered": "no"
       }
     },
@@ -300,11 +320,12 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4089959,11.8342347|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: no\n[[https://www.google.com/maps/dir/?api=1&destination=45.4089959,11.8342347|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4089959,11.8342347",
         "material": "cemento",
+        "net": "no",
         "covered": "no"
       }
     },
@@ -319,11 +340,13 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4098271,11.8576915|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4098271,11.8576915|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4098271,11.8576915",
         "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
         "covered": "no"
       }
     },
@@ -338,11 +361,12 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4089955,11.8341869|Apri in Google Maps]]",
+        "description": "- **Materiale**: metallo\n- **Rete**: no\n[[https://www.google.com/maps/dir/?api=1&destination=45.4089955,11.8341869|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4089955,11.8341869",
         "material": "metallo",
+        "net": "no",
         "covered": "no"
       }
     },
@@ -357,11 +381,12 @@
       },
       "properties": {
         "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n[[https://www.google.com/maps/dir/?api=1&destination=45.4097224,11.8347781|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: no\n[[https://www.google.com/maps/dir/?api=1&destination=45.4097224,11.8347781|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4097224,11.8347781",
         "material": "cemento",
+        "net": "no",
         "covered": "no"
       }
     },
