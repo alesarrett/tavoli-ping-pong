@@ -1,15 +1,19 @@
 // Mirrors FILTER_PROPERTIES in generate_geojson.py — keep in sync manually
 // if that dict changes. Values already arrive pre-translated (or, for tags
 // not covered by VALUE_TRANSLATIONS, as raw OSM strings) from the pipeline.
+// Il quarto elemento (showInPopup) e' opzionale, default true: "provincia"
+// resta filtrabile ma non compare come riga nel popup - il comune (spesso
+// gia' nel nome auto-composto) e' piu' utile lì, la provincia e' ridondante.
 const FILTERABLE_PROPERTIES = [
   ["material", "Materiale", "\u{1F9F1}"],
   ["net", "Rete", "\u{1F945}"],
   ["net_material", "Materiale rete", "\u{1F529}"],
   ["access", "Accesso", "\u{1F513}"],
   ["covered", "Coperto", "☂️"],
+  ["provincia", "Provincia", "\u{1F5FA}\u{FE0F}", false],
 ];
 
-const GEOJSON_URL = "tavoli_padova.geojson";
+const GEOJSON_URL = "tavoli_veneto.geojson";
 
 const map = L.map("map").setView([45.4, 11.87], 10);
 
@@ -25,6 +29,23 @@ const pingPongIcon = L.divIcon({
   iconAnchor: [14, 28],
   popupAnchor: [0, -28],
 });
+
+// Con centinaia di tavoli il Veneto sarebbe illeggibile a zoom bassi -
+// il cluster aggrega i marker vicini in un unico pallino col conteggio,
+// che si "apre" salendo di zoom (comportamento di default del plugin).
+const markerCluster = L.markerClusterGroup({
+  // Senza questo, due tavoli molto vicini (es. nello stesso parco)
+  // restano aggregati anche al massimo zoom della mappa - qui vogliamo
+  // invece che allo zoom massimo si vedano sempre i marker singoli.
+  disableClusteringAtZoom: 19,
+  iconCreateFunction(cluster) {
+    return L.divIcon({
+      className: "tt-cluster",
+      html: `<div class="tt-cluster-dot">${cluster.getChildCount()}</div>`,
+      iconSize: [36, 36],
+    });
+  },
+}).addTo(map);
 
 const markerEntries = []; // { feature, layer }
 const currentFilters = {};
@@ -70,8 +91,8 @@ function buildPopupContent(properties) {
   title.textContent = properties.name;
   container.appendChild(title);
 
-  for (const [key, label] of FILTERABLE_PROPERTIES) {
-    if (properties[key] !== undefined) {
+  for (const [key, label, , showInPopup = true] of FILTERABLE_PROPERTIES) {
+    if (showInPopup && properties[key] !== undefined) {
       addRow(container, label, properties[key]);
     }
   }
@@ -127,17 +148,30 @@ function matchesFilters(properties, filters) {
 }
 
 function applyFilters() {
-  let visibleCount = 0;
+  const visibleLayers = [];
   for (const { feature, layer } of markerEntries) {
     const match = matchesFilters(feature.properties, currentFilters);
-    if (match) visibleCount += 1;
-    const onMap = map.hasLayer(layer);
-    if (match && !onMap) map.addLayer(layer);
-    if (!match && onMap) map.removeLayer(layer);
+    const onMap = markerCluster.hasLayer(layer);
+    if (match) {
+      visibleLayers.push(layer);
+      if (!onMap) markerCluster.addLayer(layer);
+    } else if (onMap) {
+      markerCluster.removeLayer(layer);
+    }
   }
   document.querySelectorAll(".tt-result-badge").forEach((badge) => {
-    badge.textContent = `${visibleCount}/${markerEntries.length}`;
+    badge.textContent = `${visibleLayers.length}/${markerEntries.length}`;
   });
+  // Zoom sui risultati filtrati: coi filtri attivi (es. una provincia)
+  // ha senso restringere la vista, non solo la lista dei marker visibili.
+  if (visibleLayers.length > 0) {
+    // getBounds() per way (Polygon/Polyline), getLatLng() per i node/Point.
+    const bounds = L.latLngBounds([]);
+    visibleLayers.forEach((layer) => {
+      bounds.extend(layer.getBounds ? layer.getBounds() : layer.getLatLng());
+    });
+    map.fitBounds(bounds, { padding: [40, 40], maxZoom: 15 });
+  }
 }
 
 const FiltersControl = L.Control.extend({
@@ -275,14 +309,10 @@ fetch(GEOJSON_URL)
           autoPanPaddingTopLeft: L.point(20, 100),
           autoPanPaddingBottomRight: L.point(20, 20),
         });
-        layer.addTo(map);
+        markerCluster.addLayer(layer);
         markerEntries.push({ feature, layer });
       },
     });
-
-    if (data.features.length > 0) {
-      map.fitBounds(geoJsonLayer.getBounds(), { padding: [20, 20], maxZoom: 15 });
-    }
 
     const filtersControl = new FiltersControl();
     filtersControl._features = data.features;

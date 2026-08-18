@@ -32,6 +32,21 @@ body {
   line-height: 1;
 }
 
+.tt-cluster-dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(26, 127, 55, 0.85);
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Popup */
 
 .popup-content h3 {

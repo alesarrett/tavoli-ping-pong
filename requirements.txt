@@ -1,1 +1,3 @@
 requests
+shapely
+osm2geojson

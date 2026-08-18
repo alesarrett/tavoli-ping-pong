@@ -1,35 +1,31 @@
 #!/usr/bin/env python3
 """
 Genera un GeoJSON dei tavoli da ping pong (leisure=pitch + sport=table_tennis)
-nella provincia di Padova, interrogando Overpass API.
+nella regione Veneto, interrogando Overpass API.
 
 Il file prodotto e' pronto per essere importato in uMap
-(Gestisci i dati del layer -> Importa dati -> sostituisci).
+(Gestisci i dati del layer -> Importa dati -> sostituisci) e viene anche
+servito direttamente dal frontend Leaflet (index.html) via fetch().
 """
 
 import json
 import os
 import sys
-import requests
 
-OVERPASS_URL = "https://overpass-api.de/api/interpreter"
+from shapely.geometry import Point, shape
+from shapely.strtree import STRtree
 
-# Relation OSM 44217 = "Provincia di Padova" (admin_level=6, ISO3166-2 IT-PD).
-# Usare l'area risolta direttamente (invece della ricerca per nome/admin_level)
-# evita che il server debba scansionare tutte le aree amministrative per trovare
-# quella giusta: una ricerca per nome su un confine grande come una provincia
-# puo' andare in timeout sui server condivisi, con conseguente "Ajax Error"
-# lato client anche se il server non e' sovraccarico.
-PADOVA_RELATION_ID = 44217
-PADOVA_AREA_ID = 3600000000 + PADOVA_RELATION_ID
+from osm_common import VENETO_AREA_ID, fetch_overpass_json
 
+# out geom meta (non solo out geom): "meta" aggiunge version/timestamp per
+# elemento, usati per il diff tra esecuzioni (vedi build_elements_state).
 OVERPASS_QUERY = f"""
-[out:json][timeout:60];
-area({PADOVA_AREA_ID})->.searchArea;
+[out:json][timeout:120];
+area({VENETO_AREA_ID})->.searchArea;
 (
   nwr["leisure"="pitch"]["sport"="table_tennis"](area.searchArea);
 );
-out geom;
+out geom meta;
 """
 
 # Tag OSM da mostrare nel popup, con etichetta leggibile in italiano,
@@ -58,21 +54,33 @@ FILTER_PROPERTIES = {
     "covered": "covered",
 }
 
+# Proprieta' filtro derivate dal contenimento geografico (BOUNDARIES),
+# non da tag OSM - vedi find_containment().
+GEO_FILTER_PROPERTIES = ("comune", "provincia")
+
 # File con le personalizzazioni manuali (nome, immagini, info extra),
 # indicizzate per ID del nodo/way OSM. Vedi overrides.json.
 OVERRIDES_PATH = "overrides.json"
+
+# Confini amministrativi e aree verdi scaricati una tantum da
+# fetch_boundaries.py, usati per il naming automatico e le proprieta'
+# comune/provincia. Se assenti, generate_geojson.py si ferma con un
+# messaggio chiaro invece di rifare query di rete per ogni tavolo.
+BOUNDARIES_DIR = "boundaries"
+BOUNDARY_FILES = {
+    "comune": os.path.join(BOUNDARIES_DIR, "veneto_comuni.geojson"),
+    "provincia": os.path.join(BOUNDARIES_DIR, "veneto_province.geojson"),
+    "area_verde": os.path.join(BOUNDARIES_DIR, "veneto_green.geojson"),
+}
+
+# Stato (ID OSM -> versione/coordinate) dell'ultima esecuzione riuscita,
+# usato solo per stampare un diff (nuovi/rimossi/modificati) ad ogni run.
+ELEMENTS_STATE_PATH = "elements_state.json"
 
 # Base per trasformare i path relativi di overrides.json (campo "images")
 # in URL pubblici raggiungibili da uMap (che non ha accesso al filesystem
 # locale).
 REPO_RAW_BASE = "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main"
-
-
-HEADERS = {
-    # Overpass API rifiuta (406) le richieste con uno User-Agent generico
-    # (es. quello di default di "requests"); ne serve uno descrittivo.
-    "User-Agent": "MappaTavoliPadova/1.0 (script generazione GeoJSON tavoli ping pong)",
-}
 
 
 def load_overrides(path=OVERRIDES_PATH):
@@ -83,11 +91,50 @@ def load_overrides(path=OVERRIDES_PATH):
 
 
 def fetch_elements():
-    response = requests.post(
-        OVERPASS_URL, data={"data": OVERPASS_QUERY}, headers=HEADERS, timeout=90
-    )
-    response.raise_for_status()
-    return response.json()["elements"]
+    return fetch_overpass_json(OVERPASS_QUERY, timeout=150)["elements"]
+
+
+class BoundaryIndex:
+    """Indice spaziale (STRtree) su un GeoJSON di poligoni con un tag
+    "name", per il contenimento punto-in-poligono in locale."""
+
+    def __init__(self, geojson_path):
+        with open(geojson_path, encoding="utf-8") as f:
+            data = json.load(f)
+
+        self.geometries = []
+        self.names = []
+        for feature in data["features"]:
+            name = feature["properties"].get("tags", {}).get("name")
+            if not name:
+                continue
+            geometry = shape(feature["geometry"])
+            if not geometry.is_valid:
+                geometry = geometry.buffer(0)
+            self.geometries.append(geometry)
+            self.names.append(name)
+
+        self.tree = STRtree(self.geometries)
+
+    def find_containing(self, point):
+        candidates = [i for i in self.tree.query(point) if self.geometries[i].contains(point)]
+        if not candidates:
+            return None
+        # Se piu' poligoni contengono il punto (es. un giardino dentro un
+        # parco piu' grande), il piu' piccolo e' il piu' specifico.
+        best = min(candidates, key=lambda i: self.geometries[i].area)
+        return self.names[best]
+
+
+def load_boundaries():
+    missing = [path for path in BOUNDARY_FILES.values() if not os.path.exists(path)]
+    if missing:
+        raise SystemExit(
+            "Confini mancanti in boundaries/: "
+            + ", ".join(missing)
+            + " - lanciare prima 'python3 fetch_boundaries.py'."
+        )
+    return {key: BoundaryIndex(path) for key, path in BOUNDARY_FILES.items()}
 
 
 def build_image_url(relative_path):
@@ -146,32 +193,67 @@ def element_to_geometry(element):
     return None  # relation: non gestita, casi rari per questo tag
 
 
+def representative_coordinates(geometry):
+    """(lon, lat) rappresentativo della geometria: il punto stesso per i
+    Point, il primo vertice per LineString/Polygon (way) - usato sia per
+    il link Google Maps sia per il contenimento comune/provincia/area
+    verde, cosi' i due non possono mai disallinearsi."""
+    if geometry["type"] == "Point":
+        return tuple(geometry["coordinates"])
+    if geometry["type"] == "LineString":
+        return tuple(geometry["coordinates"][0])
+    if geometry["type"] == "Polygon":
+        return tuple(geometry["coordinates"][0][0])
+    return None
+
+
 def build_maps_url(geometry):
     """Link universale Google Maps (routing) per la posizione della feature."""
-    if geometry["type"] == "Point":
-        lon, lat = geometry["coordinates"]
-    elif geometry["type"] == "LineString":
-        lon, lat = geometry["coordinates"][0]
-    elif geometry["type"] == "Polygon":
-        lon, lat = geometry["coordinates"][0][0]
-    else:
+    coordinates = representative_coordinates(geometry)
+    if coordinates is None:
         return None
+    lon, lat = coordinates
     return f"https://www.google.com/maps/dir/?api=1&destination={lat},{lon}"
 
 
-def element_to_feature(element, overrides):
-    geometry = element_to_geometry(element)
-    if geometry is None:
-        return None
+def find_containment(geometry, boundaries):
+    coordinates = representative_coordinates(geometry)
+    if coordinates is None:
+        return {}
+    lon, lat = coordinates
+    point = Point(lon, lat)
+    containment = {}
+    for key, index in boundaries.items():
+        name = index.find_containing(point)
+        if name:
+            containment[key] = name
+    return containment
 
+
+def build_auto_name(containment):
+    comune = containment.get("comune")
+    area_verde = containment.get("area_verde")
+    if comune and area_verde:
+        return f"{comune} - {area_verde}"
+    if comune:
+        return comune
+    return "Tavolo da ping pong"
+
+
+def element_to_feature(element, geometry, overrides, boundaries):
     tags = element.get("tags", {})
     override = overrides.get(str(element["id"]), {})
     images = override.get("images", [])
     extra = override.get("extra", {})
     maps_url = build_maps_url(geometry)
+    containment = find_containment(geometry, boundaries)
 
-    default_name = tags.get("name", "Tavolo da ping pong")
-    name = override.get("name", default_name)
+    if tags.get("name"):
+        name = tags["name"]
+    elif override.get("name"):
+        name = override["name"]
+    else:
+        name = build_auto_name(containment)
 
     properties = {
         "name": name,
@@ -181,6 +263,9 @@ def element_to_feature(element, overrides):
         "maps_url": maps_url,
     }
     properties.update(build_filter_properties(tags))
+    for key in GEO_FILTER_PROPERTIES:
+        if containment.get(key):
+            properties[key] = containment[key]
 
     return {
         "type": "Feature",
@@ -189,21 +274,76 @@ def element_to_feature(element, overrides):
     }
 
 
+def load_elements_state(path=ELEMENTS_STATE_PATH):
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def build_element_state(element, geometry):
+    coordinates = representative_coordinates(geometry)
+    return {
+        "version": element.get("version"),
+        "lon": coordinates[0] if coordinates else None,
+        "lat": coordinates[1] if coordinates else None,
+    }
+
+
+def diff_elements(old_state, new_state):
+    old_ids = set(old_state)
+    new_ids = set(new_state)
+    added = sorted(new_ids - old_ids, key=int)
+    removed = sorted(old_ids - new_ids, key=int)
+    modified = sorted(
+        (
+            element_id
+            for element_id in old_ids & new_ids
+            if old_state[element_id].get("version") != new_state[element_id].get("version")
+        ),
+        key=int,
+    )
+    return added, removed, modified
+
+
+def print_diff_summary(added, removed, modified):
+    print(
+        f"Diff rispetto all'ultima esecuzione: "
+        f"+{len(added)} nuovi, -{len(removed)} rimossi, {len(modified)} modificati"
+    )
+    if added:
+        print(f"  nuovi: {', '.join(added)}")
+    if removed:
+        print(f"  rimossi: {', '.join(removed)}")
+    if modified:
+        print(f"  modificati: {', '.join(modified)}")
+
+
 def main():
     elements = fetch_elements()
     overrides = load_overrides()
+    boundaries = load_boundaries()
+    old_state = load_elements_state()
 
     features = []
+    new_state = {}
     for element in elements:
-        feature = element_to_feature(element, overrides)
-        if feature is not None:
-            features.append(feature)
+        geometry = element_to_geometry(element)
+        if geometry is None:
+            continue
+        features.append(element_to_feature(element, geometry, overrides, boundaries))
+        new_state[str(element["id"])] = build_element_state(element, geometry)
+
+    print_diff_summary(*diff_elements(old_state, new_state))
 
     geojson = {"type": "FeatureCollection", "features": features}
 
-    output_path = sys.argv[1] if len(sys.argv) > 1 else "tavoli_padova.geojson"
+    output_path = sys.argv[1] if len(sys.argv) > 1 else "tavoli_veneto.geojson"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(geojson, f, ensure_ascii=False, indent=2)
+
+    with open(ELEMENTS_STATE_PATH, "w", encoding="utf-8") as f:
+        json.dump(new_state, f, ensure_ascii=False, indent=2)
 
     print(f"Scritte {len(features)} feature su {len(elements)} elementi in {output_path}")
 
