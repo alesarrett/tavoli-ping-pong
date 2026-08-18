@@ -28,7 +28,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Giardino Campetti",
         "description": "[[https://www.google.com/maps/dir/?api=1&destination=45.4716384,11.8418388|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -88,9 +88,11 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
-        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4359683,11.9185049|Apri in Google Maps]]",
-        "images": [],
+        "name": "Giardino dei Carpini",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n<a href=\"https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Padova-Torre_GiardinoCarpini.jpeg\" target=\"_blank\" rel=\"noopener\"><img src=\"https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Padova-Torre_GiardinoCarpini.jpeg\"></a>\n[[https://www.google.com/maps/dir/?api=1&destination=45.4359683,11.9185049|Apri in Google Maps]]",
+        "images": [
+          "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Padova-Torre_GiardinoCarpini.jpeg"
+        ],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4359683,11.9185049",
         "material": "cemento",
@@ -109,7 +111,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Parco degli Alpini",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4369698,11.8460165|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -130,7 +132,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Parco degli Alpini",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4370735,11.8459331|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -193,7 +195,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Giardino degli Ulivi di Gerusalemme",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.3896709,11.8628001|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -214,7 +216,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Giardino degli Aceri",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4300624,11.8414973|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -256,7 +258,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Giardino Santa Rita",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.3943693,11.8864705|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -298,7 +300,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Giardino Santa Rita",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.3943924,11.8864102|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -319,7 +321,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Parco Brentelle",
         "description": "- **Materiale**: cemento\n- **Rete**: no\n[[https://www.google.com/maps/dir/?api=1&destination=45.4089959,11.8342347|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -339,7 +341,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Giardino dei Gelsi",
         "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/dir/?api=1&destination=45.4098271,11.8576915|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -360,7 +362,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Parco Brentelle",
         "description": "- **Materiale**: metallo\n- **Rete**: no\n[[https://www.google.com/maps/dir/?api=1&destination=45.4089955,11.8341869|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -380,7 +382,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Parco Brentelle",
         "description": "- **Materiale**: cemento\n- **Rete**: no\n[[https://www.google.com/maps/dir/?api=1&destination=45.4097224,11.8347781|Apri in Google Maps]]",
         "images": [],
         "extra": {},
@@ -548,7 +550,7 @@
         ]
       },
       "properties": {
-        "name": "Tavolo da ping pong",
+        "name": "Giardino dei Ciliegi",
         "description": "- **Rete**: no\n[[https://www.google.com/maps/dir/?api=1&destination=45.4365882,11.889517|Apri in Google Maps]]",
         "images": [],
         "extra": {},
