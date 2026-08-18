@@ -45,6 +45,23 @@ function addRow(container, label, value) {
   container.appendChild(row);
 }
 
+// Leaflet's autoPan runs once when the popup opens, sized to its content
+// at that moment. Popup images load asynchronously and grow the popup
+// afterwards, so a second, targeted pan is needed once each image loads
+// (only pans if the popup's top is still hidden, e.g. under the filters
+// control near the top of the viewport).
+function keepPopupInView(imgEl) {
+  const popupEl = imgEl.closest(".leaflet-popup");
+  if (!popupEl) return;
+  const topPadding = 100;
+  const mapTop = map.getContainer().getBoundingClientRect().top;
+  const popupTop = popupEl.getBoundingClientRect().top;
+  const overflow = mapTop + topPadding - popupTop;
+  if (overflow > 0) {
+    map.panBy([0, -overflow], { animate: true });
+  }
+}
+
 function buildPopupContent(properties) {
   const container = document.createElement("div");
   container.className = "popup-content";
@@ -83,6 +100,7 @@ function buildPopupContent(properties) {
       img.loading = "lazy";
       img.alt = properties.name;
       img.addEventListener("click", () => openLightbox(images, index));
+      img.addEventListener("load", () => keepPopupInView(img));
       thumbs.appendChild(img);
     });
     container.appendChild(thumbs);
