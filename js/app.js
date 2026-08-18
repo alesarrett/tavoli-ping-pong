@@ -250,6 +250,12 @@ fetch(GEOJSON_URL)
         layer.bindPopup(() => buildPopupContent(feature.properties), {
           maxWidth: 320,
           minWidth: 240,
+          // Extra top padding keeps the popup from opening under the
+          // filters control (top-right) when the marker is near the top
+          // of the viewport; Leaflet's default 5px autoPan padding isn't
+          // enough to clear that overlapping panel.
+          autoPanPaddingTopLeft: L.point(20, 100),
+          autoPanPaddingBottomRight: L.point(20, 20),
         });
         layer.addTo(map);
         markerEntries.push({ feature, layer });
