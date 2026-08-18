@@ -47,12 +47,12 @@
       },
       "properties": {
         "name": "Giardini dell'Oasi",
-        "description": "- **Materiale**: cemento\n- **Rete**: sì\n[[https://www.google.com/maps/dir/?api=1&destination=45.422761,11.8179578|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: no\n[[https://www.google.com/maps/dir/?api=1&destination=45.422761,11.8179578|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.422761,11.8179578",
         "material": "cemento",
-        "net": "sì",
+        "net": "no",
         "access": "sì",
         "covered": "no"
       }
@@ -68,12 +68,12 @@
       },
       "properties": {
         "name": "Giardini dell'Oasi",
-        "description": "- **Materiale**: cemento\n- **Rete**: sì\n[[https://www.google.com/maps/dir/?api=1&destination=45.4227196,11.817945|Apri in Google Maps]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: no\n[[https://www.google.com/maps/dir/?api=1&destination=45.4227196,11.817945|Apri in Google Maps]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/dir/?api=1&destination=45.4227196,11.817945",
         "material": "cemento",
-        "net": "sì",
+        "net": "no",
         "access": "sì",
         "covered": "no"
       }
