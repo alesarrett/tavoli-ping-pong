@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Genera un GeoJSON dei tavoli da ping pong (leisure=pitch + sport=table_tennis)
-nella regione Veneto, interrogando Overpass API.
+in tutta Italia, interrogando Overpass API.
 
 Il file prodotto e' pronto per essere importato in uMap
 (Gestisci i dati del layer -> Importa dati -> sostituisci) e viene anche
@@ -11,17 +11,25 @@ servito direttamente dal frontend Leaflet (index.html) via fetch().
 import json
 import os
 import sys
+import time
 
 from shapely.geometry import Point, shape
 from shapely.strtree import STRtree
 
-from osm_common import VENETO_AREA_ID, fetch_overpass_json
+from osm_common import ITALY_AREA_ID, fetch_overpass_json
 
 # out geom meta (non solo out geom): "meta" aggiunge version/timestamp per
 # elemento, usati per il diff tra esecuzioni (vedi build_elements_state).
+# Timeout alto: una query su tutta Italia impiega circa un minuto anche
+# se il risultato e' piccolo (poche centinaia di elementi) - il costo e'
+# nella risoluzione del confine nazionale stesso, non nella query. Un
+# tentativo di sostituirla con una bounding box (piu' leggera da
+# risolvere in teoria) e' risultato in pratica ALTRETTANTO lento sotto
+# carico del server pubblico - mantenuta quella per area, gia' provata
+# affidabile piu' volte.
 OVERPASS_QUERY = f"""
-[out:json][timeout:120];
-area({VENETO_AREA_ID})->.searchArea;
+[out:json][timeout:240];
+area({ITALY_AREA_ID})->.searchArea;
 (
   nwr["leisure"="pitch"]["sport"="table_tennis"](area.searchArea);
 );
@@ -54,27 +62,50 @@ FILTER_PROPERTIES = {
     "covered": "covered",
 }
 
-# Proprieta' filtro derivate dal contenimento geografico (BOUNDARIES),
-# non da tag OSM - vedi find_containment().
-GEO_FILTER_PROPERTIES = ("comune", "provincia")
+# Proprieta' filtro derivate dal contenimento geografico, non da tag OSM.
+# comune/provincia/regione vengono da BOUNDARIES (contenimento locale);
+# l'area verde no - vedi find_green_area().
+GEO_FILTER_PROPERTIES = ("comune", "provincia", "regione")
 
 # File con le personalizzazioni manuali (nome, immagini, info extra),
 # indicizzate per ID del nodo/way OSM. Vedi overrides.json.
 OVERRIDES_PATH = "overrides.json"
 
-# Confini amministrativi e aree verdi scaricati una tantum da
-# fetch_boundaries.py, usati per il naming automatico e le proprieta'
-# comune/provincia. Se assenti, generate_geojson.py si ferma con un
-# messaggio chiaro invece di rifare query di rete per ogni tavolo.
+# Confini amministrativi scaricati una tantum da fetch_boundaries.py,
+# usati per il naming/filtri automatici (comune/provincia/regione). Se
+# assenti, generate_geojson.py si ferma con un messaggio chiaro invece
+# di rifare query di rete per ogni tavolo. Le aree verdi (parchi/
+# giardini) NON sono qui: troppe su scala nazionale rispetto al numero
+# di tavoli - vedi find_green_area() piu' sotto per il lookup mirato.
 BOUNDARIES_DIR = "boundaries"
 BOUNDARY_FILES = {
-    "comune": os.path.join(BOUNDARIES_DIR, "veneto_comuni.geojson"),
-    "provincia": os.path.join(BOUNDARIES_DIR, "veneto_province.geojson"),
-    "area_verde": os.path.join(BOUNDARIES_DIR, "veneto_green.geojson"),
+    "comune": os.path.join(BOUNDARIES_DIR, "italia_comuni.geojson"),
+    "provincia": os.path.join(BOUNDARIES_DIR, "italia_province.geojson"),
+    "regione": os.path.join(BOUNDARIES_DIR, "italia_regioni.geojson"),
 }
 
-# Stato (ID OSM -> versione/coordinate) dell'ultima esecuzione riuscita,
-# usato solo per stampare un diff (nuovi/rimossi/modificati) ad ogni run.
+# Tag "leisure" che contano come area verde per il naming automatico
+# ("Comune - Area verde"). "nature_reserve" escluso deliberatamente: di
+# solito non ha attrezzature come un tavolo da ping pong.
+GREEN_AREA_LEISURE_TAGS = "^(park|garden|recreation_ground)$"
+GREEN_AREA_SEARCH_RADIUS_M = 150
+# Pausa dopo ogni query "around" per l'area verde, per non stressare il
+# server pubblico con centinaia di richieste ravvicinate (solo i tavoli
+# nuovi/spostati la richiedono davvero - vedi resolve_area_verde()).
+GREEN_AREA_REQUEST_DELAY_S = 0.3
+
+GREEN_AREA_QUERY = """
+[out:json][timeout:30];
+nwr(around:{radius},{lat},{lon})["leisure"~"{tags}"];
+out geom;
+"""
+
+# Stato (ID OSM -> versione/coordinate/area verde) dell'ultima esecuzione
+# riuscita. Serve a due cose: stampare un diff (nuovi/rimossi/modificati)
+# ad ogni run, ED evitare di ripetere il lookup Overpass dell'area verde
+# (find_green_area) per un tavolo la cui posizione non e' cambiata dalla
+# volta scorsa - altrimenti ogni rigenerazione richiederebbe una query
+# per ciascuno dei ~600+ tavoli, anche solo per editare un override.
 ELEMENTS_STATE_PATH = "elements_state.json"
 
 # Base per trasformare i path relativi di overrides.json (campo "images")
@@ -91,7 +122,12 @@ def load_overrides(path=OVERRIDES_PATH):
 
 
 def fetch_elements():
-    return fetch_overpass_json(OVERPASS_QUERY, timeout=150)["elements"]
+    # Piu' pazienza del default (query nazionale unica, lenta anche in
+    # condizioni normali per la risoluzione del confine - vedi sopra;
+    # sotto carico del server pubblico puo' richiedere piu' di 3 tentativi).
+    return fetch_overpass_json(
+        OVERPASS_QUERY, timeout=270, max_attempts=6, retry_delays=[15, 30, 60, 90, 120]
+    )["elements"]
 
 
 class BoundaryIndex:
@@ -120,8 +156,9 @@ class BoundaryIndex:
         candidates = [i for i in self.tree.query(point) if self.geometries[i].contains(point)]
         if not candidates:
             return None
-        # Se piu' poligoni contengono il punto (es. un giardino dentro un
-        # parco piu' grande), il piu' piccolo e' il piu' specifico.
+        # Se piu' poligoni contengono il punto (raro per comune/
+        # provincia/regione, che non si sovrappongono), il piu' piccolo
+        # e' il piu' specifico.
         best = min(candidates, key=lambda i: self.geometries[i].area)
         return self.names[best]
 
@@ -195,9 +232,9 @@ def element_to_geometry(element):
 
 def representative_coordinates(geometry):
     """(lon, lat) rappresentativo della geometria: il punto stesso per i
-    Point, il primo vertice per LineString/Polygon (way) - usato sia per
-    il link Google Maps sia per il contenimento comune/provincia/area
-    verde, cosi' i due non possono mai disallinearsi."""
+    Point, il primo vertice per LineString/Polygon (way) - usato per il
+    link Google Maps, il contenimento comune/provincia/regione e il
+    lookup dell'area verde, cosi' i tre non possono mai disallinearsi."""
     if geometry["type"] == "Point":
         return tuple(geometry["coordinates"])
     if geometry["type"] == "LineString":
@@ -216,12 +253,7 @@ def build_maps_url(geometry):
     return f"https://www.google.com/maps/dir/?api=1&destination={lat},{lon}"
 
 
-def find_containment(geometry, boundaries):
-    coordinates = representative_coordinates(geometry)
-    if coordinates is None:
-        return {}
-    lon, lat = coordinates
-    point = Point(lon, lat)
+def find_containment(point, boundaries):
     containment = {}
     for key, index in boundaries.items():
         name = index.find_containing(point)
@@ -230,9 +262,47 @@ def find_containment(geometry, boundaries):
     return containment
 
 
-def build_auto_name(containment):
-    comune = containment.get("comune")
-    area_verde = containment.get("area_verde")
+def find_green_area(lat, lon):
+    """Cerca, con una query Overpass ristretta a un piccolo raggio
+    (non l'intera Italia - vedi il commento su BOUNDARY_FILES), l'area
+    verde che contiene effettivamente il punto. Ritorna (area_verde,
+    resolved): resolved=False se il lookup di rete e' fallito (errore
+    transitorio) - va distinto da "nessuna area verde trovata", altrimenti
+    un blip di rete verrebbe cachato per sempre come esito negativo
+    definitivo invece di essere ritentato al prossimo run."""
+    query = GREEN_AREA_QUERY.format(
+        radius=GREEN_AREA_SEARCH_RADIUS_M, lat=lat, lon=lon, tags=GREEN_AREA_LEISURE_TAGS
+    )
+    try:
+        data = fetch_overpass_json(query, timeout=45)
+    except RuntimeError as error:
+        print(f"  lookup area verde fallito per ({lat}, {lon}): {error}")
+        return None, False
+    finally:
+        time.sleep(GREEN_AREA_REQUEST_DELAY_S)
+
+    point = Point(lon, lat)
+    candidates = []
+    for element in data.get("elements", []):
+        name = element.get("tags", {}).get("name")
+        if not name:
+            continue
+        geometry = element_to_geometry(element)
+        if geometry is None or geometry["type"] != "Polygon":
+            continue
+        polygon = shape(geometry)
+        if not polygon.is_valid:
+            polygon = polygon.buffer(0)
+        if polygon.contains(point):
+            candidates.append((polygon.area, name))
+
+    if not candidates:
+        return None, True
+    candidates.sort(key=lambda candidate: candidate[0])
+    return candidates[0][1], True
+
+
+def build_auto_name(comune, area_verde):
     if comune and area_verde:
         return f"{comune} - {area_verde}"
     if comune:
@@ -240,20 +310,19 @@ def build_auto_name(containment):
     return "Tavolo da ping pong"
 
 
-def element_to_feature(element, geometry, overrides, boundaries):
+def element_to_feature(element, geometry, overrides, containment, area_verde):
     tags = element.get("tags", {})
     override = overrides.get(str(element["id"]), {})
     images = override.get("images", [])
     extra = override.get("extra", {})
     maps_url = build_maps_url(geometry)
-    containment = find_containment(geometry, boundaries)
 
     if tags.get("name"):
         name = tags["name"]
     elif override.get("name"):
         name = override["name"]
     else:
-        name = build_auto_name(containment)
+        name = build_auto_name(containment.get("comune"), area_verde)
 
     properties = {
         "name": name,
@@ -281,13 +350,29 @@ def load_elements_state(path=ELEMENTS_STATE_PATH):
         return json.load(f)
 
 
-def build_element_state(element, geometry):
-    coordinates = representative_coordinates(geometry)
-    return {
-        "version": element.get("version"),
-        "lon": coordinates[0] if coordinates else None,
-        "lat": coordinates[1] if coordinates else None,
-    }
+def resolve_area_verde(element_id, lon, lat, old_state, skip_lookup=False):
+    """Riusa l'area verde gia' in cache se posizione invariata rispetto
+    all'ultima esecuzione E il lookup precedente era andato a buon fine
+    (area_verde_resolved) - un lookup fallito in passato va ritentato
+    anche a coordinate invariate, non trattato come cache valida.
+    Con skip_lookup=True non fa MAI una query di rete: usa la cache se
+    c'e', altrimenti lascia l'elemento non risolto (area_verde=None,
+    resolved=False) cosi' un run futuro senza questo flag lo ritenta -
+    utile per pubblicare in fretta con "solo il comune" dove manca
+    l'area verde, senza aspettare un server Overpass sotto carico.
+    Ritorna (area_verde, resolved, was_cache_hit)."""
+    cached = old_state.get(element_id)
+    if (
+        cached
+        and cached.get("lon") == lon
+        and cached.get("lat") == lat
+        and cached.get("area_verde_resolved")
+    ):
+        return cached.get("area_verde"), True, True
+    if skip_lookup:
+        return None, False, False
+    area_verde, resolved = find_green_area(lat, lon)
+    return area_verde, resolved, False
 
 
 def diff_elements(old_state, new_state):
@@ -319,32 +404,90 @@ def print_diff_summary(added, removed, modified):
         print(f"  modificati: {', '.join(modified)}")
 
 
+def write_output(output_path, features, new_state):
+    geojson = {"type": "FeatureCollection", "features": features}
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(geojson, f, ensure_ascii=False, indent=2)
+    with open(ELEMENTS_STATE_PATH, "w", encoding="utf-8") as f:
+        json.dump(new_state, f, ensure_ascii=False, indent=2)
+
+
 def main():
+    # Senza line-buffering i print() restano nel buffer di Python finche'
+    # non si riempie o il processo termina, quindi se l'output e' su file
+    # (es. "> log.txt 2>&1" in background) non si vede nulla finche' non
+    # e' tutto finito - inutile per seguire un run che dura minuti.
+    sys.stdout.reconfigure(line_buffering=True)
+
+    args = sys.argv[1:]
+    skip_green_lookup = "--skip-green-lookup" in args
+    args = [a for a in args if a != "--skip-green-lookup"]
+    output_path = args[0] if args else "tavoli_italia.geojson"
+
     elements = fetch_elements()
     overrides = load_overrides()
     boundaries = load_boundaries()
     old_state = load_elements_state()
 
+    # Difesa in profondita' oltre al controllo del campo "remark" in
+    # fetch_overpass_json(): se Overpass torna un risultato molto piu'
+    # piccolo di quello dell'ultima esecuzione riuscita, e' quasi
+    # certamente un errore parziale, non un vero calo di tavoli - non
+    # sovrascrivere l'output/la cache con questo risultato sospetto.
+    if old_state and len(elements) < len(old_state) * 0.5:
+        raise SystemExit(
+            f"Overpass ha restituito solo {len(elements)} elementi, contro i "
+            f"{len(old_state)} dell'ultima esecuzione riuscita: troppo pochi per "
+            "essere un risultato legittimo (probabile errore/timeout parziale). "
+            "Nessun file sovrascritto - controllare e rilanciare."
+        )
+
     features = []
     new_state = {}
-    for element in elements:
+    lookups_done = 0
+    for i, element in enumerate(elements, start=1):
         geometry = element_to_geometry(element)
         if geometry is None:
             continue
-        features.append(element_to_feature(element, geometry, overrides, boundaries))
-        new_state[str(element["id"])] = build_element_state(element, geometry)
+
+        element_id = str(element["id"])
+        coordinates = representative_coordinates(geometry)
+        lon, lat = coordinates if coordinates else (None, None)
+
+        containment = find_containment(Point(lon, lat), boundaries) if coordinates else {}
+
+        if coordinates:
+            area_verde, resolved, was_cache_hit = resolve_area_verde(
+                element_id, lon, lat, old_state, skip_lookup=skip_green_lookup
+            )
+        else:
+            area_verde, resolved, was_cache_hit = None, True, True
+
+        if not was_cache_hit:
+            lookups_done += 1
+
+        features.append(element_to_feature(element, geometry, overrides, containment, area_verde))
+        new_state[element_id] = {
+            "version": element.get("version"),
+            "lon": lon,
+            "lat": lat,
+            "area_verde": area_verde,
+            "area_verde_resolved": resolved,
+        }
+
+        if not was_cache_hit and lookups_done % 20 == 0:
+            print(f"  lookup area verde: {i}/{len(elements)} elementi processati...")
+            # Scrittura incrementale: se il processo viene interrotto
+            # (kill manuale, crash) il lavoro fatto finora non va perso -
+            # e permette anche di ispezionare l'output mentre gira, non
+            # solo a fine corsa. Ad ogni ripartenza, gli elementi gia'
+            # presenti in questo stato parziale fanno da cache (stessa
+            # logica di resolve_area_verde), quindi ripartire dopo
+            # un'interruzione non rifa' tutto da zero.
+            write_output(output_path, features, new_state)
 
     print_diff_summary(*diff_elements(old_state, new_state))
-
-    geojson = {"type": "FeatureCollection", "features": features}
-
-    output_path = sys.argv[1] if len(sys.argv) > 1 else "tavoli_veneto.geojson"
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(geojson, f, ensure_ascii=False, indent=2)
-
-    with open(ELEMENTS_STATE_PATH, "w", encoding="utf-8") as f:
-        json.dump(new_state, f, ensure_ascii=False, indent=2)
-
+    write_output(output_path, features, new_state)
     print(f"Scritte {len(features)} feature su {len(elements)} elementi in {output_path}")
 
 

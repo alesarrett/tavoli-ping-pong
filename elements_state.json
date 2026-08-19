@@ -1,592 +1,4279 @@
 {
+  "428313932": {
+    "version": 4,
+    "lon": 11.1239178,
+    "lat": 46.0483083,
+    "area_verde": "Giardino Rita Levi Montalcini",
+    "area_verde_resolved": true
+  },
   "759972090": {
     "version": 3,
     "lon": 12.462437,
-    "lat": 45.4447334
+    "lat": 45.4447334,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "806035855": {
+    "version": 2,
+    "lon": 11.3326867,
+    "lat": 46.4876872,
+    "area_verde": "Passegiata Lungo Isarco - Eisackufer Promenade",
+    "area_verde_resolved": true
+  },
+  "806035978": {
+    "version": 4,
+    "lon": 11.3465572,
+    "lat": 46.5029094,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "1195798820": {
+    "version": 2,
+    "lon": 11.4432799,
+    "lat": 46.93832,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "1296594769": {
+    "version": 3,
+    "lon": 11.1213111,
+    "lat": 46.0865961,
+    "area_verde": "Giardino Mattia Giosafat",
+    "area_verde_resolved": true
   },
   "1332095632": {
     "version": 3,
     "lon": 12.8138918,
-    "lat": 45.5681916
+    "lat": 45.5681916,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "1332095706": {
     "version": 3,
     "lon": 12.8135879,
-    "lat": 45.5682567
+    "lat": 45.5682567,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "1332095908": {
     "version": 3,
     "lon": 12.8137101,
-    "lat": 45.5682634
+    "lat": 45.5682634,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "1381712164": {
     "version": 1,
     "lon": 10.7218807,
-    "lat": 45.5481958
+    "lat": 45.5481958,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "1416907781": {
+    "version": 3,
+    "lon": 11.124617,
+    "lat": 46.0509921,
+    "area_verde": "Giardino Maria Teresa d'Asburgo",
+    "area_verde_resolved": true
+  },
+  "1608972289": {
+    "version": 2,
+    "lon": 11.1098485,
+    "lat": 46.0372584,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "1643404458": {
+    "version": 4,
+    "lon": 11.1369025,
+    "lat": 46.0568348,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "1744777263": {
+    "version": 2,
+    "lon": 11.1460256,
+    "lat": 46.0365786,
+    "area_verde": "Parco di San Rocco",
+    "area_verde_resolved": true
+  },
+  "1759914747": {
+    "version": 3,
+    "lon": 8.9402089,
+    "lat": 44.4088462,
+    "area_verde": "Spianata dell'Acquasola",
+    "area_verde_resolved": true
+  },
+  "2015321605": {
+    "version": 3,
+    "lon": 8.4215721,
+    "lat": 45.3203558,
+    "area_verde": "Giardini Pubblici Comunali \"Pietro Camana\"",
+    "area_verde_resolved": true
+  },
+  "2084836484": {
+    "version": 2,
+    "lon": 11.0465406,
+    "lat": 46.0817115,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "2245410434": {
+    "version": 2,
+    "lon": 11.1060902,
+    "lat": 46.0196809,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "2336876689": {
+    "version": 2,
+    "lon": 8.7685409,
+    "lat": 45.9319975,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "2400836727": {
+    "version": 3,
+    "lon": 11.1411131,
+    "lat": 46.0712423,
+    "area_verde": "Giardino Carlo Bertotti",
+    "area_verde_resolved": true
+  },
+  "2405075324": {
+    "version": 2,
+    "lon": 11.6738256,
+    "lat": 46.4193924,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "2510781831": {
+    "version": 2,
+    "lon": 11.1154324,
+    "lat": 46.0526924,
+    "area_verde": "Giardino del Maso Smalz",
+    "area_verde_resolved": true
+  },
+  "2762131695": {
+    "version": 3,
+    "lon": 11.8508658,
+    "lat": 46.6907438,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "2972889012": {
+    "version": 3,
+    "lon": 9.1843448,
+    "lat": 45.5190597,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "2972889013": {
+    "version": 3,
+    "lon": 9.1844273,
+    "lat": 45.5190749,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "3228049035": {
+    "version": 3,
+    "lon": 7.2993297,
+    "lat": 44.8216058,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "3370806661": {
+    "version": 4,
+    "lon": 10.3568488,
+    "lat": 45.4092741,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "3493463756": {
+    "version": 2,
+    "lon": 8.9613586,
+    "lat": 44.4077129,
+    "area_verde": "Villa Imperiale",
+    "area_verde_resolved": true
   },
   "3903482952": {
     "version": 1,
     "lon": 12.2662313,
-    "lat": 45.4906656
+    "lat": 45.4906656,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "3980327036": {
+    "version": 2,
+    "lon": 7.6310037,
+    "lat": 45.0054141,
+    "area_verde": "Parco Miraflores (Boschetto)",
+    "area_verde_resolved": true
+  },
+  "4077690773": {
+    "version": 2,
+    "lon": 11.1780706,
+    "lat": 46.701865,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "4133455427": {
+    "version": 3,
+    "lon": 7.6649419,
+    "lat": 45.1027013,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "4389222199": {
+    "version": 1,
+    "lon": 9.175973,
+    "lat": 44.9634893,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "4417678095": {
     "version": 2,
     "lon": 10.6735826,
-    "lat": 45.5740618
+    "lat": 45.5740618,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "4764512948": {
+    "version": 4,
+    "lon": 11.0913643,
+    "lat": 45.9325911,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "4879102014": {
+    "version": 2,
+    "lon": 10.2638034,
+    "lat": 43.8501152,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "4974855058": {
+    "version": 3,
+    "lon": 13.7853802,
+    "lat": 45.654199,
+    "area_verde": "Giardino Pubblico Muzio De Tommasini",
+    "area_verde_resolved": true
   },
   "5048172862": {
     "version": 1,
     "lon": 10.7292666,
-    "lat": 45.5264752
+    "lat": 45.5264752,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "5144773521": {
+    "version": 1,
+    "lon": 9.3971701,
+    "lat": 45.848875,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "5183405124": {
     "version": 2,
     "lon": 10.7273467,
-    "lat": 45.4836608
+    "lat": 45.4836608,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "5183405380": {
     "version": 2,
     "lon": 10.7273736,
-    "lat": 45.4836977
+    "lat": 45.4836977,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "5192204739": {
+    "version": 2,
+    "lon": 9.8841822,
+    "lat": 46.1679486,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "5197946846": {
+    "version": 2,
+    "lon": 12.485016,
+    "lat": 41.8547024,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "5197946847": {
+    "version": 2,
+    "lon": 12.4851728,
+    "lat": 41.8546512,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "5201885144": {
     "version": 3,
     "lon": 11.7767194,
-    "lat": 45.2921283
+    "lat": 45.2921283,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "5244669730": {
+    "version": 2,
+    "lon": 11.241262,
+    "lat": 46.2742905,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "5251667771": {
+    "version": 3,
+    "lon": 9.2280744,
+    "lat": 45.4787461,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "5251667772": {
+    "version": 3,
+    "lon": 9.2280007,
+    "lat": 45.4787427,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "5491712414": {
+    "version": 4,
+    "lon": 7.624217,
+    "lat": 45.0668908,
+    "area_verde": "Giardino Terenzio Grandi",
+    "area_verde_resolved": true
+  },
+  "5491715388": {
+    "version": 1,
+    "lon": 7.6181566,
+    "lat": 45.0735214,
+    "area_verde": "Giardino Venchi Unica",
+    "area_verde_resolved": true
+  },
+  "5516336919": {
+    "version": 4,
+    "lon": 11.15089,
+    "lat": 46.0663825,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "5535628392": {
+    "version": 3,
+    "lon": 11.162206,
+    "lat": 46.0716477,
+    "area_verde": "Giardino di Oltrecastello",
+    "area_verde_resolved": true
+  },
+  "5556155317": {
+    "version": 1,
+    "lon": 11.3448527,
+    "lat": 46.4377147,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "5648631911": {
     "version": 1,
     "lon": 12.4813732,
-    "lat": 45.7766837
+    "lat": 45.7766837,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "5749088514": {
     "version": 2,
     "lon": 10.7273337,
-    "lat": 45.4837118
+    "lat": 45.4837118,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "5749088518": {
     "version": 2,
     "lon": 10.7273009,
-    "lat": 45.4836734
+    "lat": 45.4836734,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "5842501159": {
+    "version": 2,
+    "lon": 12.2474095,
+    "lat": 44.6663097,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "5842501160": {
+    "version": 2,
+    "lon": 12.2473656,
+    "lat": 44.6663057,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6064742058": {
+    "version": 2,
+    "lon": 7.7030847,
+    "lat": 45.1456047,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6080127994": {
+    "version": 1,
+    "lon": 10.2200023,
+    "lat": 45.5568076,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6109321408": {
+    "version": 2,
+    "lon": 7.6213045,
+    "lat": 45.0164346,
+    "area_verde": "Piazzale Pola",
+    "area_verde_resolved": true
+  },
+  "6152432493": {
+    "version": 1,
+    "lon": 10.31716,
+    "lat": 45.5086395,
+    "area_verde": "Parco Castellini",
+    "area_verde_resolved": true
+  },
+  "6171658371": {
+    "version": 1,
+    "lon": 12.2473862,
+    "lat": 44.6649927,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6205008036": {
+    "version": 1,
+    "lon": 11.1293461,
+    "lat": 46.0071299,
+    "area_verde": "Giardino Mattarello",
+    "area_verde_resolved": true
+  },
+  "6205008037": {
+    "version": 1,
+    "lon": 11.1293253,
+    "lat": 46.0070651,
+    "area_verde": "Giardino Mattarello",
+    "area_verde_resolved": true
+  },
+  "6251402399": {
+    "version": 1,
+    "lon": 11.3114778,
+    "lat": 46.4925713,
+    "area_verde": "Parco Firmian - Park Firmian",
+    "area_verde_resolved": true
+  },
+  "6365558417": {
+    "version": 2,
+    "lon": 10.2341951,
+    "lat": 45.5801031,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "6374651014": {
     "version": 1,
     "lon": 10.9873313,
-    "lat": 45.4429895
+    "lat": 45.4429895,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6391843679": {
+    "version": 5,
+    "lon": 9.029329,
+    "lat": 45.534252,
+    "area_verde": "Parco Europa",
+    "area_verde_resolved": true
+  },
+  "6391843680": {
+    "version": 5,
+    "lon": 9.029334,
+    "lat": 45.5341811,
+    "area_verde": "Parco Europa",
+    "area_verde_resolved": true
+  },
+  "6416994872": {
+    "version": 1,
+    "lon": 9.1089749,
+    "lat": 45.5438481,
+    "area_verde": "Parco Martin Luther King",
+    "area_verde_resolved": true
+  },
+  "6416994873": {
+    "version": 1,
+    "lon": 9.1089092,
+    "lat": 45.5438857,
+    "area_verde": "Parco Martin Luther King",
+    "area_verde_resolved": true
+  },
+  "6416994874": {
+    "version": 1,
+    "lon": 9.1088475,
+    "lat": 45.5439251,
+    "area_verde": "Parco Martin Luther King",
+    "area_verde_resolved": true
+  },
+  "6416994875": {
+    "version": 1,
+    "lon": 9.1087899,
+    "lat": 45.5439702,
+    "area_verde": "Parco Martin Luther King",
+    "area_verde_resolved": true
+  },
+  "6416994876": {
+    "version": 1,
+    "lon": 9.1087349,
+    "lat": 45.5440181,
+    "area_verde": "Parco Martin Luther King",
+    "area_verde_resolved": true
+  },
+  "6452561251": {
+    "version": 1,
+    "lon": 11.666845,
+    "lat": 46.3830899,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6472702289": {
+    "version": 1,
+    "lon": 7.7094089,
+    "lat": 45.0970849,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6638897075": {
+    "version": 2,
+    "lon": 11.1177778,
+    "lat": 46.0950715,
+    "area_verde": "Giardino Alpi-Hrovatin",
+    "area_verde_resolved": true
+  },
+  "6715963224": {
+    "version": 2,
+    "lon": 13.4021538,
+    "lat": 42.3528098,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6741972749": {
+    "version": 2,
+    "lon": 9.1217305,
+    "lat": 45.8487512,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6763700367": {
+    "version": 1,
+    "lon": 15.6112064,
+    "lat": 38.2724716,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6763700368": {
+    "version": 1,
+    "lon": 15.6112646,
+    "lat": 38.2724695,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6835519089": {
+    "version": 1,
+    "lon": 12.5468186,
+    "lat": 41.8632569,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6837411740": {
+    "version": 2,
+    "lon": 11.268963,
+    "lat": 46.5088897,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6872107934": {
+    "version": 3,
+    "lon": 11.0078859,
+    "lat": 46.6426787,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "6946050301": {
+    "version": 4,
+    "lon": 11.1500335,
+    "lat": 46.0671763,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "7007648417": {
+    "version": 1,
+    "lon": 7.6583605,
+    "lat": 45.065549,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "7007648418": {
+    "version": 2,
+    "lon": 7.6591073,
+    "lat": 45.0644084,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "7078253914": {
+    "version": 1,
+    "lon": 11.1143116,
+    "lat": 46.1358475,
+    "area_verde": "Giardino San Lazzaro",
+    "area_verde_resolved": true
+  },
+  "7078322785": {
+    "version": 2,
+    "lon": 11.1161854,
+    "lat": 46.1222886,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "7078449626": {
+    "version": 1,
+    "lon": 11.1154418,
+    "lat": 46.1153449,
+    "area_verde": "Giardino Gardolo di Mezzo",
+    "area_verde_resolved": true
+  },
+  "7099578387": {
+    "version": 2,
+    "lon": 11.3489038,
+    "lat": 46.5039563,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "7280048882": {
+    "version": 1,
+    "lon": 7.6077928,
+    "lat": 43.7892798,
+    "area_verde": "Giardini Pubblici Tommaso Reggio",
+    "area_verde_resolved": true
+  },
+  "7298748959": {
+    "version": 1,
+    "lon": 9.6945147,
+    "lat": 45.7126156,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "7298748960": {
+    "version": 1,
+    "lon": 9.6945939,
+    "lat": 45.7126296,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "7314997920": {
+    "version": 3,
+    "lon": 9.1768457,
+    "lat": 45.5032169,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "7314997921": {
+    "version": 3,
+    "lon": 9.1769077,
+    "lat": 45.5032178,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "7679352574": {
+    "version": 2,
+    "lon": 9.240884,
+    "lat": 45.4822241,
+    "area_verde": "Rimembranze di Lambrate",
+    "area_verde_resolved": true
+  },
+  "7679352575": {
+    "version": 2,
+    "lon": 9.2409292,
+    "lat": 45.4823185,
+    "area_verde": "Rimembranze di Lambrate",
+    "area_verde_resolved": true
+  },
+  "7685967898": {
+    "version": 2,
+    "lon": 7.6475026,
+    "lat": 45.0534282,
+    "area_verde": "Parco Pietro Paolo Mennea",
+    "area_verde_resolved": true
+  },
+  "7685973295": {
+    "version": 3,
+    "lon": 7.6474374,
+    "lat": 45.0534401,
+    "area_verde": "Parco Pietro Paolo Mennea",
+    "area_verde_resolved": true
+  },
+  "7701550150": {
+    "version": 1,
+    "lon": 10.2217095,
+    "lat": 45.5117547,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "7771227135": {
+    "version": 1,
+    "lon": 12.2390109,
+    "lat": 44.7219518,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "7771227136": {
+    "version": 1,
+    "lon": 12.2389278,
+    "lat": 44.721968,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "7813949732": {
     "version": 1,
     "lon": 12.4945927,
-    "lat": 45.4547479
+    "lat": 45.4547479,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "7813949733": {
     "version": 1,
     "lon": 12.4946627,
-    "lat": 45.4547584
+    "lat": 45.4547584,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "7839542170": {
+    "version": 2,
+    "lon": 11.539493,
+    "lat": 43.7482827,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "7859587146": {
+    "version": 1,
+    "lon": 11.2173914,
+    "lat": 43.7963931,
+    "area_verde": "Piazza Valdelsa",
+    "area_verde_resolved": true
+  },
+  "7966387211": {
+    "version": 1,
+    "lon": 9.380615,
+    "lat": 45.5009348,
+    "area_verde": "Parco dei Nonni",
+    "area_verde_resolved": true
+  },
+  "7966387212": {
+    "version": 1,
+    "lon": 9.3807009,
+    "lat": 45.5009104,
+    "area_verde": "Parco dei Nonni",
+    "area_verde_resolved": true
+  },
+  "8004617789": {
+    "version": 1,
+    "lon": 11.2647947,
+    "lat": 46.4530721,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "8062158183": {
     "version": 2,
     "lon": 12.1965536,
-    "lat": 45.4855128
+    "lat": 45.4855128,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "8093055461": {
     "version": 3,
     "lon": 11.8418388,
-    "lat": 45.4716384
+    "lat": 45.4716384,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8112308619": {
+    "version": 2,
+    "lon": 9.2512839,
+    "lat": 45.4803997,
+    "area_verde": "Parco della Lambretta",
+    "area_verde_resolved": true
+  },
+  "8174578761": {
+    "version": 3,
+    "lon": 12.5052298,
+    "lat": 41.8937638,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "8235381581": {
     "version": 2,
     "lon": 11.3800557,
-    "lat": 45.6823877
+    "lat": 45.6823877,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8264310313": {
+    "version": 2,
+    "lon": 11.2379882,
+    "lat": 46.0385653,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8265067926": {
+    "version": 2,
+    "lon": 9.1855801,
+    "lat": 45.492701,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8265067927": {
+    "version": 2,
+    "lon": 9.1856171,
+    "lat": 45.4926435,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8339397755": {
+    "version": 1,
+    "lon": 7.5433094,
+    "lat": 45.0724585,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8464366108": {
+    "version": 2,
+    "lon": 9.2586993,
+    "lat": 45.4282478,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8464366109": {
+    "version": 2,
+    "lon": 9.2587234,
+    "lat": 45.4281706,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8596043432": {
+    "version": 2,
+    "lon": 10.0155723,
+    "lat": 45.8950299,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8731338531": {
+    "version": 1,
+    "lon": 11.1651899,
+    "lat": 46.0272699,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8731386898": {
+    "version": 4,
+    "lon": 11.1242862,
+    "lat": 46.0549119,
+    "area_verde": "Giardino Alexander Langer",
+    "area_verde_resolved": true
+  },
+  "8731411985": {
+    "version": 2,
+    "lon": 11.121682,
+    "lat": 46.0569316,
+    "area_verde": "Giardino Duca d'Aosta",
+    "area_verde_resolved": true
+  },
+  "8733694201": {
+    "version": 1,
+    "lon": 11.2256158,
+    "lat": 46.0019869,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8766283156": {
+    "version": 1,
+    "lon": 11.6551732,
+    "lat": 46.7050279,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8866072239": {
+    "version": 2,
+    "lon": 11.321343,
+    "lat": 43.7832744,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8868180427": {
+    "version": 1,
+    "lon": 9.1779824,
+    "lat": 45.5207449,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8868180429": {
+    "version": 3,
+    "lon": 9.1669374,
+    "lat": 45.5054207,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8868180430": {
+    "version": 3,
+    "lon": 9.1671114,
+    "lat": 45.5054644,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8868180433": {
+    "version": 2,
+    "lon": 9.1568272,
+    "lat": 45.5033754,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8868180434": {
+    "version": 2,
+    "lon": 9.1572754,
+    "lat": 45.503409,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8871763297": {
+    "version": 1,
+    "lon": 10.8769819,
+    "lat": 45.8718163,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "8915909401": {
     "version": 1,
     "lon": 12.3828189,
-    "lat": 46.5780761
+    "lat": 46.5780761,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "8958236317": {
+    "version": 2,
+    "lon": 9.0862009,
+    "lat": 45.5554193,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9054285863": {
+    "version": 3,
+    "lon": 11.2501992,
+    "lat": 46.5262003,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9072007555": {
+    "version": 2,
+    "lon": 7.6359532,
+    "lat": 45.0677693,
+    "area_verde": "Giardino di via Viberti",
+    "area_verde_resolved": true
+  },
+  "9072007556": {
+    "version": 2,
+    "lon": 7.6360094,
+    "lat": 45.0679101,
+    "area_verde": "Giardino di via Viberti",
+    "area_verde_resolved": true
+  },
+  "9121816772": {
+    "version": 1,
+    "lon": 8.9655451,
+    "lat": 45.5493064,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9154902278": {
+    "version": 2,
+    "lon": 10.9204709,
+    "lat": 45.9691768,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9154902279": {
+    "version": 2,
+    "lon": 10.9205406,
+    "lat": 45.9691378,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9196328124": {
+    "version": 1,
+    "lon": 7.5804984,
+    "lat": 45.0578801,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9214259632": {
+    "version": 1,
+    "lon": 9.2303524,
+    "lat": 45.5023578,
+    "area_verde": "Parco Martiri della Libertà Iracheni Vittime del Terrorismo",
+    "area_verde_resolved": true
+  },
+  "9214259633": {
+    "version": 1,
+    "lon": 9.2305632,
+    "lat": 45.5022245,
+    "area_verde": "Parco Martiri della Libertà Iracheni Vittime del Terrorismo",
+    "area_verde_resolved": true
+  },
+  "9221829402": {
+    "version": 2,
+    "lon": 10.5933923,
+    "lat": 46.6250824,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9221829403": {
+    "version": 2,
+    "lon": 11.1730828,
+    "lat": 46.637141,
+    "area_verde": "Enrico-Fermi-Park - Parco Enrico Fermi",
+    "area_verde_resolved": true
+  },
+  "9221863059": {
+    "version": 3,
+    "lon": 11.2991879,
+    "lat": 46.5032337,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9237724845": {
+    "version": 1,
+    "lon": 11.1030041,
+    "lat": 44.4700435,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9237724846": {
+    "version": 1,
+    "lon": 11.0999421,
+    "lat": 44.4701565,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9337514556": {
+    "version": 1,
+    "lon": 9.079682,
+    "lat": 45.5439262,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9352356031": {
+    "version": 2,
+    "lon": 9.0827092,
+    "lat": 45.5535993,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9363386856": {
+    "version": 3,
+    "lon": 11.1578223,
+    "lat": 46.612815,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9421578202": {
+    "version": 1,
+    "lon": 11.3497151,
+    "lat": 46.5051851,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9421578203": {
+    "version": 1,
+    "lon": 11.3497367,
+    "lat": 46.5052785,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9543642111": {
+    "version": 1,
+    "lon": 12.6446454,
+    "lat": 44.0047887,
+    "area_verde": "Parco della Resistenza",
+    "area_verde_resolved": true
+  },
+  "9604111688": {
+    "version": 1,
+    "lon": 9.1625008,
+    "lat": 45.5265522,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9604111689": {
+    "version": 1,
+    "lon": 9.1625217,
+    "lat": 45.5264875,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9733378632": {
+    "version": 1,
+    "lon": 11.1094677,
+    "lat": 46.1005025,
+    "area_verde": "Parco di Canova",
+    "area_verde_resolved": true
   },
   "9778629863": {
     "version": 4,
     "lon": 11.8179578,
-    "lat": 45.422761
+    "lat": 45.422761,
+    "area_verde": "Giardini dell'Oasi",
+    "area_verde_resolved": true
   },
   "9778629864": {
     "version": 4,
     "lon": 11.817945,
-    "lat": 45.4227196
+    "lat": 45.4227196,
+    "area_verde": "Giardini dell'Oasi",
+    "area_verde_resolved": true
+  },
+  "9789774120": {
+    "version": 3,
+    "lon": 7.5380439,
+    "lat": 44.3765651,
+    "area_verde": "Parco Ferruccio Parri",
+    "area_verde_resolved": true
   },
   "9795192882": {
     "version": 4,
     "lon": 11.9185049,
-    "lat": 45.4359683
+    "lat": 45.4359683,
+    "area_verde": "Giardino dei Carpini",
+    "area_verde_resolved": true
   },
   "9799068267": {
     "version": 2,
     "lon": 11.8460165,
-    "lat": 45.4369698
+    "lat": 45.4369698,
+    "area_verde": "Parco degli Alpini",
+    "area_verde_resolved": true
   },
   "9799068268": {
     "version": 2,
     "lon": 11.8459331,
-    "lat": 45.4370735
+    "lat": 45.4370735,
+    "area_verde": "Parco degli Alpini",
+    "area_verde_resolved": true
   },
   "9799068269": {
     "version": 2,
     "lon": 11.9090434,
-    "lat": 45.4150629
+    "lat": 45.4150629,
+    "area_verde": "Giardino Esperanto",
+    "area_verde_resolved": true
   },
   "9799068271": {
     "version": 2,
     "lon": 11.9141628,
-    "lat": 45.399807
+    "lat": 45.399807,
+    "area_verde": "Parco dei Frassini",
+    "area_verde_resolved": true
   },
   "9799068272": {
     "version": 2,
     "lon": 11.8628001,
-    "lat": 45.3896709
+    "lat": 45.3896709,
+    "area_verde": "Giardino degli Ulivi di Gerusalemme",
+    "area_verde_resolved": true
   },
   "9799068273": {
     "version": 2,
     "lon": 11.8414973,
-    "lat": 45.4300624
+    "lat": 45.4300624,
+    "area_verde": "Giardino degli aceri",
+    "area_verde_resolved": true
   },
   "9799626129": {
     "version": 3,
     "lon": 11.9145917,
-    "lat": 45.4257598
+    "lat": 45.4257598,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9802083024": {
     "version": 2,
     "lon": 11.8864705,
-    "lat": 45.3943693
+    "lat": 45.3943693,
+    "area_verde": "Giardino Santa Rita",
+    "area_verde_resolved": true
   },
   "9802083025": {
     "version": 2,
     "lon": 11.939347,
-    "lat": 45.3767245
+    "lat": 45.3767245,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9802083026": {
     "version": 2,
     "lon": 11.8864102,
-    "lat": 45.3943924
+    "lat": 45.3943924,
+    "area_verde": "Giardino Santa Rita",
+    "area_verde_resolved": true
   },
   "9803115397": {
     "version": 2,
     "lon": 11.8342347,
-    "lat": 45.4089959
+    "lat": 45.4089959,
+    "area_verde": "Parco Brentelle",
+    "area_verde_resolved": true
   },
   "9803115398": {
     "version": 2,
     "lon": 11.8576915,
-    "lat": 45.4098271
+    "lat": 45.4098271,
+    "area_verde": "Giardino dei Gelsi",
+    "area_verde_resolved": true
   },
   "9803115399": {
     "version": 2,
     "lon": 11.8341869,
-    "lat": 45.4089955
+    "lat": 45.4089955,
+    "area_verde": "Parco Brentelle",
+    "area_verde_resolved": true
   },
   "9803115400": {
     "version": 2,
     "lon": 11.8347781,
-    "lat": 45.4097224
+    "lat": 45.4097224,
+    "area_verde": "Parco Brentelle",
+    "area_verde_resolved": true
   },
   "9807343100": {
     "version": 2,
     "lon": 11.8885817,
-    "lat": 45.382082
+    "lat": 45.382082,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9807343101": {
     "version": 2,
     "lon": 11.8883161,
-    "lat": 45.3821687
+    "lat": 45.3821687,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9807343102": {
     "version": 2,
     "lon": 11.8882021,
-    "lat": 45.3824051
+    "lat": 45.3824051,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9807343103": {
     "version": 2,
     "lon": 11.8883269,
-    "lat": 45.3825992
+    "lat": 45.3825992,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9814063741": {
+    "version": 2,
+    "lon": 10.5569789,
+    "lat": 45.5394562,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9875836793": {
+    "version": 1,
+    "lon": 7.5379844,
+    "lat": 44.3765054,
+    "area_verde": "Parco Ferruccio Parri",
+    "area_verde_resolved": true
+  },
+  "9875848819": {
+    "version": 1,
+    "lon": 7.5382451,
+    "lat": 44.3771393,
+    "area_verde": "Parco Ferruccio Parri",
+    "area_verde_resolved": true
+  },
+  "9888515462": {
+    "version": 1,
+    "lon": 10.5525239,
+    "lat": 45.3982628,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9888826461": {
     "version": 1,
     "lon": 11.6268544,
-    "lat": 45.8178656
+    "lat": 45.8178656,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9888850872": {
     "version": 2,
     "lon": 11.6387639,
-    "lat": 45.8121943
+    "lat": 45.8121943,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9888850873": {
     "version": 2,
     "lon": 11.6387174,
-    "lat": 45.8122016
+    "lat": 45.8122016,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9902515215": {
+    "version": 2,
+    "lon": 13.1077541,
+    "lat": 45.6741805,
+    "area_verde": "Parco Ernest Hemingway",
+    "area_verde_resolved": true
+  },
+  "9915527025": {
+    "version": 3,
+    "lon": 8.4770447,
+    "lat": 45.9541001,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9916968292": {
+    "version": 1,
+    "lon": 13.8118416,
+    "lat": 45.6454483,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9916968293": {
+    "version": 1,
+    "lon": 13.8117982,
+    "lat": 45.6453852,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9927639811": {
     "version": 2,
     "lon": 12.6413283,
-    "lat": 45.5319486
+    "lat": 45.5319486,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9934450519": {
+    "version": 1,
+    "lon": 11.586765,
+    "lat": 46.4090013,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9937494848": {
     "version": 1,
     "lon": 10.7377561,
-    "lat": 45.4964024
+    "lat": 45.4964024,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9937494849": {
     "version": 1,
     "lon": 10.7377238,
-    "lat": 45.4964019
+    "lat": 45.4964019,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9939116508": {
     "version": 2,
     "lon": 12.4737154,
-    "lat": 45.4485069
+    "lat": 45.4485069,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9939172756": {
     "version": 2,
     "lon": 12.4737507,
-    "lat": 45.4484146
+    "lat": 45.4484146,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9975291801": {
     "version": 2,
     "lon": 12.3567401,
-    "lat": 45.4289598
+    "lat": 45.4289598,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9990105426": {
+    "version": 1,
+    "lon": 9.9808923,
+    "lat": 45.891265,
+    "area_verde": "Parco Vilafant",
+    "area_verde_resolved": true
+  },
+  "9990105458": {
+    "version": 1,
+    "lon": 9.9810082,
+    "lat": 45.89127,
+    "area_verde": "Parco Vilafant",
+    "area_verde_resolved": true
+  },
+  "9991181086": {
+    "version": 5,
+    "lon": 13.1227663,
+    "lat": 45.6858029,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9993011007": {
+    "version": 3,
+    "lon": 13.1035297,
+    "lat": 45.6549208,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "9996074238": {
     "version": 1,
     "lon": 13.0556918,
-    "lat": 45.6407489
+    "lat": 45.6407489,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "9997682082": {
+    "version": 2,
+    "lon": 12.5283755,
+    "lat": 42.7553092,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10015564291": {
+    "version": 1,
+    "lon": 10.5365958,
+    "lat": 45.5853425,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10015564292": {
+    "version": 1,
+    "lon": 10.5366483,
+    "lat": 45.5853548,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "10047069714": {
     "version": 4,
     "lon": 12.6676704,
-    "lat": 45.5178044
+    "lat": 45.5178044,
+    "area_verde": "Parco Grifone",
+    "area_verde_resolved": true
   },
   "10047082429": {
     "version": 4,
     "lon": 12.6676686,
-    "lat": 45.5177708
+    "lat": 45.5177708,
+    "area_verde": "Parco Grifone",
+    "area_verde_resolved": true
+  },
+  "10081850466": {
+    "version": 2,
+    "lon": 13.3980599,
+    "lat": 45.677882,
+    "area_verde": "Parco delle Rose",
+    "area_verde_resolved": true
+  },
+  "10081850488": {
+    "version": 2,
+    "lon": 13.3980015,
+    "lat": 45.6777887,
+    "area_verde": "Parco delle Rose",
+    "area_verde_resolved": true
+  },
+  "10108194300": {
+    "version": 1,
+    "lon": 13.573746,
+    "lat": 45.9042202,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10109028850": {
+    "version": 2,
+    "lon": 7.5998917,
+    "lat": 45.0749641,
+    "area_verde": "Giardino dell'amicizia Collegno - Antony",
+    "area_verde_resolved": true
+  },
+  "10110122228": {
+    "version": 1,
+    "lon": 16.4127383,
+    "lat": 41.1572266,
+    "area_verde": "Piazza Caduti di Via Fani",
+    "area_verde_resolved": true
+  },
+  "10125921449": {
+    "version": 1,
+    "lon": 11.1411851,
+    "lat": 46.6145392,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10128238214": {
+    "version": 2,
+    "lon": 13.0808999,
+    "lat": 45.6624,
+    "area_verde": "Bosco Green Resort",
+    "area_verde_resolved": true
+  },
+  "10128239961": {
+    "version": 2,
+    "lon": 13.0810015,
+    "lat": 45.6624165,
+    "area_verde": "Bosco Green Resort",
+    "area_verde_resolved": true
+  },
+  "10151310925": {
+    "version": 2,
+    "lon": 13.2776025,
+    "lat": 45.8230519,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10178297860": {
+    "version": 2,
+    "lon": 10.5442921,
+    "lat": 43.1870911,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10197383852": {
+    "version": 1,
+    "lon": 7.6330738,
+    "lat": 45.0513537,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10197383853": {
+    "version": 1,
+    "lon": 7.6330427,
+    "lat": 45.0512631,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10222151287": {
+    "version": 1,
+    "lon": 7.5692784,
+    "lat": 45.0754585,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10301477239": {
+    "version": 1,
+    "lon": 7.6323884,
+    "lat": 45.0607742,
+    "area_verde": "Parco Francesco Ruffini",
+    "area_verde_resolved": true
+  },
+  "10301477240": {
+    "version": 1,
+    "lon": 7.6325424,
+    "lat": 45.0608262,
+    "area_verde": "Parco Francesco Ruffini",
+    "area_verde_resolved": true
+  },
+  "10301482921": {
+    "version": 1,
+    "lon": 7.6265548,
+    "lat": 45.0677465,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10303519262": {
+    "version": 1,
+    "lon": 7.6211418,
+    "lat": 45.0690325,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10313655357": {
+    "version": 1,
+    "lon": 9.1463215,
+    "lat": 45.4546152,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10315582632": {
+    "version": 2,
+    "lon": 11.2469724,
+    "lat": 44.3944316,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10542010405": {
+    "version": 1,
+    "lon": 12.6403096,
+    "lat": 44.0131795,
+    "area_verde": "Giardino caduti arma dei carabinieri vittime del terrorismo",
+    "area_verde_resolved": true
+  },
+  "10576636865": {
+    "version": 1,
+    "lon": 11.1121267,
+    "lat": 46.1073946,
+    "area_verde": "Giardino ex Segheria",
+    "area_verde_resolved": true
+  },
+  "10629600892": {
+    "version": 1,
+    "lon": 11.2687828,
+    "lat": 43.2890034,
+    "area_verde": "Parco Cesare Sancasciani",
+    "area_verde_resolved": true
+  },
+  "10665058004": {
+    "version": 2,
+    "lon": 9.2173925,
+    "lat": 45.437194,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10690748680": {
+    "version": 1,
+    "lon": 7.5611219,
+    "lat": 45.0735022,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10690748681": {
+    "version": 1,
+    "lon": 7.5611281,
+    "lat": 45.073451,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10694640237": {
+    "version": 1,
+    "lon": 7.6624402,
+    "lat": 45.069886,
+    "area_verde": "Nicola Grosa",
+    "area_verde_resolved": true
+  },
+  "10694640238": {
+    "version": 1,
+    "lon": 7.662421,
+    "lat": 45.0698576,
+    "area_verde": "Nicola Grosa",
+    "area_verde_resolved": true
+  },
+  "10694640239": {
+    "version": 1,
+    "lon": 7.6623991,
+    "lat": 45.0698254,
+    "area_verde": "Nicola Grosa",
+    "area_verde_resolved": true
   },
   "10734682349": {
     "version": 1,
     "lon": 12.5068731,
-    "lat": 45.4565684
+    "lat": 45.4565684,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10737395127": {
+    "version": 2,
+    "lon": 11.1623007,
+    "lat": 46.62663,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "10751210725": {
     "version": 1,
     "lon": 10.9720393,
-    "lat": 45.4406514
+    "lat": 45.4406514,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10771135581": {
+    "version": 1,
+    "lon": 8.8580234,
+    "lat": 44.8950972,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10876178738": {
+    "version": 1,
+    "lon": 11.3465231,
+    "lat": 46.503077,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10876178739": {
+    "version": 1,
+    "lon": 11.3464363,
+    "lat": 46.502729,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10889468268": {
+    "version": 2,
+    "lon": 12.5434464,
+    "lat": 41.8755223,
+    "area_verde": "Parco Giordano Sangalli",
+    "area_verde_resolved": true
+  },
+  "10889468269": {
+    "version": 2,
+    "lon": 12.5433766,
+    "lat": 41.8754887,
+    "area_verde": "Parco Giordano Sangalli",
+    "area_verde_resolved": true
+  },
+  "10940546323": {
+    "version": 1,
+    "lon": 12.2489034,
+    "lat": 44.6561593,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10940546404": {
+    "version": 1,
+    "lon": 12.2488283,
+    "lat": 44.6561801,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10951609355": {
+    "version": 1,
+    "lon": 12.2646046,
+    "lat": 44.6352717,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10968998987": {
+    "version": 1,
+    "lon": 10.5570282,
+    "lat": 45.5394299,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10994156063": {
+    "version": 2,
+    "lon": 7.7011019,
+    "lat": 45.0733697,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "10994273932": {
+    "version": 1,
+    "lon": 7.7003534,
+    "lat": 45.0742033,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11012465226": {
+    "version": 1,
+    "lon": 16.8929712,
+    "lat": 41.1179089,
+    "area_verde": "Giardini di Pane e Pomodoro",
+    "area_verde_resolved": true
+  },
+  "11017605280": {
+    "version": 1,
+    "lon": 10.5239401,
+    "lat": 43.2471852,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "11023952104": {
     "version": 1,
     "lon": 12.2984503,
-    "lat": 45.8716231
+    "lat": 45.8716231,
+    "area_verde": "Giardino Comunale Benedetto Marcello",
+    "area_verde_resolved": true
+  },
+  "11030344678": {
+    "version": 1,
+    "lon": 11.9483787,
+    "lat": 46.8373731,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11030390727": {
+    "version": 1,
+    "lon": 11.5300141,
+    "lat": 46.5959919,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11037427278": {
+    "version": 1,
+    "lon": 10.4805491,
+    "lat": 45.7522673,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11037427279": {
+    "version": 1,
+    "lon": 10.4805099,
+    "lat": 45.7521908,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11045325344": {
+    "version": 1,
+    "lon": 11.5508486,
+    "lat": 44.1153559,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11046854558": {
+    "version": 2,
+    "lon": 13.137164,
+    "lat": 45.6895171,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11079413849": {
+    "version": 2,
+    "lon": 12.0171467,
+    "lat": 46.7703762,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11114324184": {
+    "version": 1,
+    "lon": 8.6807634,
+    "lat": 46.0188988,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11134415767": {
+    "version": 1,
+    "lon": 11.0283591,
+    "lat": 46.342843,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "11139985551": {
     "version": 2,
     "lon": 12.6071777,
-    "lat": 45.4903061
+    "lat": 45.4903061,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11146743187": {
+    "version": 2,
+    "lon": 7.7445858,
+    "lat": 43.8017223,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11146749292": {
+    "version": 2,
+    "lon": 7.7445579,
+    "lat": 43.8017418,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "11182137865": {
     "version": 1,
     "lon": 12.5914137,
-    "lat": 45.4834346
+    "lat": 45.4834346,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11190222160": {
+    "version": 1,
+    "lon": 12.1304182,
+    "lat": 42.1282898,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11226363171": {
+    "version": 1,
+    "lon": 13.7852264,
+    "lat": 45.6796109,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11297720364": {
+    "version": 1,
+    "lon": 13.1066914,
+    "lat": 45.6604307,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11297740958": {
+    "version": 1,
+    "lon": 13.1052318,
+    "lat": 45.6578009,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11307972463": {
+    "version": 1,
+    "lon": 11.0311665,
+    "lat": 43.5571245,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11340922238": {
+    "version": 1,
+    "lon": 12.5102679,
+    "lat": 44.1092526,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11398040761": {
+    "version": 2,
+    "lon": 9.2146645,
+    "lat": 45.4814664,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11400053765": {
+    "version": 1,
+    "lon": 9.2135735,
+    "lat": 45.4795242,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11406299832": {
+    "version": 2,
+    "lon": 9.2219792,
+    "lat": 45.4945466,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "11457304708": {
     "version": 1,
     "lon": 12.6964438,
-    "lat": 45.5272025
+    "lat": 45.5272025,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11476296103": {
+    "version": 1,
+    "lon": 12.5053135,
+    "lat": 41.8938083,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11522074479": {
+    "version": 1,
+    "lon": 9.2196631,
+    "lat": 45.4766721,
+    "area_verde": "Giardino Sergio Ramelli",
+    "area_verde_resolved": true
+  },
+  "11538096515": {
+    "version": 1,
+    "lon": 9.164374,
+    "lat": 45.4765101,
+    "area_verde": "Giardini Valentino Bompiani",
+    "area_verde_resolved": true
+  },
+  "11603335072": {
+    "version": 2,
+    "lon": 9.2106657,
+    "lat": 45.4766929,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11603335073": {
+    "version": 2,
+    "lon": 9.2107501,
+    "lat": 45.4766405,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11708171159": {
+    "version": 1,
+    "lon": 11.936407,
+    "lat": 46.8008585,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11763694607": {
+    "version": 1,
+    "lon": 16.2539136,
+    "lat": 39.3097488,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11763694608": {
+    "version": 1,
+    "lon": 16.2539428,
+    "lat": 39.3096103,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11763694609": {
+    "version": 1,
+    "lon": 16.2539941,
+    "lat": 39.3093808,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11810296192": {
+    "version": 1,
+    "lon": 9.1322863,
+    "lat": 39.247944,
+    "area_verde": "Parco della Vetreria",
+    "area_verde_resolved": true
+  },
+  "11810296193": {
+    "version": 1,
+    "lon": 9.1322558,
+    "lat": 39.2480304,
+    "area_verde": "Parco della Vetreria",
+    "area_verde_resolved": true
+  },
+  "11813634057": {
+    "version": 1,
+    "lon": 11.3091468,
+    "lat": 44.5923283,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11851207200": {
+    "version": 1,
+    "lon": 7.7010508,
+    "lat": 45.1150313,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11884723634": {
+    "version": 1,
+    "lon": 13.7622561,
+    "lat": 43.1896236,
+    "area_verde": "Pineta",
+    "area_verde_resolved": true
+  },
+  "11886351472": {
+    "version": 3,
+    "lon": 11.1501058,
+    "lat": 46.067771,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "11916044199": {
+    "version": 1,
+    "lon": 9.1397924,
+    "lat": 39.2481059,
+    "area_verde": "Parco di Terramaini",
+    "area_verde_resolved": true
+  },
+  "12003369384": {
+    "version": 1,
+    "lon": 11.6298023,
+    "lat": 46.7407795,
+    "area_verde": "Kneippanlage Vahrn",
+    "area_verde_resolved": true
+  },
+  "12032811234": {
+    "version": 1,
+    "lon": 10.5024979,
+    "lat": 43.6852667,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12032811235": {
+    "version": 1,
+    "lon": 10.5024579,
+    "lat": 43.6852054,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "12043719533": {
     "version": 1,
     "lon": 11.0249965,
-    "lat": 45.4506435
+    "lat": 45.4506435,
+    "area_verde": "Giardini Cantori Veronesi",
+    "area_verde_resolved": true
   },
   "12043731670": {
     "version": 1,
     "lon": 10.9835336,
-    "lat": 45.4163685
+    "lat": 45.4163685,
+    "area_verde": "Parco Santa Teresa",
+    "area_verde_resolved": true
   },
   "12043756161": {
     "version": 1,
     "lon": 10.9540866,
-    "lat": 45.4499979
+    "lat": 45.4499979,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "12044772707": {
     "version": 1,
     "lon": 12.640859,
-    "lat": 45.502715
+    "lat": 45.502715,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "12044854490": {
     "version": 3,
     "lon": 12.6429414,
-    "lat": 45.5035945
+    "lat": 45.5035945,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12050501384": {
+    "version": 1,
+    "lon": 11.2020776,
+    "lat": 46.7275326,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12058825638": {
+    "version": 2,
+    "lon": 12.4820915,
+    "lat": 44.1350371,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12068800314": {
+    "version": 1,
+    "lon": 14.7172764,
+    "lat": 42.1546284,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12072361110": {
+    "version": 1,
+    "lon": 12.0759145,
+    "lat": 43.1911725,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12072361131": {
+    "version": 1,
+    "lon": 12.0760298,
+    "lat": 43.1912006,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12072361144": {
+    "version": 1,
+    "lon": 12.0759688,
+    "lat": 43.1911864,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12080580226": {
+    "version": 1,
+    "lon": 10.537009,
+    "lat": 43.3082598,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12098905340": {
+    "version": 1,
+    "lon": 9.3745793,
+    "lat": 46.1698192,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "12110518731": {
     "version": 1,
     "lon": 12.7032658,
-    "lat": 45.5259323
+    "lat": 45.5259323,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12134409224": {
+    "version": 1,
+    "lon": 13.6589768,
+    "lat": 43.4399553,
+    "area_verde": "Parco dell'Amicizia",
+    "area_verde_resolved": true
+  },
+  "12136486801": {
+    "version": 1,
+    "lon": 12.4753642,
+    "lat": 44.141462,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12136486833": {
+    "version": 1,
+    "lon": 12.4745725,
+    "lat": 44.1420397,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12138712859": {
+    "version": 2,
+    "lon": 11.1555393,
+    "lat": 46.6081674,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12139984470": {
+    "version": 1,
+    "lon": 11.9255802,
+    "lat": 44.4167307,
+    "area_verde": "Area verde \"Vittime della Shoah\"",
+    "area_verde_resolved": true
+  },
+  "12139984471": {
+    "version": 1,
+    "lon": 11.925665,
+    "lat": 44.4166961,
+    "area_verde": "Area verde \"Vittime della Shoah\"",
+    "area_verde_resolved": true
+  },
+  "12144478730": {
+    "version": 1,
+    "lon": 11.1622394,
+    "lat": 46.6266298,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "12153145578": {
     "version": 1,
     "lon": 12.9970139,
-    "lat": 45.6279809
+    "lat": 45.6279809,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12162326926": {
+    "version": 1,
+    "lon": 13.0764705,
+    "lat": 45.6975571,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12175088477": {
+    "version": 2,
+    "lon": 7.3236205,
+    "lat": 45.7457002,
+    "area_verde": "Saumont",
+    "area_verde_resolved": true
+  },
+  "12176663552": {
+    "version": 1,
+    "lon": 7.3235738,
+    "lat": 45.7458457,
+    "area_verde": "Saumont",
+    "area_verde_resolved": true
+  },
+  "12197630744": {
+    "version": 1,
+    "lon": 11.1231811,
+    "lat": 46.0757658,
+    "area_verde": "Giardino di Piazza Centa",
+    "area_verde_resolved": true
+  },
+  "12199980988": {
+    "version": 1,
+    "lon": 13.1123171,
+    "lat": 45.6667418,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12208810937": {
+    "version": 1,
+    "lon": 9.2201841,
+    "lat": 45.4863281,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12208810940": {
+    "version": 1,
+    "lon": 9.2201819,
+    "lat": 45.4864094,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12238464617": {
+    "version": 1,
+    "lon": 9.23993,
+    "lat": 45.4351718,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12238464618": {
+    "version": 1,
+    "lon": 9.2399849,
+    "lat": 45.4351446,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12238464619": {
+    "version": 1,
+    "lon": 9.2400397,
+    "lat": 45.435118,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12238464620": {
+    "version": 1,
+    "lon": 9.2400895,
+    "lat": 45.435097,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12238464621": {
+    "version": 1,
+    "lon": 9.2398822,
+    "lat": 45.4352054,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12238464622": {
+    "version": 1,
+    "lon": 9.2398274,
+    "lat": 45.4352355,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12254842686": {
+    "version": 2,
+    "lon": 13.4092189,
+    "lat": 45.6796649,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12269202225": {
+    "version": 1,
+    "lon": 9.2302832,
+    "lat": 45.4787908,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12269202226": {
+    "version": 1,
+    "lon": 9.2304576,
+    "lat": 45.479118,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12290395967": {
+    "version": 1,
+    "lon": 12.5557562,
+    "lat": 41.8897908,
+    "area_verde": "Parco Yasser Arafat",
+    "area_verde_resolved": true
+  },
+  "12311526481": {
+    "version": 1,
+    "lon": 10.7571471,
+    "lat": 46.1554922,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12311526482": {
+    "version": 1,
+    "lon": 10.7572215,
+    "lat": 46.1555559,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12328460746": {
+    "version": 1,
+    "lon": 11.1136875,
+    "lat": 46.0801274,
+    "area_verde": "Giardino Massimiliano I d'Asburgo",
+    "area_verde_resolved": true
+  },
+  "12433966590": {
+    "version": 1,
+    "lon": 11.4102912,
+    "lat": 44.4786183,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "12462645694": {
     "version": 1,
     "lon": 11.2993137,
-    "lat": 45.3963957
+    "lat": 45.3963957,
+    "area_verde": "Parco Michelangelo",
+    "area_verde_resolved": true
   },
   "12492753270": {
     "version": 1,
     "lon": 10.7224899,
-    "lat": 45.5490427
+    "lat": 45.5490427,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12540076385": {
+    "version": 1,
+    "lon": 13.7814758,
+    "lat": 43.20069,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12695868499": {
+    "version": 1,
+    "lon": 9.2154227,
+    "lat": 45.4599151,
+    "area_verde": "Parco Vittorio Formentano",
+    "area_verde_resolved": true
+  },
+  "12710916222": {
+    "version": 1,
+    "lon": 8.0732388,
+    "lat": 44.9382203,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12750051560": {
+    "version": 1,
+    "lon": 7.7076377,
+    "lat": 45.1159443,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12770098816": {
+    "version": 1,
+    "lon": 11.2620626,
+    "lat": 45.9941706,
+    "area_verde": "Parco centrale",
+    "area_verde_resolved": true
+  },
+  "12770132738": {
+    "version": 1,
+    "lon": 11.2613841,
+    "lat": 45.994215,
+    "area_verde": "Parco centrale",
+    "area_verde_resolved": true
+  },
+  "12776347468": {
+    "version": 2,
+    "lon": 11.3303842,
+    "lat": 44.4996009,
+    "area_verde": "Giardino Decorato al Valore Civile",
+    "area_verde_resolved": true
+  },
+  "12827988482": {
+    "version": 1,
+    "lon": 8.7379152,
+    "lat": 45.3106806,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12854835883": {
+    "version": 1,
+    "lon": 9.1528706,
+    "lat": 45.464531,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12854835884": {
+    "version": 2,
+    "lon": 9.1529193,
+    "lat": 45.4645802,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12864311900": {
+    "version": 1,
+    "lon": 9.2164837,
+    "lat": 45.4601305,
+    "area_verde": "Parco Vittorio Formentano",
+    "area_verde_resolved": true
+  },
+  "12913144207": {
+    "version": 1,
+    "lon": 12.2496036,
+    "lat": 44.6549969,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12914361819": {
+    "version": 1,
+    "lon": 7.709752,
+    "lat": 45.0969224,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12915353641": {
+    "version": 1,
+    "lon": 8.3467986,
+    "lat": 44.1691266,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12915433674": {
+    "version": 1,
+    "lon": 8.3467683,
+    "lat": 44.1691174,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12925110480": {
+    "version": 1,
+    "lon": 10.5992893,
+    "lat": 46.6169493,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12925122623": {
+    "version": 1,
+    "lon": 10.5968186,
+    "lat": 46.616486,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "12971774445": {
+    "version": 1,
+    "lon": 10.303482,
+    "lat": 42.7618215,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13015419439": {
+    "version": 2,
+    "lon": 13.7853459,
+    "lat": 45.6541896,
+    "area_verde": "Giardino Pubblico Muzio De Tommasini",
+    "area_verde_resolved": true
+  },
+  "13015419440": {
+    "version": 2,
+    "lon": 13.7853098,
+    "lat": 45.6541797,
+    "area_verde": "Giardino Pubblico Muzio De Tommasini",
+    "area_verde_resolved": true
+  },
+  "13016151028": {
+    "version": 1,
+    "lon": 11.1132274,
+    "lat": 46.1042232,
+    "area_verde": "Pedrolli Park",
+    "area_verde_resolved": true
+  },
+  "13021787688": {
+    "version": 1,
+    "lon": 11.2788715,
+    "lat": 46.0789631,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13039841921": {
+    "version": 1,
+    "lon": 16.8305619,
+    "lat": 41.1317325,
+    "area_verde": "Pineta San Francesco - Pineta Piccola",
+    "area_verde_resolved": true
+  },
+  "13039841922": {
+    "version": 1,
+    "lon": 16.8305453,
+    "lat": 41.1316872,
+    "area_verde": "Pineta San Francesco - Pineta Piccola",
+    "area_verde_resolved": true
+  },
+  "13061854085": {
+    "version": 1,
+    "lon": 11.9420249,
+    "lat": 46.7818115,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13063577859": {
+    "version": 1,
+    "lon": 8.7424102,
+    "lat": 46.0032011,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13063608731": {
+    "version": 1,
+    "lon": 8.7424635,
+    "lat": 46.0032646,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13069305428": {
+    "version": 1,
+    "lon": 12.0410516,
+    "lat": 46.7566961,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13084015821": {
+    "version": 1,
+    "lon": 11.0898374,
+    "lat": 43.6698169,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13093295808": {
+    "version": 1,
+    "lon": 11.6531481,
+    "lat": 43.3998531,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "13111987165": {
     "version": 2,
     "lon": 12.7634156,
-    "lat": 45.5456354
+    "lat": 45.5456354,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13114334911": {
+    "version": 1,
+    "lon": 7.5550207,
+    "lat": 45.0112684,
+    "area_verde": "Green Park Rivalta di Torino",
+    "area_verde_resolved": true
+  },
+  "13119516676": {
+    "version": 1,
+    "lon": 11.2314073,
+    "lat": 46.0279388,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13119672617": {
+    "version": 1,
+    "lon": 11.0458025,
+    "lat": 44.6007762,
+    "area_verde": "La Stalla",
+    "area_verde_resolved": true
+  },
+  "13121548976": {
+    "version": 1,
+    "lon": 7.5841384,
+    "lat": 45.0569359,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13136139249": {
+    "version": 1,
+    "lon": 7.4485116,
+    "lat": 45.1522334,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13139959204": {
+    "version": 1,
+    "lon": 8.5772443,
+    "lat": 45.7340275,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13139959218": {
+    "version": 1,
+    "lon": 8.5773144,
+    "lat": 45.7340655,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13139959219": {
+    "version": 1,
+    "lon": 8.5772704,
+    "lat": 45.7340525,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13142753453": {
+    "version": 1,
+    "lon": 9.1856179,
+    "lat": 45.4989032,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13143989162": {
+    "version": 1,
+    "lon": 12.2771554,
+    "lat": 46.7330612,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "13146680129": {
     "version": 1,
     "lon": 10.9156834,
-    "lat": 45.622352
+    "lat": 45.622352,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "13146680130": {
     "version": 1,
     "lon": 10.9155996,
-    "lat": 45.6223637
+    "lat": 45.6223637,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13151468861": {
+    "version": 2,
+    "lon": 7.6808454,
+    "lat": 45.0392246,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13151629154": {
+    "version": 1,
+    "lon": 11.8448146,
+    "lat": 44.3558057,
+    "area_verde": "Parco Gianluca Conti",
+    "area_verde_resolved": true
+  },
+  "13152737443": {
+    "version": 1,
+    "lon": 8.6171146,
+    "lat": 45.7218042,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13152737444": {
+    "version": 1,
+    "lon": 8.617165,
+    "lat": 45.7218061,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13159633616": {
+    "version": 1,
+    "lon": 11.105187,
+    "lat": 46.0174298,
+    "area_verde": "Parco Romagnano",
+    "area_verde_resolved": true
+  },
+  "13163331745": {
+    "version": 1,
+    "lon": 11.1806662,
+    "lat": 46.6440624,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13171228680": {
+    "version": 2,
+    "lon": 7.7093875,
+    "lat": 45.1188478,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13171228681": {
+    "version": 1,
+    "lon": 7.7093888,
+    "lat": 45.118766,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13174968929": {
+    "version": 1,
+    "lon": 9.2458371,
+    "lat": 45.5874198,
+    "area_verde": "Parco Villoresi - Monza",
+    "area_verde_resolved": true
+  },
+  "13174968930": {
+    "version": 1,
+    "lon": 9.2457876,
+    "lat": 45.5874926,
+    "area_verde": "Parco Villoresi - Monza",
+    "area_verde_resolved": true
+  },
+  "13189006324": {
+    "version": 1,
+    "lon": 10.8929636,
+    "lat": 45.932118,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13195988728": {
+    "version": 1,
+    "lon": 9.8811238,
+    "lat": 45.8006205,
+    "area_verde": "Parco comunale",
+    "area_verde_resolved": true
+  },
+  "13198273354": {
+    "version": 1,
+    "lon": 13.8013133,
+    "lat": 45.6249766,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13198273355": {
+    "version": 1,
+    "lon": 13.8010973,
+    "lat": 45.6249745,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13198430596": {
+    "version": 1,
+    "lon": 13.2418755,
+    "lat": 43.5193769,
+    "area_verde": "Parco di Valeria (ex Parco del Vallato)",
+    "area_verde_resolved": true
+  },
+  "13205005394": {
+    "version": 1,
+    "lon": 9.2176198,
+    "lat": 45.7076286,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13205005395": {
+    "version": 1,
+    "lon": 9.2174555,
+    "lat": 45.7077082,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13207027710": {
+    "version": 1,
+    "lon": 11.1390887,
+    "lat": 46.6556469,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13278142689": {
+    "version": 1,
+    "lon": 11.1360728,
+    "lat": 46.0783202,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13278422937": {
+    "version": 2,
+    "lon": 9.1328634,
+    "lat": 45.4628019,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13278422938": {
+    "version": 2,
+    "lon": 9.1328611,
+    "lat": 45.4628429,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13284561433": {
+    "version": 1,
+    "lon": 7.6853898,
+    "lat": 45.0536515,
+    "area_verde": "Parco del Valentino",
+    "area_verde_resolved": true
+  },
+  "13288091409": {
+    "version": 1,
+    "lon": 9.1492972,
+    "lat": 45.4589871,
+    "area_verde": "Giardino Yitzhak Rabin",
+    "area_verde_resolved": true
+  },
+  "13288091410": {
+    "version": 1,
+    "lon": 9.149266,
+    "lat": 45.4589771,
+    "area_verde": "Giardino Yitzhak Rabin",
+    "area_verde_resolved": true
   },
   "13301721441": {
     "version": 2,
     "lon": 12.2594307,
-    "lat": 45.4999548
+    "lat": 45.4999548,
+    "area_verde": "Parco Alfredo Albanese",
+    "area_verde_resolved": true
   },
   "13301721442": {
     "version": 2,
     "lon": 12.2595091,
-    "lat": 45.4999255
+    "lat": 45.4999255,
+    "area_verde": "Parco Alfredo Albanese",
+    "area_verde_resolved": true
   },
   "13301721443": {
     "version": 2,
     "lon": 12.2595909,
-    "lat": 45.4999001
+    "lat": 45.4999001,
+    "area_verde": "Parco Alfredo Albanese",
+    "area_verde_resolved": true
   },
   "13301721444": {
     "version": 2,
     "lon": 12.2596773,
-    "lat": 45.4998787
+    "lat": 45.4998787,
+    "area_verde": "Parco Alfredo Albanese",
+    "area_verde_resolved": true
   },
   "13301721445": {
     "version": 2,
     "lon": 12.2597648,
-    "lat": 45.4998622
+    "lat": 45.4998622,
+    "area_verde": "Parco Alfredo Albanese",
+    "area_verde_resolved": true
+  },
+  "13308739939": {
+    "version": 2,
+    "lon": 7.6664794,
+    "lat": 45.0342423,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13316815756": {
+    "version": 2,
+    "lon": 9.3247757,
+    "lat": 45.5292791,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "13330267315": {
+    "version": 1,
+    "lon": 16.7407051,
+    "lat": 41.1575961,
+    "area_verde": "Giardino Peppino Impastato",
+    "area_verde_resolved": true
+  },
+  "13330267316": {
+    "version": 1,
+    "lon": 16.7407406,
+    "lat": 41.1575567,
+    "area_verde": "Giardino Peppino Impastato",
+    "area_verde_resolved": true
   },
   "13333343141": {
     "version": 1,
     "lon": 10.7156861,
-    "lat": 45.4659909
+    "lat": 45.4659909,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13347861226": {
+    "version": 1,
+    "lon": 9.9103977,
+    "lat": 45.8173284,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13420578252": {
+    "version": 1,
+    "lon": 11.0913492,
+    "lat": 45.9326097,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13468841674": {
+    "version": 1,
+    "lon": 11.2568854,
+    "lat": 46.4540162,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13647381714": {
+    "version": 1,
+    "lon": 7.6463914,
+    "lat": 45.1105452,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "13653309517": {
     "version": 2,
     "lon": 11.5322248,
-    "lat": 45.5457437
+    "lat": 45.5457437,
+    "area_verde": "Parco Cattaneo",
+    "area_verde_resolved": true
+  },
+  "13662465414": {
+    "version": 2,
+    "lon": 11.1635481,
+    "lat": 46.6084341,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13673876852": {
+    "version": 2,
+    "lon": 7.7042234,
+    "lat": 45.2453429,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13677260195": {
+    "version": 1,
+    "lon": 7.6014865,
+    "lat": 45.0693565,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13694896458": {
+    "version": 1,
+    "lon": 13.1882606,
+    "lat": 46.122299,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13703676699": {
+    "version": 1,
+    "lon": 13.1915237,
+    "lat": 46.0514549,
+    "area_verde": "Parco Missio",
+    "area_verde_resolved": true
+  },
+  "13755398078": {
+    "version": 1,
+    "lon": 8.8660922,
+    "lat": 45.9594639,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13755398092": {
+    "version": 1,
+    "lon": 8.8659978,
+    "lat": 45.9595028,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13768255212": {
+    "version": 1,
+    "lon": 13.1795641,
+    "lat": 45.9512768,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13770843772": {
+    "version": 1,
+    "lon": 16.57977,
+    "lat": 38.9181604,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13770843773": {
+    "version": 1,
+    "lon": 16.5796883,
+    "lat": 38.9182081,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13770843774": {
+    "version": 1,
+    "lon": 16.5796223,
+    "lat": 38.9182776,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13770843775": {
+    "version": 1,
+    "lon": 16.5796113,
+    "lat": 38.9183675,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13777460226": {
+    "version": 1,
+    "lon": 11.3314185,
+    "lat": 46.462197,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13787241825": {
+    "version": 1,
+    "lon": 12.5516534,
+    "lat": 41.8810385,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13787241826": {
+    "version": 1,
+    "lon": 12.5516273,
+    "lat": 41.88099,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13792190031": {
+    "version": 1,
+    "lon": 9.2121583,
+    "lat": 45.4678648,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13792190032": {
+    "version": 1,
+    "lon": 9.2122293,
+    "lat": 45.4678672,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "13811228350": {
+    "version": 2,
+    "lon": 11.2221798,
+    "lat": 43.8213381,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "13821752233": {
     "version": 2,
     "lon": 12.8159179,
-    "lat": 45.5690218
+    "lat": 45.5690218,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "13821825691": {
     "version": 2,
     "lon": 12.8160131,
-    "lat": 45.5690614
+    "lat": 45.5690614,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "13821838440": {
     "version": 2,
     "lon": 12.814916,
-    "lat": 45.5686263
+    "lat": 45.5686263,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "13821839038": {
     "version": 2,
     "lon": 12.8158224,
-    "lat": 45.5689784
+    "lat": 45.5689784,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "13825247520": {
     "version": 1,
     "lon": 12.8171169,
-    "lat": 45.5736283
+    "lat": 45.5736283,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "13825274637": {
     "version": 1,
     "lon": 12.8170246,
-    "lat": 45.5736458
+    "lat": 45.5736458,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13827919285": {
+    "version": 1,
+    "lon": 7.5905842,
+    "lat": 45.0715755,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13843431838": {
+    "version": 1,
+    "lon": 7.6592174,
+    "lat": 45.0506978,
+    "area_verde": "Parco Clessidra",
+    "area_verde_resolved": true
+  },
+  "13860112244": {
+    "version": 1,
+    "lon": 10.3224206,
+    "lat": 43.5076121,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13860112245": {
+    "version": 2,
+    "lon": 10.3223689,
+    "lat": 43.507607,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "13873869124": {
     "version": 1,
     "lon": 12.3558357,
-    "lat": 45.842147
+    "lat": 45.842147,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "13877593800": {
     "version": 1,
     "lon": 12.3507579,
-    "lat": 45.8420971
+    "lat": 45.8420971,
+    "area_verde": null,
+    "area_verde_resolved": true
   },
   "13877691874": {
     "version": 2,
     "lon": 12.3529468,
-    "lat": 45.8442748
+    "lat": 45.8442748,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13897891739": {
+    "version": 1,
+    "lon": 10.4156584,
+    "lat": 42.7714127,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13904058746": {
+    "version": 1,
+    "lon": 11.1423265,
+    "lat": 46.666738,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13906549112": {
+    "version": 1,
+    "lon": 11.1897198,
+    "lat": 42.5247886,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "13919608629": {
+    "version": 1,
+    "lon": 11.1734308,
+    "lat": 44.6402787,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "13942354377": {
+    "version": 1,
+    "lon": 11.178869,
+    "lat": 44.6475922,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "13949347850": {
+    "version": 1,
+    "lon": 16.1590527,
+    "lat": 41.7608824,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "13952614915": {
+    "version": 1,
+    "lon": 10.2713102,
+    "lat": 43.8291702,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "13952614918": {
+    "version": 1,
+    "lon": 10.2713438,
+    "lat": 43.8291778,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "13954541329": {
+    "version": 1,
+    "lon": 13.2461035,
+    "lat": 46.0594272,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "13959301669": {
     "version": 1,
     "lon": 11.0102588,
-    "lat": 45.4573194
+    "lat": 45.4573194,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "13959301670": {
     "version": 1,
     "lon": 11.0102581,
-    "lat": 45.4572677
+    "lat": 45.4572677,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "13970811617": {
+    "version": 1,
+    "lon": 8.7403516,
+    "lat": 45.6713827,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "13971885541": {
     "version": 1,
     "lon": 13.0031903,
-    "lat": 45.6302044
+    "lat": 45.6302044,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "13971885542": {
     "version": 1,
     "lon": 13.0032881,
-    "lat": 45.6302017
+    "lat": 45.6302017,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "13971885543": {
     "version": 1,
     "lon": 13.0032404,
-    "lat": 45.6302032
+    "lat": 45.6302032,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "13982377119": {
+    "version": 1,
+    "lon": 7.5493074,
+    "lat": 45.0756111,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "13982558587": {
     "version": 1,
     "lon": 11.6880328,
-    "lat": 45.5187982
+    "lat": 45.5187982,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "13982680133": {
     "version": 1,
     "lon": 11.5701713,
-    "lat": 45.5701531
+    "lat": 45.5701531,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "13987000741": {
+    "version": 1,
+    "lon": 13.1344053,
+    "lat": 45.6819367,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14007703077": {
+    "version": 2,
+    "lon": 12.1928269,
+    "lat": 46.736071,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14007703078": {
+    "version": 2,
+    "lon": 12.1926245,
+    "lat": 46.7361031,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14017872428": {
+    "version": 1,
+    "lon": 11.113607,
+    "lat": 44.2901516,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "14018943320": {
     "version": 1,
     "lon": 12.6287891,
-    "lat": 45.4985957
+    "lat": 45.4985957,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14040093802": {
+    "version": 1,
+    "lon": 10.5493682,
+    "lat": 45.5752175,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14041723088": {
+    "version": 1,
+    "lon": 10.5494333,
+    "lat": 45.5752037,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14048260889": {
+    "version": 1,
+    "lon": 7.6330176,
+    "lat": 45.051146,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14048284016": {
+    "version": 1,
+    "lon": 7.6329943,
+    "lat": 45.0511461,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14050696768": {
+    "version": 1,
+    "lon": 9.3204308,
+    "lat": 45.3613144,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14062049071": {
+    "version": 1,
+    "lon": 9.3215068,
+    "lat": 45.5204073,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "14079829220": {
     "version": 1,
     "lon": 12.8296215,
-    "lat": 45.5761688
+    "lat": 45.5761688,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14094124065": {
+    "version": 1,
+    "lon": 11.2444537,
+    "lat": 43.76722,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "14094424039": {
     "version": 5,
     "lon": 11.8429934,
-    "lat": 45.3616818
+    "lat": 45.3616818,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "14096244246": {
     "version": 1,
     "lon": 11.971841,
-    "lat": 45.4126796
+    "lat": 45.4126796,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "14096244247": {
     "version": 1,
     "lon": 11.9717916,
-    "lat": 45.412564
+    "lat": 45.412564,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "14096792275": {
     "version": 1,
     "lon": 11.889517,
-    "lat": 45.4365882
+    "lat": 45.4365882,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14099373440": {
+    "version": 1,
+    "lon": 14.1843304,
+    "lat": 42.0418595,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "14103467826": {
     "version": 1,
     "lon": 11.9282301,
-    "lat": 45.4412701
+    "lat": 45.4412701,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "14103467827": {
     "version": 1,
     "lon": 11.9281697,
-    "lat": 45.4412221
+    "lat": 45.4412221,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "14103467828": {
     "version": 1,
     "lon": 11.9282006,
-    "lat": 45.4411619
+    "lat": 45.4411619,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "14103467829": {
     "version": 1,
     "lon": 11.9281349,
-    "lat": 45.4411158
+    "lat": 45.4411158,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "40742767": {
+    "version": 3,
+    "lon": 11.6644077,
+    "lat": 46.7151361,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "50443675": {
+    "version": 1,
+    "lon": 11.6588957,
+    "lat": 46.7081653,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "75689903": {
+    "version": 2,
+    "lon": 11.126121,
+    "lat": 46.057288,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "78762667": {
+    "version": 2,
+    "lon": 11.662455,
+    "lat": 46.708554,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "78762687": {
+    "version": 2,
+    "lon": 11.6625235,
+    "lat": 46.7085396,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "78762691": {
+    "version": 1,
+    "lon": 11.6626714,
+    "lat": 46.7100052,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "78768603": {
+    "version": 1,
+    "lon": 11.6585258,
+    "lat": 46.7041771,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "79860146": {
+    "version": 4,
+    "lon": 11.1260175,
+    "lat": 46.0631402,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "81241009": {
+    "version": 3,
+    "lon": 8.4548801,
+    "lat": 45.1322344,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "116703018": {
+    "version": 1,
+    "lon": 11.6175944,
+    "lat": 43.4453679,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "172712716": {
+    "version": 3,
+    "lon": 10.7214095,
+    "lat": 42.9371746,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "185816245": {
     "version": 2,
     "lon": 12.3047414,
-    "lat": 45.1920875
+    "lat": 45.1920875,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "193950793": {
+    "version": 1,
+    "lon": 16.5679406,
+    "lat": 38.573988,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "221445932": {
     "version": 2,
     "lon": 11.3953243,
-    "lat": 45.6618523
+    "lat": 45.6618523,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "223138327": {
+    "version": 1,
+    "lon": 16.5589097,
+    "lat": 38.5847695,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "224475892": {
+    "version": 2,
+    "lon": 11.6797264,
+    "lat": 44.3400981,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "224680158": {
+    "version": 2,
+    "lon": 10.8644801,
+    "lat": 45.8930425,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "241555893": {
+    "version": 3,
+    "lon": 11.1147724,
+    "lat": 46.0747578,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "256837122": {
     "version": 2,
     "lon": 12.5787294,
-    "lat": 45.4810862
+    "lat": 45.4810862,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "289415063": {
+    "version": 1,
+    "lon": 11.1193888,
+    "lat": 46.0612132,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "361369455": {
+    "version": 1,
+    "lon": 13.4566962,
+    "lat": 45.6965773,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "412672314": {
+    "version": 2,
+    "lon": 11.2033009,
+    "lat": 46.7441139,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "419885620": {
+    "version": 1,
+    "lon": 8.9978921,
+    "lat": 45.47507,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "422424040": {
+    "version": 1,
+    "lon": 10.2196326,
+    "lat": 45.5722251,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "446704885": {
+    "version": 1,
+    "lon": 10.1708329,
+    "lat": 45.5832778,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "463464624": {
+    "version": 1,
+    "lon": 11.0336037,
+    "lat": 45.8773729,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "469413371": {
+    "version": 3,
+    "lon": 10.2879383,
+    "lat": 45.9337532,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "489018972": {
+    "version": 1,
+    "lon": 12.5619203,
+    "lat": 46.0484721,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "504455962": {
+    "version": 2,
+    "lon": 9.2438396,
+    "lat": 45.4361494,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "521740551": {
+    "version": 1,
+    "lon": 11.6366877,
+    "lat": 42.9358212,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "529974583": {
+    "version": 1,
+    "lon": 12.5240955,
+    "lat": 44.0981948,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "540205856": {
+    "version": 3,
+    "lon": 10.2090384,
+    "lat": 45.5270546,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "544485758": {
+    "version": 2,
+    "lon": 13.2515327,
+    "lat": 43.5252138,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "560546890": {
+    "version": 1,
+    "lon": 9.0204858,
+    "lat": 45.5356819,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "593822749": {
+    "version": 2,
+    "lon": 11.0873882,
+    "lat": 44.3876212,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "622817811": {
+    "version": 3,
+    "lon": 15.8857203,
+    "lat": 38.6720506,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "677306358": {
+    "version": 2,
+    "lon": 13.8246442,
+    "lat": 45.6171289,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "694456246": {
+    "version": 1,
+    "lon": 9.6640755,
+    "lat": 45.716489,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "706503612": {
+    "version": 2,
+    "lon": 11.1186858,
+    "lat": 46.0901568,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "719050740": {
+    "version": 1,
+    "lon": 7.6679039,
+    "lat": 43.8673575,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "720889945": {
     "version": 3,
     "lon": 10.7352975,
-    "lat": 45.4914933
+    "lat": 45.4914933,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "791490290": {
+    "version": 1,
+    "lon": 10.7696061,
+    "lat": 45.26394,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "845489409": {
+    "version": 3,
+    "lon": 9.2725207,
+    "lat": 45.4879791,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "845630000": {
+    "version": 1,
+    "lon": 9.0505443,
+    "lat": 45.521565,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "898554550": {
+    "version": 1,
+    "lon": 7.5405143,
+    "lat": 45.0683859,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "925353900": {
+    "version": 1,
+    "lon": 11.3057459,
+    "lat": 46.4135567,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "952279625": {
+    "version": 1,
+    "lon": 11.1461123,
+    "lat": 46.6803942,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "952279626": {
+    "version": 1,
+    "lon": 11.1461575,
+    "lat": 46.68046,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "960202951": {
+    "version": 2,
+    "lon": 7.7105256,
+    "lat": 45.0768142,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "965338721": {
+    "version": 3,
+    "lon": 9.1933867,
+    "lat": 45.4480633,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "965338722": {
+    "version": 3,
+    "lon": 9.1935416,
+    "lat": 45.4479742,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "975284006": {
     "version": 1,
     "lon": 12.4336712,
-    "lat": 45.6557209
+    "lat": 45.6557209,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "975284007": {
     "version": 1,
     "lon": 12.4337024,
-    "lat": 45.6557538
+    "lat": 45.6557538,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "978759635": {
+    "version": 1,
+    "lon": 12.5239232,
+    "lat": 41.8671869,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "993214516": {
+    "version": 2,
+    "lon": 9.2170379,
+    "lat": 45.49505,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "993214517": {
+    "version": 2,
+    "lon": 9.2170532,
+    "lat": 45.4950279,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1056649912": {
+    "version": 4,
+    "lon": 11.1909239,
+    "lat": 43.7770351,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1058456079": {
+    "version": 1,
+    "lon": 7.6521032,
+    "lat": 45.0604555,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1076832594": {
+    "version": 1,
+    "lon": 10.860017,
+    "lat": 45.8858642,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1079864348": {
+    "version": 1,
+    "lon": 12.276596,
+    "lat": 44.5596772,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1081367748": {
+    "version": 1,
+    "lon": 13.4531364,
+    "lat": 45.6951364,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1108404120": {
+    "version": 1,
+    "lon": 11.2521592,
+    "lat": 46.4446056,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1108404121": {
+    "version": 1,
+    "lon": 11.2539102,
+    "lat": 46.4447911,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "1118838631": {
     "version": 1,
     "lon": 10.7229728,
-    "lat": 45.4807049
+    "lat": 45.4807049,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1125947902": {
+    "version": 2,
+    "lon": 9.0707699,
+    "lat": 45.5304898,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1126662765": {
+    "version": 1,
+    "lon": 11.1165971,
+    "lat": 46.0968476,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1126663813": {
+    "version": 1,
+    "lon": 11.1164041,
+    "lat": 46.1004633,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1126663817": {
+    "version": 1,
+    "lon": 11.1163021,
+    "lat": 46.103188,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1131967926": {
+    "version": 1,
+    "lon": 10.3310351,
+    "lat": 43.5481086,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1131974393": {
+    "version": 1,
+    "lon": 10.3219649,
+    "lat": 43.5517189,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1132050146": {
+    "version": 1,
+    "lon": 10.3286126,
+    "lat": 43.5248653,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1135281752": {
+    "version": 2,
+    "lon": 7.6473526,
+    "lat": 45.0534579,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1135749806": {
+    "version": 1,
+    "lon": 11.1164319,
+    "lat": 46.0968445,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1135899196": {
+    "version": 1,
+    "lon": 10.3219973,
+    "lat": 43.5517062,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1150922882": {
+    "version": 1,
+    "lon": 9.1528924,
+    "lat": 45.3576115,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1195880506": {
+    "version": 1,
+    "lon": 11.8205495,
+    "lat": 43.0389841,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1195880507": {
+    "version": 1,
+    "lon": 11.8205235,
+    "lat": 43.0389543,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1203119869": {
+    "version": 1,
+    "lon": 10.7903766,
+    "lat": 45.1478761,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1203119870": {
+    "version": 1,
+    "lon": 10.790439,
+    "lat": 45.1478574,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1210270855": {
+    "version": 1,
+    "lon": 11.1017589,
+    "lat": 46.0818539,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1216355924": {
+    "version": 1,
+    "lon": 10.3147023,
+    "lat": 43.5364672,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1216355925": {
+    "version": 1,
+    "lon": 10.3146749,
+    "lat": 43.5364525,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1262944494": {
+    "version": 2,
+    "lon": 11.1461282,
+    "lat": 46.6643546,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1273388526": {
+    "version": 4,
+    "lon": 12.176413,
+    "lat": 46.7376961,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "1276738762": {
     "version": 1,
     "lon": 10.6762078,
-    "lat": 45.4439089
+    "lat": 45.4439089,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1296102369": {
+    "version": 1,
+    "lon": 8.2814542,
+    "lat": 44.1500987,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1307779248": {
+    "version": 3,
+    "lon": 10.9211674,
+    "lat": 43.9298161,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1308771077": {
+    "version": 1,
+    "lon": 10.5534599,
+    "lat": 45.5298349,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1309912651": {
+    "version": 1,
+    "lon": 12.5539972,
+    "lat": 41.8948968,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1311101060": {
+    "version": 1,
+    "lon": 10.5547762,
+    "lat": 45.5341927,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1315551316": {
+    "version": 1,
+    "lon": 7.6757768,
+    "lat": 45.0780256,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1315551317": {
+    "version": 1,
+    "lon": 7.675705,
+    "lat": 45.0779344,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1339606475": {
+    "version": 1,
+    "lon": 9.3426623,
+    "lat": 45.4344865,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1339606476": {
+    "version": 1,
+    "lon": 9.342825,
+    "lat": 45.4341945,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1339606477": {
+    "version": 2,
+    "lon": 9.3426585,
+    "lat": 45.4344271,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1339606478": {
+    "version": 2,
+    "lon": 9.3427809,
+    "lat": 45.4342228,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "1344894271": {
     "version": 2,
     "lon": 12.8204564,
-    "lat": 45.5722421
+    "lat": 45.5722421,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "1344894272": {
     "version": 2,
     "lon": 12.820459,
-    "lat": 45.5722923
+    "lat": 45.5722923,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "1344894273": {
     "version": 2,
     "lon": 12.8203868,
-    "lat": 45.5722561
+    "lat": 45.5722561,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1359398066": {
+    "version": 1,
+    "lon": 10.329134,
+    "lat": 43.5433049,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1362317827": {
+    "version": 1,
+    "lon": 11.1659715,
+    "lat": 46.6697913,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1409253976": {
+    "version": 1,
+    "lon": 16.153374,
+    "lat": 41.9002849,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1413965489": {
+    "version": 1,
+    "lon": 12.2913652,
+    "lat": 44.4536827,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "1415862247": {
     "version": 1,
     "lon": 11.1373209,
-    "lat": 45.4400353
+    "lat": 45.4400353,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1434211156": {
+    "version": 4,
+    "lon": 9.3231846,
+    "lat": 45.5229947,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "1484160682": {
     "version": 1,
     "lon": 11.4169542,
-    "lat": 45.6543246
+    "lat": 45.6543246,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1491996118": {
+    "version": 1,
+    "lon": 10.4868139,
+    "lat": 43.3041799,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1491996119": {
+    "version": 1,
+    "lon": 10.4868463,
+    "lat": 43.3041209,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1516150011": {
+    "version": 1,
+    "lon": 10.781745,
+    "lat": 45.1725333,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1516150012": {
+    "version": 1,
+    "lon": 10.7816374,
+    "lat": 45.1725077,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1516150013": {
+    "version": 1,
+    "lon": 10.781628,
+    "lat": 45.1724419,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1516150014": {
+    "version": 1,
+    "lon": 10.7816635,
+    "lat": 45.1723677,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1525332918": {
+    "version": 1,
+    "lon": 7.5374042,
+    "lat": 45.0685568,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1533816178": {
+    "version": 1,
+    "lon": 13.7625803,
+    "lat": 45.669845,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1540770587": {
+    "version": 1,
+    "lon": 10.596738,
+    "lat": 43.3558655,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1550618905": {
+    "version": 1,
+    "lon": 9.9851587,
+    "lat": 44.0661269,
+    "area_verde": null,
+    "area_verde_resolved": false
   }
 }

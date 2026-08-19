@@ -1,21 +1,31 @@
 // Mirrors FILTER_PROPERTIES in generate_geojson.py — keep in sync manually
 // if that dict changes. Values already arrive pre-translated (or, for tags
 // not covered by VALUE_TRANSLATIONS, as raw OSM strings) from the pipeline.
-// Il quarto elemento (showInPopup) e' opzionale, default true: "provincia"
-// resta filtrabile ma non compare come riga nel popup - il comune (spesso
-// gia' nel nome auto-composto) e' piu' utile lì, la provincia e' ridondante.
+// Righe del box "Filtri". Regione/Provincia sono un box a parte (ZONE_PROPERTIES,
+// vedi ZoneControl) - non compaiono qui ne' come riga nel popup: il comune
+// (spesso gia' nel nome auto-composto) e' piu' utile li', la geografia piu'
+// ampia e' ridondante.
 const FILTERABLE_PROPERTIES = [
   ["material", "Materiale", "\u{1F9F1}"],
   ["net", "Rete", "\u{1F945}"],
   ["net_material", "Materiale rete", "\u{1F529}"],
   ["access", "Accesso", "\u{1F513}"],
   ["covered", "Coperto", "☂️"],
-  ["provincia", "Provincia", "\u{1F5FA}\u{FE0F}", false],
 ];
 
-const GEOJSON_URL = "tavoli_veneto.geojson";
+// Box "Zona", separato e sopra "Filtri" - selezionare una Regione
+// restringe le opzioni di Provincia (vedi ZoneControl).
+const ZONE_PROPERTIES = [
+  ["regione", "Regione", "\u{1F5FA}\u{FE0F}"],
+  ["provincia", "Provincia", "\u{1F3DB}\u{FE0F}"],
+];
 
-const map = L.map("map").setView([45.4, 11.87], 10);
+const GEOJSON_URL = "tavoli_italia.geojson";
+
+// Vista iniziale approssimativa sull'Italia, sostituita da fitBounds
+// non appena i dati sono caricati (vedi applyFilters chiamato a fine
+// fetch) - questa e' solo quel che si vede per il breve istante prima.
+const map = L.map("map").setView([42.5, 12.5], 6);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
@@ -30,9 +40,9 @@ const pingPongIcon = L.divIcon({
   popupAnchor: [0, -28],
 });
 
-// Con centinaia di tavoli il Veneto sarebbe illeggibile a zoom bassi -
-// il cluster aggrega i marker vicini in un unico pallino col conteggio,
-// che si "apre" salendo di zoom (comportamento di default del plugin).
+// Con migliaia di tavoli in tutta Italia la mappa sarebbe illeggibile a
+// zoom bassi - il cluster aggrega i marker vicini in un unico pallino
+// col conteggio, che si "apre" salendo di zoom (default del plugin).
 const markerCluster = L.markerClusterGroup({
   // Senza questo, due tavoli molto vicini (es. nello stesso parco)
   // restano aggregati anche al massimo zoom della mappa - qui vogliamo
@@ -49,6 +59,12 @@ const markerCluster = L.markerClusterGroup({
 
 const markerEntries = []; // { feature, layer }
 const currentFilters = {};
+
+// Spazio da lasciare libero in alto per non far aprire i popup sotto i
+// due box "Zona" + "Filtri" impilati in alto a destra (desktop, entrambi
+// espansi di default). Usato sia dall'autoPan iniziale del popup che dal
+// ri-pan quando un'immagine finisce di caricare in ritardo.
+const POPUP_TOP_CLEARANCE = 230;
 
 function capitalize(text) {
   return text.charAt(0).toUpperCase() + text.slice(1);
@@ -74,10 +90,9 @@ function addRow(container, label, value) {
 function keepPopupInView(imgEl) {
   const popupEl = imgEl.closest(".leaflet-popup");
   if (!popupEl) return;
-  const topPadding = 100;
   const mapTop = map.getContainer().getBoundingClientRect().top;
   const popupTop = popupEl.getBoundingClientRect().top;
-  const overflow = mapTop + topPadding - popupTop;
+  const overflow = mapTop + POPUP_TOP_CLEARANCE - popupTop;
   if (overflow > 0) {
     map.panBy([0, -overflow], { animate: true });
   }
@@ -91,8 +106,8 @@ function buildPopupContent(properties) {
   title.textContent = properties.name;
   container.appendChild(title);
 
-  for (const [key, label, , showInPopup = true] of FILTERABLE_PROPERTIES) {
-    if (showInPopup && properties[key] !== undefined) {
+  for (const [key, label] of FILTERABLE_PROPERTIES) {
+    if (properties[key] !== undefined) {
       addRow(container, label, properties[key]);
     }
   }
@@ -174,57 +189,77 @@ function applyFilters() {
   }
 }
 
+function setSelectOptions(select, options, allLabel) {
+  select.innerHTML = "";
+  const allOption = document.createElement("option");
+  allOption.value = "";
+  allOption.textContent = allLabel;
+  select.appendChild(allOption);
+  for (const value of options) {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    select.appendChild(option);
+  }
+}
+
+// Riga con icona + label + <select>, condivisa da FiltersControl e
+// ZoneControl. onChange (opzionale) gira DOPO l'aggiornamento di
+// currentFilters e PRIMA di applyFilters() - usato dalla cascata
+// Regione -> Provincia per ricalcolare le opzioni di Provincia senza
+// far scattare applyFilters() due volte sullo stesso cambiamento.
+function buildFilterRow(panel, key, label, icon, options, allLabel, onChange) {
+  const row = L.DomUtil.create("div", "tt-filter-row", panel);
+  const labelEl = L.DomUtil.create("label", "", row);
+  const iconEl = L.DomUtil.create("span", "tt-filter-icon", labelEl);
+  iconEl.textContent = icon;
+  labelEl.append(label);
+  const select = L.DomUtil.create("select", "", row);
+  select.dataset.key = key;
+  setSelectOptions(select, options, allLabel);
+
+  select.addEventListener("change", () => {
+    if (select.value === "") {
+      delete currentFilters[key];
+    } else {
+      currentFilters[key] = select.value;
+    }
+    if (onChange) onChange(select.value);
+    applyFilters();
+  });
+
+  return select;
+}
+
+// Struttura "card flottante collassabile" (bottone toggle su mobile +
+// pannello con intestazione), condivisa da FiltersControl e ZoneControl.
+function buildFilterPanel(wrapper, titleText, showBadge) {
+  const toggle = L.DomUtil.create("button", "tt-filters-toggle", wrapper);
+  toggle.type = "button";
+  const toggleIcon = L.DomUtil.create("span", "", toggle);
+  toggleIcon.textContent = titleText;
+  if (showBadge) L.DomUtil.create("span", "tt-result-badge tt-badge", toggle);
+
+  const panel = L.DomUtil.create("div", "tt-filters", wrapper);
+  const header = L.DomUtil.create("div", "tt-filters-header", panel);
+  const heading = L.DomUtil.create("h4", "", header);
+  heading.textContent = titleText;
+  if (showBadge) L.DomUtil.create("span", "tt-result-badge tt-badge", header);
+
+  toggle.addEventListener("click", () => panel.classList.toggle("open"));
+  return panel;
+}
+
 const FiltersControl = L.Control.extend({
   options: { position: "topright" },
 
   onAdd(mapInstance) {
     const wrapper = L.DomUtil.create("div", "tt-filters-wrapper");
-
-    const toggle = L.DomUtil.create("button", "tt-filters-toggle", wrapper);
-    toggle.type = "button";
-    const toggleIcon = L.DomUtil.create("span", "", toggle);
-    toggleIcon.textContent = "\u{1F50D} Filtri";
-    const toggleBadge = L.DomUtil.create("span", "tt-result-badge tt-badge", toggle);
-
-    const panel = L.DomUtil.create("div", "tt-filters", wrapper);
-
-    const header = L.DomUtil.create("div", "tt-filters-header", panel);
-    const heading = L.DomUtil.create("h4", "", header);
-    heading.textContent = "\u{1F50D} Filtri";
-    const headerBadge = L.DomUtil.create("span", "tt-result-badge tt-badge", header);
+    const panel = buildFilterPanel(wrapper, "\u{1F50D} Filtri", true);
 
     for (const [key, label, icon] of FILTERABLE_PROPERTIES) {
-      const row = L.DomUtil.create("div", "tt-filter-row", panel);
-      const labelEl = L.DomUtil.create("label", "", row);
-      const iconEl = L.DomUtil.create("span", "tt-filter-icon", labelEl);
-      iconEl.textContent = icon;
-      labelEl.append(label);
-      const select = L.DomUtil.create("select", "", row);
-      select.dataset.key = key;
-
-      const allOption = document.createElement("option");
-      allOption.value = "";
-      allOption.textContent = "Tutti";
-      select.appendChild(allOption);
-
-      for (const value of deriveOptions(this._features, key)) {
-        const option = document.createElement("option");
-        option.value = value;
-        option.textContent = value;
-        select.appendChild(option);
-      }
-
-      select.addEventListener("change", () => {
-        if (select.value === "") {
-          delete currentFilters[key];
-        } else {
-          currentFilters[key] = select.value;
-        }
-        applyFilters();
-      });
+      buildFilterRow(panel, key, label, icon, deriveOptions(this._features, key), "Tutti");
     }
-
-    toggle.addEventListener("click", () => panel.classList.toggle("open"));
 
     L.DomEvent.disableClickPropagation(wrapper);
     L.DomEvent.disableScrollPropagation(wrapper);
@@ -232,6 +267,105 @@ const FiltersControl = L.Control.extend({
     return wrapper;
   },
 });
+
+// Box "Zona": Regione e Provincia, con cascata (selezionare una Regione
+// restringe le opzioni di Provincia alle sole provincie di quella
+// regione - derivato dalle feature gia' caricate, nessuna chiamata di
+// rete aggiuntiva).
+const ZoneControl = L.Control.extend({
+  options: { position: "topright" },
+
+  onAdd(mapInstance) {
+    const wrapper = L.DomUtil.create("div", "tt-filters-wrapper");
+    const panel = buildFilterPanel(wrapper, "\u{1F5FA}\u{FE0F} Zona", false);
+    const features = this._features;
+
+    const provinceByRegione = new Map();
+    for (const feature of features) {
+      const { regione, provincia } = feature.properties;
+      if (!regione || !provincia) continue;
+      if (!provinceByRegione.has(regione)) provinceByRegione.set(regione, new Set());
+      provinceByRegione.get(regione).add(provincia);
+    }
+
+    const [REGIONE, PROVINCIA] = ZONE_PROPERTIES;
+    let provinciaSelect;
+
+    buildFilterRow(
+      panel,
+      ...REGIONE,
+      deriveOptions(features, "regione"),
+      "Tutte",
+      (regione) => {
+        const options = regione
+          ? [...(provinceByRegione.get(regione) || [])].sort()
+          : deriveOptions(features, "provincia");
+        const previousValue = provinciaSelect.value;
+        setSelectOptions(provinciaSelect, options, "Tutte");
+        if (options.includes(previousValue)) {
+          provinciaSelect.value = previousValue;
+        } else {
+          provinciaSelect.value = "";
+          delete currentFilters.provincia;
+        }
+      }
+    );
+
+    provinciaSelect = buildFilterRow(
+      panel,
+      ...PROVINCIA,
+      deriveOptions(features, "provincia"),
+      "Tutte"
+    );
+
+    L.DomEvent.disableClickPropagation(wrapper);
+    L.DomEvent.disableScrollPropagation(wrapper);
+
+    return wrapper;
+  },
+});
+
+// Titolo sempre visibile in alto a sinistra (sotto lo zoom di default di
+// Leaflet, che vive nello stesso angolo) + un bottone "i" che apre/chiude
+// una breve descrizione del progetto. Non dipende dai dati del geojson,
+// quindi viene aggiunto alla mappa subito, non dentro il fetch().
+const InfoControl = L.Control.extend({
+  options: { position: "topleft" },
+
+  onAdd() {
+    const wrapper = L.DomUtil.create("div", "tt-info-wrapper");
+    const card = L.DomUtil.create("div", "tt-info-card", wrapper);
+
+    const header = L.DomUtil.create("div", "tt-info-header", card);
+    const title = L.DomUtil.create("h1", "tt-info-title", header);
+    title.textContent = "\u{1F3D3} Tavoli da Ping Pong in Italia";
+    const toggle = L.DomUtil.create("button", "tt-info-toggle", header);
+    toggle.type = "button";
+    toggle.textContent = "\u{2139}\u{FE0F}";
+    toggle.setAttribute("aria-label", "Informazioni su questa mappa");
+
+    const body = L.DomUtil.create("div", "tt-info-body", card);
+    body.innerHTML = `
+      <p>Mappa dei tavoli da ping pong pubblici in Italia, con dati aperti
+      da <a href="https://www.openstreetmap.org" target="_blank" rel="noopener">OpenStreetMap</a>.</p>
+      <p>Usa i box "Zona" e "Filtri" in alto a destra per restringere la
+      mappa per regione/provincia o per caratteristiche del tavolo
+      (materiale, rete, accesso, copertura).</p>
+      <p>Manca un tavolo o un dato non è corretto? Si può
+      <a href="https://www.openstreetmap.org" target="_blank" rel="noopener">contribuire direttamente su OpenStreetMap</a> -
+      questa mappa viene rigenerata periodicamente dai dati aggiornati.</p>
+    `;
+
+    toggle.addEventListener("click", () => body.classList.toggle("open"));
+
+    L.DomEvent.disableClickPropagation(wrapper);
+    L.DomEvent.disableScrollPropagation(wrapper);
+
+    return wrapper;
+  },
+});
+
+new InfoControl().addTo(map);
 
 // Lightbox
 
@@ -303,10 +437,10 @@ fetch(GEOJSON_URL)
           maxWidth: 320,
           minWidth: 240,
           // Extra top padding keeps the popup from opening under the
-          // filters control (top-right) when the marker is near the top
-          // of the viewport; Leaflet's default 5px autoPan padding isn't
-          // enough to clear that overlapping panel.
-          autoPanPaddingTopLeft: L.point(20, 100),
+          // Zona/Filtri controls (top-right) when the marker is near the
+          // top of the viewport; Leaflet's default 5px autoPan padding
+          // isn't enough to clear those two stacked panels.
+          autoPanPaddingTopLeft: L.point(20, POPUP_TOP_CLEARANCE),
           autoPanPaddingBottomRight: L.point(20, 20),
         });
         markerCluster.addLayer(layer);
@@ -314,9 +448,16 @@ fetch(GEOJSON_URL)
       },
     });
 
+    // Zona aggiunto prima di Filtri: Leaflet impila i controlli dello
+    // stesso angolo nell'ordine di aggiunta, Zona deve stare sopra.
+    const zoneControl = new ZoneControl();
+    zoneControl._features = data.features;
+    zoneControl.addTo(map);
+
     const filtersControl = new FiltersControl();
     filtersControl._features = data.features;
     filtersControl.addTo(map);
+
     applyFilters();
   })
   .catch((error) => {
