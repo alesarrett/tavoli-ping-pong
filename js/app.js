@@ -22,15 +22,47 @@ const ZONE_PROPERTIES = [
 
 const GEOJSON_URL = "tavoli_italia.geojson";
 
-// Vista iniziale approssimativa sull'Italia, sostituita da fitBounds
-// non appena i dati sono caricati (vedi applyFilters chiamato a fine
-// fetch) - questa e' solo quel che si vede per il breve istante prima.
-const map = L.map("map").setView([42.5, 12.5], 6);
+// Legge vista (lat/lng/zoom) e filtri dalla query string, cosi' un URL
+// copiato/condiviso riproduce esattamente lo stato della mappa - vedi
+// syncUrl() piu' sotto, che scrive nella direzione opposta.
+function readStateFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const filters = {};
+  for (const [key] of [...FILTERABLE_PROPERTIES, ...ZONE_PROPERTIES]) {
+    const value = params.get(key);
+    if (value) filters[key] = value;
+  }
+  const lat = parseFloat(params.get("lat"));
+  const lng = parseFloat(params.get("lng"));
+  const zoom = parseInt(params.get("zoom"), 10);
+  const view =
+    Number.isFinite(lat) && Number.isFinite(lng) && Number.isFinite(zoom)
+      ? { lat, lng, zoom }
+      : null;
+  return { view, filters };
+}
+
+const urlState = readStateFromUrl();
+
+// Vista iniziale: quella dell'URL se presente, altrimenti un'inquadratura
+// approssimativa sull'Italia sostituita da fitBounds non appena i dati
+// sono caricati (vedi applyFilters chiamato a fine fetch).
+const map = L.map("map", { zoomControl: false }).setView(
+  urlState.view ? [urlState.view.lat, urlState.view.lng] : [42.5, 12.5],
+  urlState.view ? urlState.view.zoom : 6
+);
+// In basso a destra invece che in alto a sinistra (default Leaflet):
+// libera l'angolo in alto per titolo/info/condividi (vedi InfoControl).
+L.control.zoom({ position: "bottomright" }).addTo(map);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution: "&copy; OpenStreetMap contributors",
 }).addTo(map);
+
+// Pan/zoom manuali (non guidati da un cambio filtro, gia' coperto in
+// applyFilters()) aggiornano comunque l'URL condivisibile.
+map.on("moveend", () => syncUrl());
 
 const pingPongIcon = L.divIcon({
   className: "tt-marker",
@@ -58,7 +90,9 @@ const markerCluster = L.markerClusterGroup({
 }).addTo(map);
 
 const markerEntries = []; // { feature, layer }
-const currentFilters = {};
+// Pre-popolato dall'URL: le select dei filtri si auto-selezionano di
+// conseguenza in buildFilterRow(), nessun altro cablaggio necessario.
+const currentFilters = { ...urlState.filters };
 
 // Spazio da lasciare libero in alto per non far aprire i popup sotto i
 // due box "Zona" + "Filtri" impilati in alto a destra (desktop, entrambi
@@ -162,7 +196,7 @@ function matchesFilters(properties, filters) {
   return true;
 }
 
-function applyFilters() {
+function applyFilters({ fitBounds = true } = {}) {
   const visibleLayers = [];
   for (const { feature, layer } of markerEntries) {
     const match = matchesFilters(feature.properties, currentFilters);
@@ -179,7 +213,9 @@ function applyFilters() {
   });
   // Zoom sui risultati filtrati: coi filtri attivi (es. una provincia)
   // ha senso restringere la vista, non solo la lista dei marker visibili.
-  if (visibleLayers.length > 0) {
+  // Disattivabile (fitBounds:false) solo per il primo caricamento quando
+  // l'URL specifica gia' una vista precisa - non ha senso ricalcolarla.
+  if (fitBounds && visibleLayers.length > 0) {
     // getBounds() per way (Polygon/Polyline), getLatLng() per i node/Point.
     const bounds = L.latLngBounds([]);
     visibleLayers.forEach((layer) => {
@@ -187,6 +223,23 @@ function applyFilters() {
     });
     map.fitBounds(bounds, { padding: [40, 40], maxZoom: 15 });
   }
+  syncUrl();
+}
+
+// Scrive vista corrente + filtri attivi nella query string, senza
+// aggiungere voci alla cronologia (replaceState, non pushState) - cosi'
+// l'URL nella barra degli indirizzi e' sempre lo stato copiabile/
+// condivisibile corrente. Vedi anche il bottone "condividi" in InfoControl.
+function syncUrl() {
+  const params = new URLSearchParams();
+  const center = map.getCenter();
+  params.set("lat", center.lat.toFixed(5));
+  params.set("lng", center.lng.toFixed(5));
+  params.set("zoom", map.getZoom());
+  for (const [key, value] of Object.entries(currentFilters)) {
+    params.set(key, value);
+  }
+  history.replaceState(null, "", `${window.location.pathname}?${params.toString()}`);
 }
 
 function setSelectOptions(select, options, allLabel) {
@@ -217,6 +270,12 @@ function buildFilterRow(panel, key, label, icon, options, allLabel, onChange) {
   const select = L.DomUtil.create("select", "", row);
   select.dataset.key = key;
   setSelectOptions(select, options, allLabel);
+  // Pre-selezione da un filtro gia' impostato all'avvio (es. dall'URL
+  // condiviso - vedi readStateFromUrl()): currentFilters e' gia' la
+  // fonte di verita' a questo punto, qui si allinea solo la <select>.
+  if (currentFilters[key] && options.includes(currentFilters[key])) {
+    select.value = currentFilters[key];
+  }
 
   select.addEventListener("change", () => {
     if (select.value === "") {
@@ -233,17 +292,21 @@ function buildFilterRow(panel, key, label, icon, options, allLabel, onChange) {
 
 // Struttura "card flottante collassabile" (bottone toggle su mobile +
 // pannello con intestazione), condivisa da FiltersControl e ZoneControl.
-function buildFilterPanel(wrapper, titleText, showBadge) {
+// Icona ed etichetta sono <span> separati (non un'unica stringa) cosi'
+// la media query mobile puo' nascondere solo la label nel toggle
+// collassato, tenendo il pulsante piccolo, senza toccare il pannello
+// espanso (dove la label resta, li' lo spazio non manca).
+function buildFilterPanel(wrapper, icon, label, showBadge) {
   const toggle = L.DomUtil.create("button", "tt-filters-toggle", wrapper);
   toggle.type = "button";
-  const toggleIcon = L.DomUtil.create("span", "", toggle);
-  toggleIcon.textContent = titleText;
+  L.DomUtil.create("span", "tt-panel-icon", toggle).textContent = icon;
+  L.DomUtil.create("span", "tt-panel-label", toggle).textContent = label;
   if (showBadge) L.DomUtil.create("span", "tt-result-badge tt-badge", toggle);
 
   const panel = L.DomUtil.create("div", "tt-filters", wrapper);
   const header = L.DomUtil.create("div", "tt-filters-header", panel);
   const heading = L.DomUtil.create("h4", "", header);
-  heading.textContent = titleText;
+  heading.textContent = `${icon} ${label}`;
   if (showBadge) L.DomUtil.create("span", "tt-result-badge tt-badge", header);
 
   toggle.addEventListener("click", () => panel.classList.toggle("open"));
@@ -255,7 +318,7 @@ const FiltersControl = L.Control.extend({
 
   onAdd(mapInstance) {
     const wrapper = L.DomUtil.create("div", "tt-filters-wrapper");
-    const panel = buildFilterPanel(wrapper, "\u{1F50D} Filtri", true);
+    const panel = buildFilterPanel(wrapper, "\u{1F50D}", "Filtri", true);
 
     for (const [key, label, icon] of FILTERABLE_PROPERTIES) {
       buildFilterRow(panel, key, label, icon, deriveOptions(this._features, key), "Tutti");
@@ -277,7 +340,7 @@ const ZoneControl = L.Control.extend({
 
   onAdd(mapInstance) {
     const wrapper = L.DomUtil.create("div", "tt-filters-wrapper");
-    const panel = buildFilterPanel(wrapper, "\u{1F5FA}\u{FE0F} Zona", false);
+    const panel = buildFilterPanel(wrapper, "\u{1F5FA}\u{FE0F}", "Zona", false);
     const features = this._features;
 
     const provinceByRegione = new Map();
@@ -311,12 +374,17 @@ const ZoneControl = L.Control.extend({
       }
     );
 
-    provinciaSelect = buildFilterRow(
-      panel,
-      ...PROVINCIA,
-      deriveOptions(features, "provincia"),
-      "Tutte"
-    );
+    // Se una Regione e' gia' impostata all'avvio (es. da URL condiviso),
+    // le opzioni iniziali di Provincia partono gia' ristrette a quella
+    // regione - altrimenti per un istante mostrerebbero l'elenco
+    // completo prima che l'utente tocchi nulla.
+    const initialRegione = currentFilters.regione;
+    const initialProvinciaOptions =
+      initialRegione && provinceByRegione.has(initialRegione)
+        ? [...provinceByRegione.get(initialRegione)].sort()
+        : deriveOptions(features, "provincia");
+
+    provinciaSelect = buildFilterRow(panel, ...PROVINCIA, initialProvinciaOptions, "Tutte");
 
     L.DomEvent.disableClickPropagation(wrapper);
     L.DomEvent.disableScrollPropagation(wrapper);
@@ -325,10 +393,22 @@ const ZoneControl = L.Control.extend({
   },
 });
 
-// Titolo sempre visibile in alto a sinistra (sotto lo zoom di default di
-// Leaflet, che vive nello stesso angolo) + un bottone "i" che apre/chiude
-// una breve descrizione del progetto. Non dipende dai dati del geojson,
-// quindi viene aggiunto alla mappa subito, non dentro il fetch().
+// Icona SVG inline (non un'emoji, resa incoerente tra piattaforme) per
+// il bottone condividi - la classica "scatola con freccia verso l'alto".
+const SHARE_ICON_SVG = `
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/>
+    <polyline points="16 6 12 2 8 6"/>
+    <line x1="12" y1="2" x2="12" y2="15"/>
+  </svg>
+`;
+
+// Titolo sempre visibile in alto a sinistra (sotto lo zoom, spostato in
+// basso a destra - vedi sopra) + un bottone "i" che apre/chiude una
+// breve descrizione del progetto, e un bottone condividi. Non dipende
+// dai dati del geojson, quindi viene aggiunto alla mappa subito, non
+// dentro il fetch().
 const InfoControl = L.Control.extend({
   options: { position: "topleft" },
 
@@ -338,11 +418,20 @@ const InfoControl = L.Control.extend({
 
     const header = L.DomUtil.create("div", "tt-info-header", card);
     const title = L.DomUtil.create("h1", "tt-info-title", header);
-    title.textContent = "\u{1F3D3} Tavoli da Ping Pong in Italia";
-    const toggle = L.DomUtil.create("button", "tt-info-toggle", header);
-    toggle.type = "button";
-    toggle.textContent = "\u{2139}\u{FE0F}";
-    toggle.setAttribute("aria-label", "Informazioni su questa mappa");
+    // Icona ed etichetta separate come per i box Zona/Filtri: su mobile
+    // la media query nasconde solo l'etichetta, tenendo il titolo compatto.
+    L.DomUtil.create("span", "tt-panel-icon", title).textContent = "\u{1F3D3}";
+    L.DomUtil.create("span", "tt-panel-label", title).textContent = "Tavoli da Ping Pong in Italia";
+
+    const infoToggle = L.DomUtil.create("button", "tt-info-toggle", header);
+    infoToggle.type = "button";
+    infoToggle.textContent = "\u{2139}\u{FE0F}";
+    infoToggle.setAttribute("aria-label", "Informazioni su questa mappa");
+
+    const shareButton = L.DomUtil.create("button", "tt-info-toggle", header);
+    shareButton.type = "button";
+    shareButton.innerHTML = SHARE_ICON_SVG;
+    shareButton.setAttribute("aria-label", "Condividi questa vista");
 
     const body = L.DomUtil.create("div", "tt-info-body", card);
     body.innerHTML = `
@@ -356,7 +445,29 @@ const InfoControl = L.Control.extend({
       questa mappa viene rigenerata periodicamente dai dati aggiornati.</p>
     `;
 
-    toggle.addEventListener("click", () => body.classList.toggle("open"));
+    infoToggle.addEventListener("click", () => body.classList.toggle("open"));
+
+    // L'URL e' gia' sincronizzato in automatico (syncUrl()) ad ogni pan/
+    // zoom/filtro, quindi qui basta condividere/copiare window.location
+    // cosi' com'e' - nessun calcolo aggiuntivo al click.
+    shareButton.addEventListener("click", async () => {
+      const url = window.location.href;
+      if (navigator.share) {
+        try {
+          await navigator.share({ title: document.title, url });
+        } catch (error) {
+          // L'utente ha annullato la condivisione - non e' un errore.
+        }
+        return;
+      }
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(url);
+        shareButton.textContent = "✅";
+        setTimeout(() => {
+          shareButton.innerHTML = SHARE_ICON_SVG;
+        }, 1500);
+      }
+    });
 
     L.DomEvent.disableClickPropagation(wrapper);
     L.DomEvent.disableScrollPropagation(wrapper);
@@ -458,7 +569,9 @@ fetch(GEOJSON_URL)
     filtersControl._features = data.features;
     filtersControl.addTo(map);
 
-    applyFilters();
+    // Se l'URL specificava gia' una vista precisa (link condiviso), non
+    // sovrascriverla con il fitBounds automatico sui risultati filtrati.
+    applyFilters({ fitBounds: !urlState.view });
   })
   .catch((error) => {
     console.error("Errore nel caricamento di", GEOJSON_URL, error);

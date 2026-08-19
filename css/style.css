@@ -65,6 +65,9 @@ body {
 
 .tt-info-title {
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: 14px;
   font-weight: 600;
   color: #222;
@@ -84,6 +87,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #1a7f37;
 }
 
 .tt-info-body {
@@ -233,6 +237,13 @@ body {
   line-height: 1;
 }
 
+/* Icona ed etichetta separate nei toggle dei box Zona/Filtri e nel
+   titolo (vedi buildFilterPanel()/InfoControl in js/app.js) - sotto i
+   600px si nasconde solo .tt-panel-label, tenendo i pulsanti compatti. */
+.tt-panel-icon {
+  line-height: 1;
+}
+
 .tt-filter-row select {
   font-size: 12px;
   padding: 5px 8px;
@@ -267,6 +278,7 @@ body {
 @media (max-width: 600px) {
   .tt-filters-toggle {
     display: flex;
+    padding: 9px 12px;
   }
 
   .tt-filters {
@@ -278,6 +290,16 @@ body {
 
   .tt-filters.open {
     display: block;
+  }
+
+  /* Box a sola icona su schermi piccoli (titolo, Zona, Filtri) - la
+     label resta leggibile aprendo il pannello/l'info, dove c'e' spazio. */
+  .tt-panel-label {
+    display: none;
+  }
+
+  .tt-info-card {
+    padding: 8px 10px;
   }
 }
 
