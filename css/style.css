@@ -216,6 +216,47 @@ body {
   white-space: nowrap;
 }
 
+.tt-filters-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tt-filters-reset {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: none;
+  border: none;
+  padding: 2px 4px;
+  color: #1a7f37;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tt-filters-reset:hover {
+  text-decoration: underline;
+}
+
+/* Intestazione delle due sezioni interne del pannello filtri unico
+   (Zona, Caratteristiche) - vedi buildFilterSectionHeading() in
+   js/app.js. */
+.tt-filter-section {
+  margin: 12px 0 2px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a7f37;
+}
+
+.tt-filter-section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
 .tt-filter-row {
   display: flex;
   align-items: center;
@@ -237,9 +278,10 @@ body {
   line-height: 1;
 }
 
-/* Icona ed etichetta separate nei toggle dei box Zona/Filtri e nel
-   titolo (vedi buildFilterPanel()/InfoControl in js/app.js) - sotto i
-   600px si nasconde solo .tt-panel-label, tenendo i pulsanti compatti. */
+/* Icona ed etichetta separate nel toggle del pannello filtri, nel
+   pulsante Azzera e nel titolo (vedi buildFilterPanel()/InfoControl in
+   js/app.js) - sotto i 600px si nasconde solo .tt-panel-label, tenendo
+   i pulsanti compatti. */
 .tt-panel-icon {
   line-height: 1;
 }
@@ -292,8 +334,9 @@ body {
     display: block;
   }
 
-  /* Box a sola icona su schermi piccoli (titolo, Zona, Filtri) - la
-     label resta leggibile aprendo il pannello/l'info, dove c'e' spazio. */
+  /* Box a sola icona su schermi piccoli (titolo, toggle Filtri, pulsante
+     Azzera) - la label resta leggibile aprendo il pannello/l'info, dove
+     c'e' spazio. */
   .tt-panel-label {
     display: none;
   }

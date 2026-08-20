@@ -89,11 +89,6 @@
     "images": [],
     "extra": {}
   },
-  "9802083025": {
-    "name": "Granze",
-    "images": [],
-    "extra": {}
-  },
   "14103467826": {
     "name": "Cadoneghe - Parco della Speranza",
     "images": ["images/Cadoneghe_ParcoSperanza.jpeg"],
@@ -114,14 +109,39 @@
     "images": ["images/Cadoneghe_ParcoSperanza.jpeg"],
     "extra": {}
   },
+  "9802083025": {
+    "name": "Padova - Granze di Camin",
+    "images": ["images/Granze.jpg"],
+    "extra": {}
+  },
+  "14107203127": {
+    "name": "Torri di Quartesolo",
+    "images": ["images/TorriDiQuartesolo.jpg"],
+    "extra": {}
+  },
+  "14108348592": {
+    "name": "Padova, Pontevigodarzere - Giardino dei Berberis",
+    "images": ["images/Pontevigodarzere_GiardinoBerberis.jpeg"],
+    "extra": {}
+  },
+  "14107204194": {
+    "name": "Arzignano",
+    "images": ["images/Arzignano.jpeg"],
+    "extra": {}
+  },
+  "14107204195": {
+    "name": "Arzignano",
+    "images": ["images/Arzignano.jpeg"],
+    "extra": {}
+  },
   "9778629863": {
     "name": "Giardini dell'Oasi",
-    "images": [],
+    "images": ["images/Rubano_GiardiniOasi.jpg"],
     "extra": {}
   },
   "9778629864": {
     "name": "Giardini dell'Oasi",
-    "images": [],
+    "images": ["images/Rubano_GiardiniOasi.jpg"],
     "extra": {}
   }
 }

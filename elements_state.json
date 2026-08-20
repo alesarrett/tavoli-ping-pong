@@ -2908,8 +2908,8 @@
     "version": 2,
     "lon": 9.3247757,
     "lat": 45.5292791,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Parco Lord Baden Powell",
+    "area_verde_resolved": true
   },
   "13330267315": {
     "version": 1,
@@ -3084,7 +3084,7 @@
     "lon": 9.2122293,
     "lat": 45.4678672,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13811228350": {
     "version": 2,
@@ -3210,126 +3210,126 @@
     "lon": 11.1734308,
     "lat": 44.6402787,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13942354377": {
     "version": 1,
     "lon": 11.178869,
     "lat": 44.6475922,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13949347850": {
     "version": 1,
     "lon": 16.1590527,
     "lat": 41.7608824,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13952614915": {
     "version": 1,
     "lon": 10.2713102,
     "lat": 43.8291702,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13952614918": {
     "version": 1,
     "lon": 10.2713438,
     "lat": 43.8291778,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13954541329": {
     "version": 1,
     "lon": 13.2461035,
     "lat": 46.0594272,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Parco Martiri delle Foibe",
+    "area_verde_resolved": true
   },
   "13959301669": {
     "version": 1,
     "lon": 11.0102588,
     "lat": 45.4573194,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13959301670": {
     "version": 1,
     "lon": 11.0102581,
     "lat": 45.4572677,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13970811617": {
     "version": 1,
     "lon": 8.7403516,
     "lat": 45.6713827,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13971885541": {
     "version": 1,
     "lon": 13.0031903,
     "lat": 45.6302044,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13971885542": {
     "version": 1,
     "lon": 13.0032881,
     "lat": 45.6302017,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13971885543": {
     "version": 1,
     "lon": 13.0032404,
     "lat": 45.6302032,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13982377119": {
     "version": 1,
     "lon": 7.5493074,
     "lat": 45.0756111,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Giardino La Mandorla",
+    "area_verde_resolved": true
   },
   "13982558587": {
     "version": 1,
     "lon": 11.6880328,
     "lat": 45.5187982,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13982680133": {
     "version": 1,
     "lon": 11.5701713,
     "lat": 45.5701531,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "13987000741": {
     "version": 1,
     "lon": 13.1344053,
     "lat": 45.6819367,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14007703077": {
     "version": 2,
     "lon": 12.1928269,
     "lat": 46.736071,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14007703078": {
     "version": 2,
     "lon": 12.1926245,
     "lat": 46.7361031,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14017872428": {
     "version": 1,
@@ -3461,6 +3461,41 @@
     "version": 1,
     "lon": 11.9281349,
     "lat": 45.4411158,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14107129594": {
+    "version": 1,
+    "lon": 11.4405616,
+    "lat": 45.5002072,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14107203127": {
+    "version": 1,
+    "lon": 11.6100691,
+    "lat": 45.5265922,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14107204194": {
+    "version": 1,
+    "lon": 11.3359621,
+    "lat": 45.527706,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14107204195": {
+    "version": 1,
+    "lon": 11.3357797,
+    "lat": 45.5277619,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14108348592": {
+    "version": 1,
+    "lon": 11.8982044,
+    "lat": 45.4421492,
     "area_verde": null,
     "area_verde_resolved": false
   },
@@ -3767,8 +3802,8 @@
   },
   "845630000": {
     "version": 1,
-    "lon": 9.0505443,
-    "lat": 45.521565,
+    "lon": 9.0505317,
+    "lat": 45.5217065,
     "area_verde": null,
     "area_verde_resolved": false
   },

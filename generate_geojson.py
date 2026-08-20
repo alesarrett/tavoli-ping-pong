@@ -245,12 +245,13 @@ def representative_coordinates(geometry):
 
 
 def build_maps_url(geometry):
-    """Link universale Google Maps (routing) per la posizione della feature."""
+    """Link universale Google Maps che apre sul punto (non avvia il percorso -
+    l'utente sceglie poi se navigare) per la posizione della feature."""
     coordinates = representative_coordinates(geometry)
     if coordinates is None:
         return None
     lon, lat = coordinates
-    return f"https://www.google.com/maps/dir/?api=1&destination={lat},{lon}"
+    return f"https://www.google.com/maps/search/?api=1&query={lat},{lon}"
 
 
 def find_containment(point, boundaries):
