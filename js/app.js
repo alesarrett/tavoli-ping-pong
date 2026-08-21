@@ -379,7 +379,7 @@ const FilterControl = L.Control.extend({
     const panel = buildFilterPanel(wrapper, "\u{1F50D}", "Filtri", features);
 
     // --- Zona: Regione e Provincia, cascata nei due versi -----------
-    buildFilterSectionHeading(panel, "\u{1F5FA}\u{FE0F} Zona");
+    buildFilterSectionHeading(panel, "Zona");
 
     const provinceByRegione = new Map();
     const regioneByProvincia = new Map();
@@ -456,7 +456,7 @@ const FilterControl = L.Control.extend({
     );
 
     // --- Filtri: caratteristiche del tavolo --------------------------
-    buildFilterSectionHeading(panel, "\u{1F9F1} Caratteristiche");
+    buildFilterSectionHeading(panel, "Caratteristiche");
     for (const [key, label, icon] of FILTERABLE_PROPERTIES) {
       buildFilterRow(panel, key, label, icon, deriveOptions(features, key), "Tutti");
     }

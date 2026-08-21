@@ -225,7 +225,7 @@ body {
 .tt-filters-reset {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 4px;
   background: none;
   border: none;
   padding: 2px 4px;
@@ -237,6 +237,14 @@ body {
 
 .tt-filters-reset:hover {
   text-decoration: underline;
+}
+
+/* Il simbolo "↺" da solo, alla stessa dimensione del testo del
+   pulsante, risultava troppo piccolo/poco visibile - ingrandito qui
+   invece che alzando il font-size di tutto .tt-filters-reset (la
+   scritta "Azzera" resta leggibile alla sua dimensione). */
+.tt-filters-reset .tt-panel-icon {
+  font-size: 18px;
 }
 
 /* Intestazione delle due sezioni interne del pannello filtri unico
@@ -334,11 +342,25 @@ body {
     display: block;
   }
 
-  /* Box a sola icona su schermi piccoli (titolo, toggle Filtri, pulsante
-     Azzera) - la label resta leggibile aprendo il pannello/l'info, dove
-     c'e' spazio. */
+  /* Box a sola icona su schermi piccoli per titolo e toggle Filtri (i
+     due elementi sempre visibili, dove lo spazio scarseggia davvero). */
   .tt-panel-label {
     display: none;
+  }
+
+  /* Il pulsante Azzera pero' vive dentro il pannello gia' espanso (non
+     nel toggle collassato), dove lo spazio per la scritta c'e' -
+     riportarla visibile qui sovrascrive la regola generica sopra. */
+  .tt-filters-reset .tt-panel-label {
+    display: inline;
+  }
+
+  /* Stesso discorso per il titolo quando si apre la card informazioni
+     ("i"): a quel punto la card e' gia' espansa (con la descrizione
+     sotto), quindi c'e' spazio per far ricomparire anche il testo del
+     titolo, non solo l'icona. */
+  .tt-info-card:has(.tt-info-body.open) .tt-panel-label {
+    display: inline;
   }
 
   .tt-info-card {
