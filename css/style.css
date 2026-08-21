@@ -119,9 +119,35 @@ body {
 
 /* Popup */
 
-.popup-content h3 {
+.popup-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   margin: 0 0 8px;
+}
+
+.popup-content h3 {
+  margin: 0;
   font-size: 16px;
+}
+
+/* Bottone "condividi questo tavolo" - stesso trattamento (icona SVG
+   condivisa, SHARE_ICON_SVG) del bottone condividi nell'header, ma piu'
+   piccolo per stare a fianco al titolo dentro al popup. */
+.popup-share-btn {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: #e6f4ea;
+  border: none;
+  border-radius: 50%;
+  color: #1a7f37;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .popup-row {
@@ -136,19 +162,30 @@ body {
   color: #555;
 }
 
-/* Leaflet's own CSS has ".leaflet-container a { color: #0078A8; }", which
-   beats a single ".popup-maps-btn" class selector on specificity — hence
-   the extra ".popup-content" qualifier to win the cascade with white text. */
-.popup-content .popup-maps-btn {
-  display: inline-block;
+/* Bottoni link esterni del popup (Maps/OSM) - vedi buildPopupLinkButton()
+   in js/app.js. Stile neutro condiviso (niente piu' sfondo colorato
+   diverso per ciascuno: l'icona davanti al testo basta a distinguerli),
+   uno sotto l'altro sempre (display:flex, non inline-block - altrimenti
+   in un popup abbastanza largo finivano affiancati sulla stessa riga
+   invece che impilati). Leaflet's own CSS has
+   ".leaflet-container a { color: #0078A8; }", which beats a single
+   ".popup-link-btn" class selector on specificity — hence the extra
+   ".popup-content" qualifier to win the cascade. */
+.popup-content .popup-link-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   margin-top: 8px;
   padding: 6px 10px;
-  background: #1a73e8;
-  color: #fff;
+  background: #f2f2f2;
+  color: #222;
   text-decoration: none;
   border-radius: 4px;
   font-size: 13px;
-  white-space: nowrap;
+}
+
+.popup-content .popup-link-btn:hover {
+  background: #e6e6e6;
 }
 
 .popup-thumbs {

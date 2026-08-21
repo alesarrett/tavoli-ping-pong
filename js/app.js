@@ -41,7 +41,12 @@ function readStateFromUrl() {
     Number.isFinite(lat) && Number.isFinite(lng) && Number.isFinite(zoom)
       ? { lat, lng, zoom }
       : null;
-  return { view, filters };
+  // Link "condividi questo tavolo" (vedi buildShareTavoloUrl()): porta
+  // sempre anche lat/lng/zoom gia' centrati su quel tavolo, quindi non
+  // serve altra logica qui oltre a leggere l'id - la vista e' gia'
+  // gestita dal campo "view" sopra.
+  const id = params.get("id");
+  return { view, filters, id };
 }
 
 const urlState = readStateFromUrl();
@@ -134,13 +139,86 @@ function keepPopupInView(imgEl) {
   }
 }
 
-function buildPopupContent(properties) {
+// Prova la Web Share API (mobile: apre il foglio di condivisione nativo),
+// altrimenti copia negli appunti - stessa logica sia per "condividi
+// questa vista" (InfoControl) che per "condividi questo tavolo" (popup),
+// centralizzata qui per non duplicare il try/catch in due punti.
+async function shareUrl(url, onCopied) {
+  if (navigator.share) {
+    try {
+      await navigator.share({ title: document.title, url });
+    } catch (error) {
+      // L'utente ha annullato la condivisione - non e' un errore.
+    }
+    return;
+  }
+  if (navigator.clipboard) {
+    await navigator.clipboard.writeText(url);
+    if (onCopied) onCopied();
+  }
+}
+
+// Link diretto a un singolo tavolo: id (per riaprirne il popup al
+// caricamento - vedi readStateFromUrl()) piu' lat/lng/zoom gia' centrati
+// su di lui, cosi' chi apre il link lo vede sempre, indipendentemente
+// dai filtri eventualmente attivi su chi lo ha condiviso (il link non li
+// porta con se').
+function buildShareTavoloUrl(id, [lng, lat]) {
+  const params = new URLSearchParams();
+  params.set("id", id);
+  params.set("lat", lat.toFixed(5));
+  params.set("lng", lng.toFixed(5));
+  params.set("zoom", "18");
+  return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+}
+
+// Bottone link esterno del popup (Maps/OSM): stile neutro condiviso,
+// l'icona davanti al testo distingue le due piattaforme invece di uno
+// sfondo colorato per ciascuna (nessun hex "ufficiale" di brand certo
+// da usare comunque, e le emoji sono coerenti con lo stile a icone gia'
+// usato ovunque nell'app).
+function buildPopupLinkButton(url, icon, label) {
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener";
+  link.className = "popup-link-btn";
+  const iconEl = document.createElement("span");
+  iconEl.textContent = icon;
+  const labelEl = document.createElement("span");
+  labelEl.textContent = label;
+  link.append(iconEl, labelEl);
+  return link;
+}
+
+function buildPopupContent(properties, coordinates) {
   const container = document.createElement("div");
   container.className = "popup-content";
 
+  const titleRow = document.createElement("div");
+  titleRow.className = "popup-title-row";
   const title = document.createElement("h3");
   title.textContent = properties.name;
-  container.appendChild(title);
+  titleRow.appendChild(title);
+
+  if (properties.id && coordinates) {
+    const shareButton = document.createElement("button");
+    shareButton.type = "button";
+    shareButton.className = "popup-share-btn";
+    shareButton.innerHTML = SHARE_ICON_SVG;
+    shareButton.setAttribute("aria-label", "Condividi questo tavolo");
+    shareButton.addEventListener("click", () =>
+      shareUrl(buildShareTavoloUrl(properties.id, coordinates), () => {
+        shareButton.innerHTML = "✅";
+        setTimeout(() => {
+          shareButton.innerHTML = SHARE_ICON_SVG;
+        }, 1500);
+      })
+    );
+    titleRow.appendChild(shareButton);
+  }
+
+  container.appendChild(titleRow);
 
   for (const [key, label] of FILTERABLE_PROPERTIES) {
     if (properties[key] !== undefined) {
@@ -153,13 +231,11 @@ function buildPopupContent(properties) {
   }
 
   if (properties.maps_url) {
-    const link = document.createElement("a");
-    link.href = properties.maps_url;
-    link.target = "_blank";
-    link.rel = "noopener";
-    link.className = "popup-maps-btn";
-    link.textContent = "Apri in Google Maps";
-    container.appendChild(link);
+    container.appendChild(buildPopupLinkButton(properties.maps_url, "\u{1F4CD}", "Apri in Google Maps"));
+  }
+
+  if (properties.osm_url) {
+    container.appendChild(buildPopupLinkButton(properties.osm_url, "\u{1F30D}", "Apri su OpenStreetMap"));
   }
 
   const images = properties.images || [];
@@ -525,24 +601,14 @@ const InfoControl = L.Control.extend({
     // L'URL e' gia' sincronizzato in automatico (syncUrl()) ad ogni pan/
     // zoom/filtro, quindi qui basta condividere/copiare window.location
     // cosi' com'e' - nessun calcolo aggiuntivo al click.
-    shareButton.addEventListener("click", async () => {
-      const url = window.location.href;
-      if (navigator.share) {
-        try {
-          await navigator.share({ title: document.title, url });
-        } catch (error) {
-          // L'utente ha annullato la condivisione - non e' un errore.
-        }
-        return;
-      }
-      if (navigator.clipboard) {
-        await navigator.clipboard.writeText(url);
+    shareButton.addEventListener("click", () =>
+      shareUrl(window.location.href, () => {
         shareButton.textContent = "✅";
         setTimeout(() => {
           shareButton.innerHTML = SHARE_ICON_SVG;
         }, 1500);
-      }
-    });
+      })
+    );
 
     L.DomEvent.disableClickPropagation(wrapper);
     L.DomEvent.disableScrollPropagation(wrapper);
@@ -638,7 +704,7 @@ fetch(GEOJSON_URL)
         return L.marker(latlng, { icon: pingPongIcon });
       },
       onEachFeature(feature, layer) {
-        layer.bindPopup(() => buildPopupContent(feature.properties), {
+        layer.bindPopup(() => buildPopupContent(feature.properties, feature.geometry.coordinates), {
           maxWidth: 320,
           minWidth: 240,
           // Extra top padding keeps the popup from opening under the
@@ -666,6 +732,16 @@ fetch(GEOJSON_URL)
     // Se l'URL specificava gia' una vista precisa (link condiviso), non
     // sovrascriverla con il fitBounds automatico sui risultati filtrati.
     applyFilters({ fitBounds: !urlState.view });
+
+    // Link "condividi questo tavolo" (vedi buildShareTavoloUrl()): riapre
+    // subito il popup del tavolo in questione. La vista e' gia' quella
+    // giusta (urlState.view, letta sopra) e i filtri del link sono
+    // volutamente assenti, quindi il tavolo e' sempre visibile a
+    // prescindere dai filtri di chi lo ha condiviso.
+    if (urlState.id) {
+      const entry = markerEntries.find((e) => e.feature.properties.id === urlState.id);
+      if (entry) entry.layer.openPopup();
+    }
   })
   .catch((error) => {
     console.error("Errore nel caricamento di", GEOJSON_URL, error);

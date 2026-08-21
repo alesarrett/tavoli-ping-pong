@@ -187,7 +187,7 @@ def build_filter_properties(tags):
     return properties
 
 
-def build_description(tags, images, extra, maps_url):
+def build_description(tags, images, extra, maps_url, osm_url):
     lines = []
     for key, label in POPUP_TAGS:
         value = tags.get(key)
@@ -212,6 +212,8 @@ def build_description(tags, images, extra, maps_url):
     if maps_url:
         # Sintassi uMap per i link: [[url|testo]] (non Markdown [testo](url)).
         lines.append(f"[[{maps_url}|Apri in Google Maps]]")
+    if osm_url:
+        lines.append(f"[[{osm_url}|Apri su OpenStreetMap]]")
     return "\n".join(lines)
 
 
@@ -252,6 +254,13 @@ def build_maps_url(geometry):
         return None
     lon, lat = coordinates
     return f"https://www.google.com/maps/search/?api=1&query={lat},{lon}"
+
+
+def build_osm_url(element):
+    """Link alla pagina OSM dell'elemento sorgente (node o way, mai
+    relation - vedi element_to_geometry()) cosi' si puo' verificare/
+    correggere il dato direttamente alla fonte."""
+    return f"https://www.openstreetmap.org/{element['type']}/{element['id']}"
 
 
 def find_containment(point, boundaries):
@@ -313,10 +322,12 @@ def build_auto_name(comune, area_verde):
 
 def element_to_feature(element, geometry, overrides, containment, area_verde):
     tags = element.get("tags", {})
-    override = overrides.get(str(element["id"]), {})
+    element_id = str(element["id"])
+    override = overrides.get(element_id, {})
     images = override.get("images", [])
     extra = override.get("extra", {})
     maps_url = build_maps_url(geometry)
+    osm_url = build_osm_url(element)
 
     if tags.get("name"):
         name = tags["name"]
@@ -326,11 +337,13 @@ def element_to_feature(element, geometry, overrides, containment, area_verde):
         name = build_auto_name(containment.get("comune"), area_verde)
 
     properties = {
+        "id": element_id,
         "name": name,
-        "description": build_description(tags, images, extra, maps_url),
+        "description": build_description(tags, images, extra, maps_url, osm_url),
         "images": [build_image_url(path) for path in images],
         "extra": extra,
         "maps_url": maps_url,
+        "osm_url": osm_url,
     }
     properties.update(build_filter_properties(tags))
     for key in GEO_FILTER_PROPERTIES:
