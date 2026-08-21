@@ -609,6 +609,22 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowRight") showNext(event);
 });
 
+// Chiude il pannello filtri e la card informazioni al click fuori da
+// essi - altrimenti su mobile l'unico modo per richiuderli e' ricliccare
+// esattamente sul loro toggle, non ovvio per chi non l'ha aperto lui
+// stesso. Va escluso esplicitamente ogni click dentro ai due wrapper
+// (non basta L.DomEvent.disableClickPropagation(): per il 'click' usa
+// un flag interno di Leaflet, controllato solo dal click handler della
+// mappa - non e' un vero stopPropagation DOM, quindi l'evento arriva
+// comunque fin qui e senza questo controllo richiuderebbe il pannello
+// nello stesso click che lo ha appena aperto).
+document.addEventListener("click", (event) => {
+  if (event.target.closest(".tt-filters-wrapper, .tt-info-wrapper")) return;
+  document
+    .querySelectorAll(".tt-filters.open, .tt-info-body.open")
+    .forEach((el) => el.classList.remove("open"));
+});
+
 // Load data
 
 fetch(GEOJSON_URL)
