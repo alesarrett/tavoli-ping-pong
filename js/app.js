@@ -24,6 +24,11 @@ const ZONE_PROPERTIES = [
 
 const GEOJSON_URL = "tavoli_italia.geojson";
 
+// Indirizzo a cui chi vuole contribuire una foto puo' scrivere - vedi
+// buildEmailUrl(). Dedicato al progetto (non l'email personale del
+// maintainer), visto che finisce pubblico nel sorgente del sito.
+const CONTRIB_EMAIL = "pingpong.crestless933@passmail.com";
+
 // Legge vista (lat/lng/zoom) e filtri dalla query string, cosi' un URL
 // copiato/condiviso riproduce esattamente lo stato della mappa - vedi
 // syncUrl() piu' sotto, che scrive nella direzione opposta.
@@ -79,6 +84,13 @@ const pingPongIcon = L.divIcon({
   popupAnchor: [0, -28],
 });
 
+// Zoom a cui i marker non vengono mai piu' raggruppati in cluster (vedi
+// sotto) - anche il link "condividi questo tavolo"/apertura da ?id=
+// punta a questo stesso zoom, cosi' il marker target e' sempre gia'
+// sciolto dal cluster quando si prova ad aprirne il popup (vedi piu'
+// sotto per il perche').
+const CLUSTER_DISABLE_ZOOM = 19;
+
 // Con migliaia di tavoli in tutta Italia la mappa sarebbe illeggibile a
 // zoom bassi - il cluster aggrega i marker vicini in un unico pallino
 // col conteggio, che si "apre" salendo di zoom (default del plugin).
@@ -86,7 +98,7 @@ const markerCluster = L.markerClusterGroup({
   // Senza questo, due tavoli molto vicini (es. nello stesso parco)
   // restano aggregati anche al massimo zoom della mappa - qui vogliamo
   // invece che allo zoom massimo si vedano sempre i marker singoli.
-  disableClusteringAtZoom: 19,
+  disableClusteringAtZoom: CLUSTER_DISABLE_ZOOM,
   iconCreateFunction(cluster) {
     return L.divIcon({
       className: "tt-cluster",
@@ -100,12 +112,6 @@ const markerEntries = []; // { feature, layer }
 // Pre-popolato dall'URL: le select dei filtri si auto-selezionano di
 // conseguenza in buildFilterRow(), nessun altro cablaggio necessario.
 const currentFilters = { ...urlState.filters };
-
-// Spazio da lasciare libero in alto per non far aprire i popup sotto il
-// pannello filtri in alto a destra (desktop, espanso di default). Usato
-// sia dall'autoPan iniziale del popup che dal ri-pan quando un'immagine
-// finisce di caricare in ritardo.
-const POPUP_TOP_CLEARANCE = 230;
 
 function capitalize(text) {
   return text.charAt(0).toUpperCase() + text.slice(1);
@@ -123,20 +129,60 @@ function addRow(container, label, value) {
   container.appendChild(row);
 }
 
-// Leaflet's autoPan runs once when the popup opens, sized to its content
-// at that moment. Popup images load asynchronously and grow the popup
-// afterwards, so a second, targeted pan is needed once each image loads
-// (only pans if the popup's top is still hidden, e.g. under the filters
-// control near the top of the viewport).
-function keepPopupInView(imgEl) {
-  const popupEl = imgEl.closest(".leaflet-popup");
-  if (!popupEl) return;
-  const mapTop = map.getContainer().getBoundingClientRect().top;
-  const popupTop = popupEl.getBoundingClientRect().top;
-  const overflow = mapTop + POPUP_TOP_CLEARANCE - popupTop;
-  if (overflow > 0) {
-    map.panBy([0, -overflow], { animate: true });
+// Posizionamento del popup: invece di inseguire i bordi della viewport
+// con dei margini (il vecchio approccio basato sull'autoPan nativo di
+// Leaflet, disattivato qui sotto con autoPan:false - si e' rivelato
+// fragile: bastava una card in un angolo o un'immagine che finiva di
+// caricare per farlo sballare, vedi commit precedenti) si fa in due
+// passi geometrici espliciti, uno per asse:
+//
+// 1) centerMarkerHorizontally(): appena il popup si apre, centra SUBITO
+//    l'icona del marker a meta' larghezza della mappa - la larghezza del
+//    popup e' gia' nota/stabile da subito (maxWidth/minWidth fissi, solo
+//    l'ALTEZZA cresce con le immagini), quindi l'orizzontale si sistema
+//    una volta sola e non ha bisogno di essere ricalcolato.
+// 2) centerPopupBlockVertically(): una volta che il popup ha le sue
+//    dimensioni finali (con eventuali immagini gia' caricate), centra
+//    verticalmente il blocco COMPLETO icona+popup, cosi' l'insieme (non
+//    solo il marker) sta in mezzo allo schermo - il che tiene entrambi
+//    lontani per costruzione dalle card in alto (Filtri/Info) senza
+//    doverne conoscere le dimensioni.
+//
+// Il passo 2 gira con un piccolo debounce (scheduleCenterPopupBlock):
+// va rieseguito ad ogni immagine che finisce di caricare (i popup con
+// foto crescono in modo asincrono), ma raggruppando piu' 'load' vicini
+// in un solo ricalcolo invece di uno per immagine evita di misurare la
+// geometria a meta' di una correzione precedente.
+function centerMarkerHorizontally(layer) {
+  const mapRect = map.getContainer().getBoundingClientRect();
+  const point = map.latLngToContainerPoint(layer.getLatLng());
+  const deltaX = point.x - mapRect.width / 2;
+  if (Math.abs(deltaX) > 1) {
+    map.panBy([deltaX, 0], { animate: false });
   }
+}
+
+function centerPopupBlockVertically(layer) {
+  const popupEl = layer.getPopup()?.getElement();
+  const markerEl = layer.getElement();
+  if (!popupEl || !markerEl) return;
+  const mapRect = map.getContainer().getBoundingClientRect();
+  const popupRect = popupEl.getBoundingClientRect();
+  const markerRect = markerEl.getBoundingClientRect();
+  const blockTop = Math.min(popupRect.top, markerRect.top);
+  const blockBottom = Math.max(popupRect.bottom, markerRect.bottom);
+  const blockMid = (blockTop + blockBottom) / 2;
+  const viewportMid = mapRect.top + mapRect.height / 2;
+  const deltaY = blockMid - viewportMid;
+  if (Math.abs(deltaY) > 1) {
+    map.panBy([0, deltaY], { animate: false });
+  }
+}
+
+let popupCenterTimer = null;
+function scheduleCenterPopupBlock(layer) {
+  clearTimeout(popupCenterTimer);
+  popupCenterTimer = setTimeout(() => centerPopupBlockVertically(layer), 80);
 }
 
 // Prova la Web Share API (mobile: apre il foglio di condivisione nativo),
@@ -168,20 +214,45 @@ function buildShareTavoloUrl(id, [lng, lat]) {
   params.set("id", id);
   params.set("lat", lat.toFixed(5));
   params.set("lng", lng.toFixed(5));
-  params.set("zoom", "18");
+  params.set("zoom", CLUSTER_DISABLE_ZOOM);
   return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
 }
 
-// Bottone link esterno del popup (Maps/OSM): stile neutro condiviso,
-// l'icona davanti al testo distingue le due piattaforme invece di uno
-// sfondo colorato per ciascuna (nessun hex "ufficiale" di brand certo
-// da usare comunque, e le emoji sono coerenti con lo stile a icone gia'
-// usato ovunque nell'app).
+// Email precompilata per contribuire una foto: oggetto/corpo gia'
+// riempiti col tavolo giusto (nome + link alla mappa, riusando
+// buildShareTavoloUrl() - cosi' chi riceve la mail apre lo stesso link
+// "condividi questo tavolo" e vede subito di quale si tratta) - la foto
+// va allegata a mano, un mailto: non puo' portare un allegato (limite
+// del protocollo, non aggirabile lato client).
+function buildEmailUrl(properties, coordinates) {
+  const subject = `Foto tavolo: ${properties.name}`;
+  const mapUrl = buildShareTavoloUrl(properties.id, coordinates);
+  const body = [
+    `Vorrei contribuire alla mappa dei Tavoli da Ping Pong in Italia con una foto del tavolo "${properties.name}" e URL per visualizzarlo in mappa: ${mapUrl}`,
+    "",
+    "Dichiaro che la foto è mia o che ne detengo i diritti e ne autorizzo la pubblicazione sul sito.",
+  ].join("\n");
+  // encodeURIComponent, non URLSearchParams: un mailto: (RFC 6068) vuole
+  // gli spazi percent-encoded (%20), non "+" come nella query string di
+  // un URL http normale - alcuni client di posta trattano "+" alla
+  // lettera invece che come spazio.
+  return `mailto:${CONTRIB_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+// Bottone link esterno del popup (Maps/OSM/email): stile neutro
+// condiviso, l'icona davanti al testo distingue le tre destinazioni
+// invece di uno sfondo colorato per ciascuna (nessun hex "ufficiale" di
+// brand certo da usare comunque, e le emoji sono coerenti con lo stile
+// a icone gia' usato ovunque nell'app). target/rel solo sui link http:
+// per un mailto: aprirebbero comunque il client di posta, ma target
+// "_blank" puo' lasciare una scheda vuota aperta in alcuni browser.
 function buildPopupLinkButton(url, icon, label) {
   const link = document.createElement("a");
   link.href = url;
-  link.target = "_blank";
-  link.rel = "noopener";
+  if (!url.startsWith("mailto:")) {
+    link.target = "_blank";
+    link.rel = "noopener";
+  }
   link.className = "popup-link-btn";
   const iconEl = document.createElement("span");
   iconEl.textContent = icon;
@@ -191,7 +262,7 @@ function buildPopupLinkButton(url, icon, label) {
   return link;
 }
 
-function buildPopupContent(properties, coordinates) {
+function buildPopupContent(properties, coordinates, layer) {
   const container = document.createElement("div");
   container.className = "popup-content";
 
@@ -238,6 +309,12 @@ function buildPopupContent(properties, coordinates) {
     container.appendChild(buildPopupLinkButton(properties.osm_url, "\u{1F30D}", "Apri su OpenStreetMap"));
   }
 
+  if (properties.id && coordinates) {
+    container.appendChild(
+      buildPopupLinkButton(buildEmailUrl(properties, coordinates), "\u{1F4E7}", "Invia foto via email")
+    );
+  }
+
   const images = properties.images || [];
   if (images.length > 0) {
     const thumbs = document.createElement("div");
@@ -248,7 +325,7 @@ function buildPopupContent(properties, coordinates) {
       img.loading = "lazy";
       img.alt = properties.name;
       img.addEventListener("click", () => openLightbox(images, index));
-      img.addEventListener("load", () => keepPopupInView(img));
+      img.addEventListener("load", () => scheduleCenterPopupBlock(layer));
       thumbs.appendChild(img);
     });
     container.appendChild(thumbs);
@@ -704,21 +781,19 @@ fetch(GEOJSON_URL)
         return L.marker(latlng, { icon: pingPongIcon });
       },
       onEachFeature(feature, layer) {
-        layer.bindPopup(() => buildPopupContent(feature.properties, feature.geometry.coordinates), {
+        layer.bindPopup(() => buildPopupContent(feature.properties, feature.geometry.coordinates, layer), {
           maxWidth: 320,
           minWidth: 240,
-          // Extra top padding keeps the popup from opening under the
-          // Filtri control (top-right) when the marker is near the top
-          // of the viewport; Leaflet's default 5px autoPan padding isn't
-          // enough to clear it.
-          autoPanPaddingTopLeft: L.point(20, POPUP_TOP_CLEARANCE),
-          // Extra bottom padding: autoPan only guarantees the *popup*
-          // fits the viewport, but the marker icon sits below it
-          // (popupAnchor pushes the popup 28px above the marker, plus
-          // the popup's own tail) - without this the icon itself can end
-          // up right at/under the bottom edge on small screens after
-          // panning. 80 = marker height (28) + tail (~20) + margin.
-          autoPanPaddingBottomRight: L.point(20, 80),
+          // autoPan nativo disattivato - la centratura orizzontale del
+          // marker + verticale del blocco icona+popup (vedi
+          // centerMarkerHorizontally()/centerPopupBlockVertically()
+          // sopra) sostituisce interamente la logica di Leaflet basata
+          // su margini dai bordi.
+          autoPan: false,
+        });
+        layer.on("popupopen", () => {
+          centerMarkerHorizontally(layer);
+          scheduleCenterPopupBlock(layer);
         });
         markerCluster.addLayer(layer);
         markerEntries.push({ feature, layer });
@@ -740,7 +815,25 @@ fetch(GEOJSON_URL)
     // prescindere dai filtri di chi lo ha condiviso.
     if (urlState.id) {
       const entry = markerEntries.find((e) => e.feature.properties.id === urlState.id);
-      if (entry) entry.layer.openPopup();
+      if (entry) {
+        // Se lo zoom richiesto (es. un vecchio link, o uno costruito a
+        // mano) e' sotto la soglia a cui i cluster si sciolgono, il
+        // marker potrebbe essere ancora dentro a un cluster: aprire un
+        // popup su un marker cosi' fa scattare lo zoom-automatico-per-
+        // rivelarlo di Leaflet.markercluster, la cui animazione interagisce
+        // male con la centratura fatta al popupopen (vedi sopra) e in
+        // certi casi il popup finisce mal posizionato e si richiude da
+        // solo poco dopo. Forzare subito lo zoom minimo evita del tutto
+        // quel percorso - animate:
+        // false e' essenziale qui, non solo un dettaglio: uno zoom animato
+        // (il default) lascerebbe la mappa a meta' transizione mentre la
+        // riga successiva apre gia' il popup, ed e' proprio quella
+        // sovrapposizione a produrre il comportamento descritto sopra.
+        if (map.getZoom() < CLUSTER_DISABLE_ZOOM) {
+          map.setZoom(CLUSTER_DISABLE_ZOOM, { animate: false });
+        }
+        entry.layer.openPopup();
+      }
     }
   })
   .catch((error) => {
