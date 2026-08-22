@@ -32,6 +32,10 @@ body {
   line-height: 1;
 }
 
+.tt-marker-dot-report {
+  background: #d9480f;
+}
+
 .tt-cluster-dot {
   width: 36px;
   height: 36px;
@@ -115,6 +119,82 @@ body {
 .tt-info-body a {
   color: #1a7f37;
   font-weight: 600;
+}
+
+/* Segnala tavolo mancante - vedi ReportMissingControl in js/app.js */
+
+.tt-report-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.tt-report-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a7f37;
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 14px rgba(20, 30, 20, 0.3);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s, background-color 0.15s;
+}
+
+/* Ruotato a 45deg il "+" diventa visivamente una "x" - segnale in piu'
+   (oltre al colore e al bottone "Annulla" nel banner) che premendolo di
+   nuovo si esce dalla modalita' "tocca il punto sulla mappa". */
+.tt-report-toggle.active {
+  background: #d9480f;
+  transform: rotate(45deg);
+}
+
+.tt-report-hint {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  color: #222;
+  padding: 8px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(20, 30, 20, 0.2);
+  font-size: 12px;
+  font-weight: 600;
+  max-width: min(70vw, 260px);
+}
+
+.tt-report-hint.visible {
+  display: flex;
+}
+
+.tt-report-cancel {
+  flex: 0 0 auto;
+  background: #f2f2f2;
+  border: none;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+}
+
+/* Cursore a mirino sulla mappa mentre la modalita' e' attiva - il "punto
+   esatto" da cliccare va segnalato chiaramente, non basta il banner. */
+#map.tt-report-cursor {
+  cursor: crosshair;
+}
+
+.popup-report-hint {
+  font-size: 12px;
+  color: #555;
+  margin: 0 0 8px;
 }
 
 /* Popup */

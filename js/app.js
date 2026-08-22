@@ -84,6 +84,18 @@ const pingPongIcon = L.divIcon({
   popupAnchor: [0, -28],
 });
 
+// Marker temporaneo del punto scelto per segnalare un tavolo mancante -
+// stesso divIcon del marker normale ma colore diverso (arancio invece di
+// verde) cosi' non si confonde con un tavolo gia' censito - vedi
+// ReportMissingControl.
+const reportMarkerIcon = L.divIcon({
+  className: "tt-marker",
+  html: '<div class="tt-marker-dot tt-marker-dot-report"><span>➕</span></div>',
+  iconSize: [28, 28],
+  iconAnchor: [14, 28],
+  popupAnchor: [0, -28],
+});
+
 // Zoom a cui i marker non vengono mai piu' raggruppati in cluster (vedi
 // sotto) - anche il link "condividi questo tavolo"/apertura da ?id=
 // punta a questo stesso zoom, cosi' il marker target e' sempre gia'
@@ -237,6 +249,60 @@ function buildEmailUrl(properties, coordinates) {
   // un URL http normale - alcuni client di posta trattano "+" alla
   // lettera invece che come spazio.
   return `mailto:${CONTRIB_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+// Email precompilata per segnalare un tavolo MANCANTE (non ancora sulla
+// mappa) nel punto scelto - vedi ReportMissingControl. A differenza di
+// buildEmailUrl() qui non c'e' nessun "properties" da citare (il tavolo
+// non esiste ancora nei dati), solo le coordinate cliccate.
+function buildMissingTableEmailUrl(latlng) {
+  const lat = latlng.lat.toFixed(5);
+  const lng = latlng.lng.toFixed(5);
+  const subject = "Tavolo da ping pong mancante sulla mappa";
+  const body = [
+    `Segnalo un tavolo da ping pong che non compare sulla mappa, in questa posizione: ${lat}, ${lng}`,
+    `Google Maps: https://www.google.com/maps/search/?api=1&query=${lat},${lng}`,
+    "",
+    "Altri dettagli utili (indirizzo, nome del parco, foto se disponibile):",
+  ].join("\n");
+  return `mailto:${CONTRIB_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+// Pagina "aggiungi nota" di openstreetmap.org gia' centrata sul punto
+// scelto (zoom alto, quello del punto da segnalare) - chi contribuisce
+// direttamente ai dati sorgente non deve prima cercare a mano
+// l'indirizzo su OSM. Il testo della nota non e' precompilabile via URL
+// (limite di OSM, non aggirabile lato client): resta da scrivere li'.
+function buildOsmNoteUrl(latlng) {
+  const lat = latlng.lat.toFixed(5);
+  const lng = latlng.lng.toFixed(5);
+  return `https://www.openstreetmap.org/note/new#map=19/${lat}/${lng}`;
+}
+
+// Contenuto del popup del marker temporaneo piazzato da
+// ReportMissingControl: due modi per segnalare lo stesso punto, stessi
+// bottoni-link neutri gia' usati nel popup dei tavoli esistenti.
+function buildReportPopupContent(latlng) {
+  const container = document.createElement("div");
+  container.className = "popup-content";
+
+  const title = document.createElement("h3");
+  title.textContent = "Segnala un tavolo mancante";
+  container.appendChild(title);
+
+  const hint = document.createElement("p");
+  hint.className = "popup-report-hint";
+  hint.textContent = "Come preferisci segnalarlo in questa posizione?";
+  container.appendChild(hint);
+
+  container.appendChild(
+    buildPopupLinkButton(buildMissingTableEmailUrl(latlng), "\u{1F4E7}", "Segnala via email")
+  );
+  container.appendChild(
+    buildPopupLinkButton(buildOsmNoteUrl(latlng), "\u{1F4CD}", "Aggiungi una nota su OpenStreetMap")
+  );
+
+  return container;
 }
 
 // Bottone link esterno del popup (Maps/OSM/email): stile neutro
@@ -695,6 +761,78 @@ const InfoControl = L.Control.extend({
 });
 
 new InfoControl().addTo(map);
+
+// Segnala tavolo mancante -------------------------------------------
+//
+// Pulsante "+" in basso a destra (accanto allo zoom): attiva una
+// modalita' "tocca il punto sulla mappa" invece di usare il centro
+// vista corrente (impreciso, dipende da quanto l'utente ha centrato la
+// zona) o il GPS del dispositivo (inutile se si sta guardando la mappa
+// da un'altra zona) - il click successivo sulla mappa cattura le
+// coordinate esatte del tavolo mancante.
+let reportModeActive = false;
+let reportMarker = null;
+
+function setReportMode(active, toggleButton, hintEl) {
+  reportModeActive = active;
+  toggleButton.classList.toggle("active", active);
+  hintEl.classList.toggle("visible", active);
+  map.getContainer().classList.toggle("tt-report-cursor", active);
+}
+
+// Marker temporaneo (non fa parte dei dati, solo un riferimento visivo
+// del punto scelto) - rimosso alla chiusura del suo stesso popup, cosi'
+// non resta un marker "fantasma" in giro dopo la segnalazione.
+function placeReportMarker(latlng) {
+  if (reportMarker) map.removeLayer(reportMarker);
+  reportMarker = L.marker(latlng, { icon: reportMarkerIcon }).addTo(map);
+  reportMarker.bindPopup(() => buildReportPopupContent(latlng), {
+    maxWidth: 280,
+    minWidth: 220,
+  });
+  reportMarker.on("popupclose", () => {
+    if (reportMarker) {
+      map.removeLayer(reportMarker);
+      reportMarker = null;
+    }
+  });
+  reportMarker.openPopup();
+}
+
+const ReportMissingControl = L.Control.extend({
+  options: { position: "bottomright" },
+
+  onAdd() {
+    const wrapper = L.DomUtil.create("div", "tt-report-wrapper");
+
+    const hint = L.DomUtil.create("div", "tt-report-hint", wrapper);
+    L.DomUtil.create("span", "", hint).textContent = "Tocca sulla mappa il punto del tavolo mancante";
+    const cancelButton = L.DomUtil.create("button", "tt-report-cancel", hint);
+    cancelButton.type = "button";
+    cancelButton.textContent = "Annulla";
+
+    const toggle = L.DomUtil.create("button", "tt-report-toggle", wrapper);
+    toggle.type = "button";
+    toggle.textContent = "+";
+    toggle.setAttribute("aria-label", "Segnala un tavolo mancante");
+
+    toggle.addEventListener("click", () => setReportMode(!reportModeActive, toggle, hint));
+    cancelButton.addEventListener("click", () => setReportMode(false, toggle, hint));
+
+    map.on("click", (event) => {
+      if (!reportModeActive) return;
+      setReportMode(false, toggle, hint);
+      placeReportMarker(event.latlng);
+    });
+
+    L.DomEvent.disableClickPropagation(wrapper);
+    L.DomEvent.disableScrollPropagation(wrapper);
+
+    return wrapper;
+  },
+});
+
+new ReportMissingControl().addTo(map);
 
 // Lightbox
 
