@@ -10912,7 +10912,7 @@
       },
       "properties": {
         "id": "14079829220",
-        "name": "Caorle",
+        "name": "Caorle - Parco Altanea",
         "description": "[[https://www.google.com/maps/search/?api=1&query=45.5761688,12.8296215|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14079829220|Apri su OpenStreetMap]]",
         "images": [],
         "extra": {},
@@ -10934,7 +10934,7 @@
       },
       "properties": {
         "id": "14094124065",
-        "name": "Firenze",
+        "name": "Firenze - Giardino dell'Ardiglione",
         "description": "[[https://www.google.com/maps/search/?api=1&query=43.76722,11.2444537|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14094124065|Apri su OpenStreetMap]]",
         "images": [],
         "extra": {},
@@ -11043,9 +11043,11 @@
       },
       "properties": {
         "id": "14096792275",
-        "name": "Giardino dei Ciliegi",
-        "description": "- **Rete**: no\n[[https://www.google.com/maps/search/?api=1&query=45.4365882,11.889517|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14096792275|Apri su OpenStreetMap]]",
-        "images": [],
+        "name": "Padova - Giardino dei Ciliegi",
+        "description": "- **Rete**: no\n<a href=\"https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Padova_GiardinoCiliegi.jpeg\" target=\"_blank\" rel=\"noopener\"><img src=\"https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Padova_GiardinoCiliegi.jpeg\"></a>\n[[https://www.google.com/maps/search/?api=1&query=45.4365882,11.889517|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14096792275|Apri su OpenStreetMap]]",
+        "images": [
+          "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Padova_GiardinoCiliegi.jpeg"
+        ],
         "extra": {},
         "maps_url": "https://www.google.com/maps/search/?api=1&query=45.4365882,11.889517",
         "osm_url": "https://www.openstreetmap.org/node/14096792275",
@@ -11443,7 +11445,7 @@
       },
       "properties": {
         "id": "75689903",
-        "name": "Trento",
+        "name": "Trento - Giardino Ines Pisoni",
         "description": "[[https://www.google.com/maps/search/?api=1&query=46.057288,11.126121|Apri in Google Maps]]\n[[https://www.openstreetmap.org/way/75689903|Apri su OpenStreetMap]]",
         "images": [],
         "extra": {},
@@ -11654,7 +11656,7 @@
       },
       "properties": {
         "id": "79860146",
-        "name": "Trento",
+        "name": "Trento - Giardino Aleksandr Isaevič Solženicyn",
         "description": "[[https://www.google.com/maps/search/?api=1&query=46.0631402,11.1260175|Apri in Google Maps]]\n[[https://www.openstreetmap.org/way/79860146|Apri su OpenStreetMap]]",
         "images": [],
         "extra": {},

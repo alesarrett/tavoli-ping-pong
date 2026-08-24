@@ -187,13 +187,11 @@ def build_filter_properties(tags):
     return properties
 
 
-def build_description(tags, images, extra, maps_url, osm_url):
-    lines = []
-    for key, label in POPUP_TAGS:
-        value = tags.get(key)
-        if value:
-            value = VALUE_TRANSLATIONS.get(value, value)
-            lines.append(f"- **{label}**: {value}")
+def build_description_lines(tag_lines, images, extra, maps_url, osm_url):
+    """Coda comune di build_description()/build_description_from_properties():
+    le righe extra/immagini/link, che non dipendono da dove vengono le
+    righe sui tag (OSM grezzi o proprieta' gia' tradotte dell'output)."""
+    lines = list(tag_lines)
     for key, value in extra.items():
         lines.append(f"- **{key.capitalize()}**: {value}")
     for relative_path in images:
@@ -215,6 +213,31 @@ def build_description(tags, images, extra, maps_url, osm_url):
     if osm_url:
         lines.append(f"[[{osm_url}|Apri su OpenStreetMap]]")
     return "\n".join(lines)
+
+
+def build_description(tags, images, extra, maps_url, osm_url):
+    tag_lines = []
+    for key, label in POPUP_TAGS:
+        value = tags.get(key)
+        if value:
+            value = VALUE_TRANSLATIONS.get(value, value)
+            tag_lines.append(f"- **{label}**: {value}")
+    return build_description_lines(tag_lines, images, extra, maps_url, osm_url)
+
+
+def build_description_from_properties(properties, images, extra, maps_url, osm_url):
+    """Come build_description(), ma parte dalle proprieta' piatte gia'
+    presenti in un GeoJSON di output invece che dai tag OSM grezzi -
+    usata da --overrides-only, che rilegge l'output di un run precedente
+    e non ha percio' a disposizione i tag originali dell'elemento."""
+    tag_to_property = {tag_key: prop_name for prop_name, tag_key in FILTER_PROPERTIES.items()}
+    tag_lines = []
+    for tag_key, label in POPUP_TAGS:
+        prop_name = tag_to_property.get(tag_key)
+        value = properties.get(prop_name) if prop_name else None
+        if value:
+            tag_lines.append(f"- **{label}**: {value}")
+    return build_description_lines(tag_lines, images, extra, maps_url, osm_url)
 
 
 def element_to_geometry(element):
@@ -426,6 +449,49 @@ def write_output(output_path, features, new_state):
         json.dump(new_state, f, ensure_ascii=False, indent=2)
 
 
+def run_overrides_only(output_path):
+    """Riapplica overrides.json (images/extra/description) a un
+    tavoli_italia.geojson gia' esistente, senza contattare Overpass.
+    Pensata per il caso comune "ho solo aggiunto/cambiato una foto o un
+    campo extra" - non serve rifare il fetch nazionale (lento, ~1 minuto
+    anche in condizioni normali) solo per questo.
+
+    NON tocca "name": la logica a tre livelli di element_to_feature()
+    da' priorita' al tag OSM "name" sull'override, ma qui non abbiamo i
+    tag OSM grezzi (solo l'output di un run precedente) per sapere se
+    quel livello 1 si applica - toccare il nome rischierebbe di
+    sovrascrivere silenziosamente un nome OSM legittimo con l'override.
+    Per un cambio di nome, o per un tavolo nuovo/spostato (coordinate,
+    area verde, comune/provincia/regione), serve un run completo."""
+    if not os.path.exists(output_path):
+        raise SystemExit(
+            f"{output_path} non esiste: --overrides-only rilegge l'output di un run "
+            "completo precedente. Lanciare prima lo script senza questo flag."
+        )
+
+    with open(output_path, encoding="utf-8") as f:
+        geojson = json.load(f)
+    overrides = load_overrides()
+
+    for feature in geojson["features"]:
+        properties = feature["properties"]
+        override = overrides.get(properties["id"], {})
+        images = override.get("images", [])
+        extra = override.get("extra", {})
+        properties["images"] = [build_image_url(path) for path in images]
+        properties["extra"] = extra
+        properties["description"] = build_description_from_properties(
+            properties, images, extra, properties.get("maps_url"), properties.get("osm_url")
+        )
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(geojson, f, ensure_ascii=False, indent=2)
+    print(
+        f"Modalita' --overrides-only: riapplicati gli override a {len(geojson['features'])} "
+        f"feature in {output_path} (nessuna query a Overpass, 'name' non toccato)."
+    )
+
+
 def main():
     # Senza line-buffering i print() restano nel buffer di Python finche'
     # non si riempie o il processo termina, quindi se l'output e' su file
@@ -435,8 +501,13 @@ def main():
 
     args = sys.argv[1:]
     skip_green_lookup = "--skip-green-lookup" in args
-    args = [a for a in args if a != "--skip-green-lookup"]
+    overrides_only = "--overrides-only" in args
+    args = [a for a in args if a not in ("--skip-green-lookup", "--overrides-only")]
     output_path = args[0] if args else "tavoli_italia.geojson"
+
+    if overrides_only:
+        run_overrides_only(output_path)
+        return
 
     elements = fetch_elements()
     overrides = load_overrides()

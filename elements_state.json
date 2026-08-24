@@ -3336,224 +3336,224 @@
     "lon": 11.113607,
     "lat": 44.2901516,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14018943320": {
     "version": 1,
     "lon": 12.6287891,
     "lat": 45.4985957,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14040093802": {
     "version": 1,
     "lon": 10.5493682,
     "lat": 45.5752175,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14041723088": {
     "version": 1,
     "lon": 10.5494333,
     "lat": 45.5752037,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14048260889": {
     "version": 1,
     "lon": 7.6330176,
     "lat": 45.051146,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14048284016": {
     "version": 1,
     "lon": 7.6329943,
     "lat": 45.0511461,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14050696768": {
     "version": 1,
     "lon": 9.3204308,
     "lat": 45.3613144,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14062049071": {
     "version": 1,
     "lon": 9.3215068,
     "lat": 45.5204073,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14079829220": {
     "version": 1,
     "lon": 12.8296215,
     "lat": 45.5761688,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Parco Altanea",
+    "area_verde_resolved": true
   },
   "14094124065": {
     "version": 1,
     "lon": 11.2444537,
     "lat": 43.76722,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Giardino dell'Ardiglione",
+    "area_verde_resolved": true
   },
   "14094424039": {
     "version": 5,
     "lon": 11.8429934,
     "lat": 45.3616818,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Parco Majorana",
+    "area_verde_resolved": true
   },
   "14096244246": {
     "version": 1,
     "lon": 11.971841,
     "lat": 45.4126796,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Parco \"I Cedri\"",
+    "area_verde_resolved": true
   },
   "14096244247": {
     "version": 1,
     "lon": 11.9717916,
     "lat": 45.412564,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Parco \"I Cedri\"",
+    "area_verde_resolved": true
   },
   "14096792275": {
     "version": 1,
     "lon": 11.889517,
     "lat": 45.4365882,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Giardino dei Ciliegi",
+    "area_verde_resolved": true
   },
   "14099373440": {
     "version": 1,
     "lon": 14.1843304,
     "lat": 42.0418595,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14103467826": {
     "version": 1,
     "lon": 11.9282301,
     "lat": 45.4412701,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Parco della Speranza",
+    "area_verde_resolved": true
   },
   "14103467827": {
     "version": 1,
     "lon": 11.9281697,
     "lat": 45.4412221,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Parco della Speranza",
+    "area_verde_resolved": true
   },
   "14103467828": {
     "version": 1,
     "lon": 11.9282006,
     "lat": 45.4411619,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Parco della Speranza",
+    "area_verde_resolved": true
   },
   "14103467829": {
     "version": 1,
     "lon": 11.9281349,
     "lat": 45.4411158,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Parco della Speranza",
+    "area_verde_resolved": true
   },
   "14107129594": {
     "version": 1,
     "lon": 11.4405616,
     "lat": 45.5002072,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14107203127": {
     "version": 1,
     "lon": 11.6100691,
     "lat": 45.5265922,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14107204194": {
     "version": 1,
     "lon": 11.3359621,
     "lat": 45.527706,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14107204195": {
     "version": 1,
     "lon": 11.3357797,
     "lat": 45.5277619,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14108348592": {
     "version": 1,
     "lon": 11.8982044,
     "lat": 45.4421492,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Giardino dei Berberis",
+    "area_verde_resolved": true
   },
   "40742767": {
     "version": 3,
     "lon": 11.6644077,
     "lat": 46.7151361,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "50443675": {
     "version": 1,
     "lon": 11.6588957,
     "lat": 46.7081653,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "75689903": {
     "version": 2,
     "lon": 11.126121,
     "lat": 46.057288,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Giardino Ines Pisoni",
+    "area_verde_resolved": true
   },
   "78762667": {
     "version": 2,
     "lon": 11.662455,
     "lat": 46.708554,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "78762687": {
     "version": 2,
     "lon": 11.6625235,
     "lat": 46.7085396,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "78762691": {
     "version": 1,
     "lon": 11.6626714,
     "lat": 46.7100052,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "78768603": {
     "version": 1,
     "lon": 11.6585258,
     "lat": 46.7041771,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "79860146": {
     "version": 4,
     "lon": 11.1260175,
     "lat": 46.0631402,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Giardino Aleksandr Isaevič Solženicyn",
+    "area_verde_resolved": true
   },
   "81241009": {
     "version": 3,
@@ -3567,49 +3567,49 @@
     "lon": 11.6175944,
     "lat": 43.4453679,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "172712716": {
     "version": 3,
     "lon": 10.7214095,
     "lat": 42.9371746,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "185816245": {
     "version": 2,
     "lon": 12.3047414,
     "lat": 45.1920875,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "193950793": {
     "version": 1,
     "lon": 16.5679406,
     "lat": 38.573988,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "221445932": {
     "version": 2,
     "lon": 11.3953243,
     "lat": 45.6618523,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "223138327": {
     "version": 1,
     "lon": 16.5589097,
     "lat": 38.5847695,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "224475892": {
     "version": 2,
     "lon": 11.6797264,
     "lat": 44.3400981,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "224680158": {
     "version": 2,
