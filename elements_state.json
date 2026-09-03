@@ -1218,7 +1218,7 @@
     "area_verde_resolved": true
   },
   "9803115397": {
-    "version": 2,
+    "version": 3,
     "lon": 11.8342347,
     "lat": 45.4089959,
     "area_verde": "Parco Brentelle",
@@ -1232,7 +1232,7 @@
     "area_verde_resolved": true
   },
   "9803115399": {
-    "version": 2,
+    "version": 3,
     "lon": 11.8341869,
     "lat": 45.4089955,
     "area_verde": "Parco Brentelle",
@@ -2096,13 +2096,6 @@
     "version": 1,
     "lon": 10.9540866,
     "lat": 45.4499979,
-    "area_verde": null,
-    "area_verde_resolved": true
-  },
-  "12044772707": {
-    "version": 1,
-    "lon": 12.640859,
-    "lat": 45.502715,
     "area_verde": null,
     "area_verde_resolved": true
   },
@@ -3423,7 +3416,7 @@
     "area_verde_resolved": true
   },
   "14096792275": {
-    "version": 1,
+    "version": 2,
     "lon": 11.889517,
     "lat": 45.4365882,
     "area_verde": "Giardino dei Ciliegi",
@@ -3498,6 +3491,48 @@
     "lat": 45.4421492,
     "area_verde": "Giardino dei Berberis",
     "area_verde_resolved": true
+  },
+  "14132095749": {
+    "version": 1,
+    "lon": 17.1338129,
+    "lat": 40.7898603,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14136447259": {
+    "version": 1,
+    "lon": 10.7639938,
+    "lat": 45.8781229,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14139586455": {
+    "version": 1,
+    "lon": 9.1752002,
+    "lat": 45.4762935,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14139586456": {
+    "version": 1,
+    "lon": 9.175341,
+    "lat": 45.476312,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14142148470": {
+    "version": 1,
+    "lon": 9.5517267,
+    "lat": 45.0537122,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14144112354": {
+    "version": 1,
+    "lon": 12.1105763,
+    "lat": 45.4873237,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "40742767": {
     "version": 3,

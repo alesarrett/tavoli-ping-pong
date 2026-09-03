@@ -6777,28 +6777,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          12.640859,
-          45.502715
-        ]
-      },
-      "properties": {
-        "id": "12044772707",
-        "name": "Jesolo",
-        "description": "[[https://www.google.com/maps/search/?api=1&query=45.502715,12.640859|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/12044772707|Apri su OpenStreetMap]]",
-        "images": [],
-        "extra": {},
-        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.502715,12.640859",
-        "osm_url": "https://www.openstreetmap.org/node/12044772707",
-        "comune": "Jesolo",
-        "provincia": "Venezia",
-        "regione": "Veneto"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           12.6429414,
           45.5035945
         ]
@@ -11044,14 +11022,16 @@
       "properties": {
         "id": "14096792275",
         "name": "Padova - Giardino dei Ciliegi",
-        "description": "- **Rete**: no\n<a href=\"https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Padova_GiardinoCiliegi.jpeg\" target=\"_blank\" rel=\"noopener\"><img src=\"https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Padova_GiardinoCiliegi.jpeg\"></a>\n[[https://www.google.com/maps/search/?api=1&query=45.4365882,11.889517|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14096792275|Apri su OpenStreetMap]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: no\n<a href=\"https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Padova_GiardinoCiliegi.jpeg\" target=\"_blank\" rel=\"noopener\"><img src=\"https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Padova_GiardinoCiliegi.jpeg\"></a>\n[[https://www.google.com/maps/search/?api=1&query=45.4365882,11.889517|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14096792275|Apri su OpenStreetMap]]",
         "images": [
           "https://raw.githubusercontent.com/alesarrett/tavoli-ping-pong/main/images/Padova_GiardinoCiliegi.jpeg"
         ],
         "extra": {},
         "maps_url": "https://www.google.com/maps/search/?api=1&query=45.4365882,11.889517",
         "osm_url": "https://www.openstreetmap.org/node/14096792275",
+        "material": "cemento",
         "net": "no",
+        "access": "sì",
         "covered": "no",
         "comune": "Padova",
         "provincia": "Padova",
@@ -11327,6 +11307,145 @@
         "covered": "no",
         "comune": "Padova",
         "provincia": "Padova",
+        "regione": "Veneto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.1338129,
+          40.7898603
+        ]
+      },
+      "properties": {
+        "id": "14132095749",
+        "name": "Noci",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=40.7898603,17.1338129|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14132095749|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=40.7898603,17.1338129",
+        "osm_url": "https://www.openstreetmap.org/node/14132095749",
+        "access": "sì",
+        "covered": "no",
+        "comune": "Noci",
+        "provincia": "Bari",
+        "regione": "Puglia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.7639938,
+          45.8781229
+        ]
+      },
+      "properties": {
+        "id": "14136447259",
+        "name": "Ledro",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.8781229,10.7639938|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14136447259|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.8781229,10.7639938",
+        "osm_url": "https://www.openstreetmap.org/node/14136447259",
+        "comune": "Ledro",
+        "provincia": "Provincia di Trento",
+        "regione": "Trentino-Alto Adige/Südtirol"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1752002,
+          45.4762935
+        ]
+      },
+      "properties": {
+        "id": "14139586455",
+        "name": "Milano",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.4762935,9.1752002|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14139586455|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.4762935,9.1752002",
+        "osm_url": "https://www.openstreetmap.org/node/14139586455",
+        "comune": "Milano",
+        "provincia": "Milano",
+        "regione": "Lombardia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.175341,
+          45.476312
+        ]
+      },
+      "properties": {
+        "id": "14139586456",
+        "name": "Milano",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.476312,9.175341|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14139586456|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.476312,9.175341",
+        "osm_url": "https://www.openstreetmap.org/node/14139586456",
+        "comune": "Milano",
+        "provincia": "Milano",
+        "regione": "Lombardia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.5517267,
+          45.0537122
+        ]
+      },
+      "properties": {
+        "id": "14142148470",
+        "name": "Rottofreno",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.0537122,9.5517267|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14142148470|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.0537122,9.5517267",
+        "osm_url": "https://www.openstreetmap.org/node/14142148470",
+        "comune": "Rottofreno",
+        "provincia": "Piacenza",
+        "regione": "Emilia-Romagna"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.1105763,
+          45.4873237
+        ]
+      },
+      "properties": {
+        "id": "14144112354",
+        "name": "Mirano",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/search/?api=1&query=45.4873237,12.1105763|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14144112354|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.4873237,12.1105763",
+        "osm_url": "https://www.openstreetmap.org/node/14144112354",
+        "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
+        "access": "sì",
+        "covered": "no",
+        "comune": "Mirano",
+        "provincia": "Venezia",
         "regione": "Veneto"
       }
     },
