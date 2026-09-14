@@ -2593,11 +2593,16 @@
       "properties": {
         "id": "8264310313",
         "name": "Pergine Valsugana",
-        "description": "[[https://www.google.com/maps/search/?api=1&query=46.0385653,11.2379882|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/8264310313|Apri su OpenStreetMap]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/search/?api=1&query=46.0385653,11.2379882|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/8264310313|Apri su OpenStreetMap]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/search/?api=1&query=46.0385653,11.2379882",
         "osm_url": "https://www.openstreetmap.org/node/8264310313",
+        "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
+        "access": "sì",
+        "covered": "no",
         "comune": "Pergine Valsugana",
         "provincia": "Provincia di Trento",
         "regione": "Trentino-Alto Adige/Südtirol"
@@ -10354,7 +10359,7 @@
       },
       "properties": {
         "id": "13949347850",
-        "name": "tavolo da ping pong",
+        "name": "Mattinata",
         "description": "[[https://www.google.com/maps/search/?api=1&query=41.7608824,16.1590527|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/13949347850|Apri su OpenStreetMap]]",
         "images": [],
         "extra": {},
@@ -11452,6 +11457,189 @@
     {
       "type": "Feature",
       "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1307259,
+          45.4411146
+        ]
+      },
+      "properties": {
+        "id": "14157682276",
+        "name": "Milano",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.4411146,9.1307259|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14157682276|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.4411146,9.1307259",
+        "osm_url": "https://www.openstreetmap.org/node/14157682276",
+        "access": "sì",
+        "comune": "Milano",
+        "provincia": "Milano",
+        "regione": "Lombardia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.130698,
+          45.4410691
+        ]
+      },
+      "properties": {
+        "id": "14157682277",
+        "name": "Milano",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.4410691,9.130698|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14157682277|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.4410691,9.130698",
+        "osm_url": "https://www.openstreetmap.org/node/14157682277",
+        "access": "sì",
+        "comune": "Milano",
+        "provincia": "Milano",
+        "regione": "Lombardia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.2466922,
+          45.4199006
+        ]
+      },
+      "properties": {
+        "id": "14160876890",
+        "name": "Soave - Parco Comunale",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.4199006,11.2466922|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14160876890|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.4199006,11.2466922",
+        "osm_url": "https://www.openstreetmap.org/node/14160876890",
+        "comune": "Soave",
+        "provincia": "Verona",
+        "regione": "Veneto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1819977,
+          45.4491042
+        ]
+      },
+      "properties": {
+        "id": "14172903808",
+        "name": "Milano",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.4491042,9.1819977|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14172903808|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.4491042,9.1819977",
+        "osm_url": "https://www.openstreetmap.org/node/14172903808",
+        "comune": "Milano",
+        "provincia": "Milano",
+        "regione": "Lombardia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.1818849,
+          45.4490903
+        ]
+      },
+      "properties": {
+        "id": "14172903809",
+        "name": "Milano",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.4490903,9.1818849|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14172903809|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.4490903,9.1818849",
+        "osm_url": "https://www.openstreetmap.org/node/14172903809",
+        "comune": "Milano",
+        "provincia": "Milano",
+        "regione": "Lombardia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.4982775,
+          45.7540831
+        ]
+      },
+      "properties": {
+        "id": "14178756698",
+        "name": "Idro",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.7540831,10.4982775|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14178756698|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.7540831,10.4982775",
+        "osm_url": "https://www.openstreetmap.org/node/14178756698",
+        "comune": "Idro",
+        "provincia": "Brescia",
+        "regione": "Lombardia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.4982964,
+          45.7540499
+        ]
+      },
+      "properties": {
+        "id": "14178756699",
+        "name": "Idro",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.7540499,10.4982964|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14178756699|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.7540499,10.4982964",
+        "osm_url": "https://www.openstreetmap.org/node/14178756699",
+        "comune": "Idro",
+        "provincia": "Brescia",
+        "regione": "Lombardia"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.8655927,
+          45.3569221
+        ]
+      },
+      "properties": {
+        "id": "14179785238",
+        "name": "Albignasego - Parco del quartiere Ferri",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n- **Materiale rete**: metallo\n[[https://www.google.com/maps/search/?api=1&query=45.3569221,11.8655927|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14179785238|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.3569221,11.8655927",
+        "osm_url": "https://www.openstreetmap.org/node/14179785238",
+        "material": "cemento",
+        "net": "sì",
+        "net_material": "metallo",
+        "access": "sì",
+        "covered": "no",
+        "comune": "Albignasego",
+        "provincia": "Padova",
+        "regione": "Veneto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
@@ -12198,7 +12386,7 @@
       },
       "properties": {
         "id": "241555893",
-        "name": "Trento",
+        "name": "Trento - Giardino del Moschen",
         "description": "[[https://www.google.com/maps/search/?api=1&query=46.0747578,11.1147724|Apri in Google Maps]]\n[[https://www.openstreetmap.org/way/241555893|Apri su OpenStreetMap]]",
         "images": [],
         "extra": {},
@@ -16389,6 +16577,48 @@
         "comune": "Ameglia",
         "provincia": "La Spezia",
         "regione": "Liguria"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.3369338,
+              44.8113331
+            ],
+            [
+              10.336909,
+              44.8112711
+            ],
+            [
+              10.3371132,
+              44.8112301
+            ],
+            [
+              10.337138,
+              44.8112922
+            ],
+            [
+              10.3369338,
+              44.8113331
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "id": "1556527665",
+        "name": "Parma",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=44.8113331,10.3369338|Apri in Google Maps]]\n[[https://www.openstreetmap.org/way/1556527665|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=44.8113331,10.3369338",
+        "osm_url": "https://www.openstreetmap.org/way/1556527665",
+        "comune": "Parma",
+        "provincia": "Parma",
+        "regione": "Emilia-Romagna"
       }
     }
   ]

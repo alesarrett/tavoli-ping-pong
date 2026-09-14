@@ -812,7 +812,7 @@
     "area_verde_resolved": true
   },
   "8264310313": {
-    "version": 2,
+    "version": 3,
     "lon": 11.2379882,
     "lat": 46.0385653,
     "area_verde": null,
@@ -3213,7 +3213,7 @@
     "area_verde_resolved": true
   },
   "13949347850": {
-    "version": 1,
+    "version": 2,
     "lon": 16.1590527,
     "lat": 41.7608824,
     "area_verde": null,
@@ -3497,35 +3497,35 @@
     "lon": 17.1338129,
     "lat": 40.7898603,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14136447259": {
     "version": 1,
     "lon": 10.7639938,
     "lat": 45.8781229,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14139586455": {
     "version": 1,
     "lon": 9.1752002,
     "lat": 45.4762935,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14139586456": {
     "version": 1,
     "lon": 9.175341,
     "lat": 45.476312,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14142148470": {
     "version": 1,
     "lon": 9.5517267,
     "lat": 45.0537122,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "14144112354": {
     "version": 1,
@@ -3533,6 +3533,62 @@
     "lat": 45.4873237,
     "area_verde": null,
     "area_verde_resolved": false
+  },
+  "14157682276": {
+    "version": 1,
+    "lon": 9.1307259,
+    "lat": 45.4411146,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "14157682277": {
+    "version": 1,
+    "lon": 9.130698,
+    "lat": 45.4410691,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "14160876890": {
+    "version": 1,
+    "lon": 11.2466922,
+    "lat": 45.4199006,
+    "area_verde": "Parco Comunale",
+    "area_verde_resolved": true
+  },
+  "14172903808": {
+    "version": 1,
+    "lon": 9.1819977,
+    "lat": 45.4491042,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "14172903809": {
+    "version": 1,
+    "lon": 9.1818849,
+    "lat": 45.4490903,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "14178756698": {
+    "version": 1,
+    "lon": 10.4982775,
+    "lat": 45.7540831,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "14178756699": {
+    "version": 1,
+    "lon": 10.4982964,
+    "lat": 45.7540499,
+    "area_verde": null,
+    "area_verde_resolved": true
+  },
+  "14179785238": {
+    "version": 1,
+    "lon": 11.8655927,
+    "lat": 45.3569221,
+    "area_verde": "Parco del quartiere Ferri",
+    "area_verde_resolved": true
   },
   "40742767": {
     "version": 3,
@@ -3595,7 +3651,7 @@
     "lon": 8.4548801,
     "lat": 45.1322344,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "116703018": {
     "version": 1,
@@ -3651,35 +3707,35 @@
     "lon": 10.8644801,
     "lat": 45.8930425,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "241555893": {
     "version": 3,
     "lon": 11.1147724,
     "lat": 46.0747578,
-    "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde": "Giardino del Moschen",
+    "area_verde_resolved": true
   },
   "256837122": {
     "version": 2,
     "lon": 12.5787294,
     "lat": 45.4810862,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "289415063": {
     "version": 1,
     "lon": 11.1193888,
     "lat": 46.0612132,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "361369455": {
     "version": 1,
     "lon": 13.4566962,
     "lat": 45.6965773,
     "area_verde": null,
-    "area_verde_resolved": false
+    "area_verde_resolved": true
   },
   "412672314": {
     "version": 2,
@@ -4343,6 +4399,13 @@
     "version": 1,
     "lon": 9.9851587,
     "lat": 44.0661269,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "1556527665": {
+    "version": 1,
+    "lon": 10.3369338,
+    "lat": 44.8113331,
     "area_verde": null,
     "area_verde_resolved": false
   }
