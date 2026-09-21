@@ -819,14 +819,14 @@
     "area_verde_resolved": true
   },
   "8265067926": {
-    "version": 2,
+    "version": 3,
     "lon": 9.1855801,
     "lat": 45.492701,
     "area_verde": null,
     "area_verde_resolved": true
   },
   "8265067927": {
-    "version": 2,
+    "version": 3,
     "lon": 9.1856171,
     "lat": 45.4926435,
     "area_verde": null,
@@ -3556,14 +3556,14 @@
     "area_verde_resolved": true
   },
   "14172903808": {
-    "version": 1,
+    "version": 2,
     "lon": 9.1819977,
     "lat": 45.4491042,
     "area_verde": null,
     "area_verde_resolved": true
   },
   "14172903809": {
-    "version": 1,
+    "version": 2,
     "lon": 9.1818849,
     "lat": 45.4490903,
     "area_verde": null,
@@ -3589,6 +3589,48 @@
     "lat": 45.3569221,
     "area_verde": "Parco del quartiere Ferri",
     "area_verde_resolved": true
+  },
+  "14185232369": {
+    "version": 1,
+    "lon": 11.7268566,
+    "lat": 44.364169,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14185345375": {
+    "version": 1,
+    "lon": 11.9494118,
+    "lat": 45.5989732,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14191030919": {
+    "version": 1,
+    "lon": 10.7209544,
+    "lat": 45.4696346,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14195600068": {
+    "version": 1,
+    "lon": 11.3081797,
+    "lat": 45.1875993,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14202988050": {
+    "version": 1,
+    "lon": 12.4838939,
+    "lat": 45.7865708,
+    "area_verde": null,
+    "area_verde_resolved": false
+  },
+  "14202990463": {
+    "version": 1,
+    "lon": 12.0062258,
+    "lat": 45.3478832,
+    "area_verde": null,
+    "area_verde_resolved": false
   },
   "40742767": {
     "version": 3,

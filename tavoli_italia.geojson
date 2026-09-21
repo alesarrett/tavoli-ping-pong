@@ -11534,11 +11534,14 @@
       "properties": {
         "id": "14172903808",
         "name": "Milano",
-        "description": "[[https://www.google.com/maps/search/?api=1&query=45.4491042,9.1819977|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14172903808|Apri su OpenStreetMap]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n[[https://www.google.com/maps/search/?api=1&query=45.4491042,9.1819977|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14172903808|Apri su OpenStreetMap]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/search/?api=1&query=45.4491042,9.1819977",
         "osm_url": "https://www.openstreetmap.org/node/14172903808",
+        "material": "cemento",
+        "net": "sì",
+        "covered": "no",
         "comune": "Milano",
         "provincia": "Milano",
         "regione": "Lombardia"
@@ -11556,11 +11559,14 @@
       "properties": {
         "id": "14172903809",
         "name": "Milano",
-        "description": "[[https://www.google.com/maps/search/?api=1&query=45.4490903,9.1818849|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14172903809|Apri su OpenStreetMap]]",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n[[https://www.google.com/maps/search/?api=1&query=45.4490903,9.1818849|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14172903809|Apri su OpenStreetMap]]",
         "images": [],
         "extra": {},
         "maps_url": "https://www.google.com/maps/search/?api=1&query=45.4490903,9.1818849",
         "osm_url": "https://www.openstreetmap.org/node/14172903809",
+        "material": "cemento",
+        "net": "sì",
+        "covered": "no",
         "comune": "Milano",
         "provincia": "Milano",
         "regione": "Lombardia"
@@ -11633,6 +11639,143 @@
         "access": "sì",
         "covered": "no",
         "comune": "Albignasego",
+        "provincia": "Padova",
+        "regione": "Veneto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.7268566,
+          44.364169
+        ]
+      },
+      "properties": {
+        "id": "14185232369",
+        "name": "Imola",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=44.364169,11.7268566|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14185232369|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=44.364169,11.7268566",
+        "osm_url": "https://www.openstreetmap.org/node/14185232369",
+        "comune": "Imola",
+        "provincia": "Bologna",
+        "regione": "Emilia-Romagna"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.9494118,
+          45.5989732
+        ]
+      },
+      "properties": {
+        "id": "14185345375",
+        "name": "Loreggia",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.5989732,11.9494118|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14185345375|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.5989732,11.9494118",
+        "osm_url": "https://www.openstreetmap.org/node/14185345375",
+        "access": "sì",
+        "comune": "Loreggia",
+        "provincia": "Padova",
+        "regione": "Veneto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.7209544,
+          45.4696346
+        ]
+      },
+      "properties": {
+        "id": "14191030919",
+        "name": "Lazise",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.4696346,10.7209544|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14191030919|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.4696346,10.7209544",
+        "osm_url": "https://www.openstreetmap.org/node/14191030919",
+        "comune": "Lazise",
+        "provincia": "Verona",
+        "regione": "Veneto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3081797,
+          45.1875993
+        ]
+      },
+      "properties": {
+        "id": "14195600068",
+        "name": "Legnago",
+        "description": "[[https://www.google.com/maps/search/?api=1&query=45.1875993,11.3081797|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14195600068|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.1875993,11.3081797",
+        "osm_url": "https://www.openstreetmap.org/node/14195600068",
+        "comune": "Legnago",
+        "provincia": "Verona",
+        "regione": "Veneto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.4838939,
+          45.7865708
+        ]
+      },
+      "properties": {
+        "id": "14202988050",
+        "name": "Oderzo",
+        "description": "- **Materiale**: cemento\n- **Rete**: sì\n[[https://www.google.com/maps/search/?api=1&query=45.7865708,12.4838939|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14202988050|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.7865708,12.4838939",
+        "osm_url": "https://www.openstreetmap.org/node/14202988050",
+        "material": "cemento",
+        "net": "sì",
+        "access": "sì",
+        "comune": "Oderzo",
+        "provincia": "Treviso",
+        "regione": "Veneto"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.0062258,
+          45.3478832
+        ]
+      },
+      "properties": {
+        "id": "14202990463",
+        "name": "Sant'Angelo di Piove di Sacco",
+        "description": "- **Rete**: no\n[[https://www.google.com/maps/search/?api=1&query=45.3478832,12.0062258|Apri in Google Maps]]\n[[https://www.openstreetmap.org/node/14202990463|Apri su OpenStreetMap]]",
+        "images": [],
+        "extra": {},
+        "maps_url": "https://www.google.com/maps/search/?api=1&query=45.3478832,12.0062258",
+        "osm_url": "https://www.openstreetmap.org/node/14202990463",
+        "net": "no",
+        "comune": "Sant'Angelo di Piove di Sacco",
         "provincia": "Padova",
         "regione": "Veneto"
       }
