@@ -9,6 +9,13 @@
 const GEOJSON_URL = "tavoli_italia.geojson";
 const COMUNE_FILTRO = "Padova";
 
+// Conteggio dei censimenti raccolti per tavolo (OSM id -> numero di
+// risposte), rigenerato da update_padova_censiti.py leggendo le risposte
+// del Google Form: vedi quello script per i dettagli. E' un aggiornamento
+// "a scatti", non in tempo reale - il conteggio qui e' quello dell'ultima
+// volta che lo script e' stato rilanciato.
+const CENSITI_URL = "padova_censiti.json";
+
 const FORM_BASE_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSd3jgB6G3wilv4EI26D-Ew3teXNwp2z7gpp9HMWMzhGo9Hwwg/viewform";
 const FORM_ID_ENTRY = "entry.183717027";
@@ -26,13 +33,19 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "&copy; OpenStreetMap contributors",
 }).addTo(map);
 
-const pingPongIcon = L.divIcon({
-  className: "tt-marker",
-  html: '<div class="tt-marker-dot"><span>\u{1F3D3}</span></div>',
-  iconSize: [28, 28],
-  iconAnchor: [14, 28],
-  popupAnchor: [0, -28],
-});
+// Il badge (tick per 1 censimento, numero per 2+, assente per 0) e' un
+// elemento fratello di .tt-marker-dot, non un suo figlio - vedi il
+// commento su .tt-marker-badge in css/style.css sul perche'.
+function buildTavoloIcon(count) {
+  const badge = count === 0 ? "" : `<span class="tt-marker-badge">${count === 1 ? "✓" : count}</span>`;
+  return L.divIcon({
+    className: "tt-marker",
+    html: `<div class="tt-marker-dot"><span>\u{1F3D3}</span></div>${badge}`,
+    iconSize: [28, 28],
+    iconAnchor: [14, 28],
+    popupAnchor: [0, -28],
+  });
+}
 
 // Stesso banner-informazioni-sempre-aperto della card "i" della mappa
 // nazionale (vedi InfoControl in js/app.js), ma qui il testo e' fisso e
@@ -69,13 +82,21 @@ function buildPopupLinkButton(url, icon, label) {
   return link;
 }
 
-function buildPadovaPopupContent(properties) {
+function buildPadovaPopupContent(properties, count) {
   const container = document.createElement("div");
   container.className = "popup-content";
 
   const title = document.createElement("h3");
   title.textContent = properties.name;
   container.appendChild(title);
+
+  if (count > 0) {
+    const countRow = document.createElement("p");
+    countRow.className = "popup-report-hint";
+    countRow.textContent =
+      count === 1 ? "✓ 1 censimento raccolto" : `✓ ${count} censimenti raccolti`;
+    container.appendChild(countRow);
+  }
 
   container.appendChild(
     buildPopupLinkButton(buildCensimentoFormUrl(properties.id), "\u{1F4DD}", "Compila il censimento")
@@ -101,9 +122,17 @@ function toPointGeometry(geometry) {
   return { type: "Point", coordinates: [lngSum / vertices.length, latSum / vertices.length] };
 }
 
-fetch(GEOJSON_URL)
-  .then((response) => response.json())
-  .then((data) => {
+Promise.all([
+  fetch(GEOJSON_URL).then((response) => response.json()),
+  // padova_censiti.json potrebbe non esistere ancora al primo giro (prima
+  // che update_padova_censiti.py sia stato rilanciato almeno una volta) -
+  // in quel caso si procede con un conteggio vuoto invece di rompere il
+  // caricamento della mappa.
+  fetch(CENSITI_URL)
+    .then((response) => (response.ok ? response.json() : {}))
+    .catch(() => ({})),
+])
+  .then(([data, censiti]) => {
     const features = data.features.filter((feature) => feature.properties.comune === COMUNE_FILTRO);
     for (const feature of features) {
       feature.geometry = toPointGeometry(feature.geometry);
@@ -113,10 +142,12 @@ fetch(GEOJSON_URL)
       { type: "FeatureCollection", features },
       {
         pointToLayer(feature, latlng) {
-          return L.marker(latlng, { icon: pingPongIcon });
+          const count = censiti[feature.properties.id] || 0;
+          return L.marker(latlng, { icon: buildTavoloIcon(count) });
         },
         onEachFeature(feature, layer) {
-          layer.bindPopup(() => buildPadovaPopupContent(feature.properties), {
+          const count = censiti[feature.properties.id] || 0;
+          layer.bindPopup(() => buildPadovaPopupContent(feature.properties, count), {
             maxWidth: 280,
             minWidth: 220,
           });

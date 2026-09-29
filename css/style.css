@@ -510,6 +510,28 @@ body {
 
 /* Pagina censimento Padova (padova.html/js/padova.js) */
 
+/* Badge con il numero di censimenti raccolti per un tavolo (vedi
+   buildTavoloIcon() in js/padova.js) - e' un elemento fratello di
+   .tt-marker-dot, non un suo figlio, cosi' non eredita la rotazione a
+   -45deg del "teardrop" e non serve contro-ruotarlo come si fa per
+   l'emoji al centro. */
+.tt-marker-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  border-radius: 999px;
+  background: #1971c2;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
 .tt-padova-banner {
   background: #fff;
   border-radius: 14px;
