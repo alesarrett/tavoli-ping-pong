@@ -508,6 +508,30 @@ body {
   }
 }
 
+/* Pagina censimento Padova (padova.html/js/padova.js) */
+
+.tt-padova-banner {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(20, 30, 20, 0.18);
+  padding: 12px 14px;
+  max-width: min(90vw, 320px);
+}
+
+.tt-padova-banner h1 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+.tt-padova-banner p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #444;
+}
+
 /* Lightbox */
 
 .lightbox {
